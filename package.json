@@ -10,8 +10,7 @@
     "precover": "rollup -c tests/rollup.config.js",
     "posttest": "npm run prepare && markdown-doctest",
     "start": "node bin/npm-template-sync-github-hook",
-    "docs":
-      "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
+    "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release",
     "prepare": "rollup -c && chmod +x bin/npm-template-sync-github-hook"
   },
@@ -20,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arlac77/npm-template-sync.git"
+    "url": "git+https://github.com/arlac77/npm-template-sync-github-hook.git"
   },
   "engines": {
     "node": ">=8.9.1"
@@ -43,10 +42,16 @@
     "rollup-plugin-multi-entry": "^2.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "semantic-release": "^10.0.1",
-    "xo": "^0.19.0"
+    "xo": "^0.19.0",
+    "babel-preset-env": "^1.6.1"
   },
   "release": {},
-  "keywords": ["npm", "template", "webhook", "github"],
+  "keywords": [
+    "npm",
+    "template",
+    "webhook",
+    "github"
+  ],
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/arlac77/npm-template-sync-github-hook/issues"
@@ -59,12 +64,21 @@
     }
   ],
   "ava": {
-    "files": ["build/*-test.js"],
-    "require": ["babel-register"]
+    "files": [
+      "build/*-test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
   "nyc": {
-    "include": ["build/*-test.js", "src/**/*.js"],
-    "reporter": ["lcov"],
+    "include": [
+      "build/*-test.js",
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov"
+    ],
     "report-dir": "./build/coverage"
   },
   "template": {
