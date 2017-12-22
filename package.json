@@ -3,6 +3,7 @@
   "version": "0.0.0-semantic-release",
   "description": "github hook for npm-template-sync",
   "main": "dist/npm-template-sync-github-hook.js",
+  "module": "src/npm-template-sync-github-hook.js",
   "scripts": {
     "cover": "nyc --temp-directory build/nyc ava",
     "test": "ava",
@@ -10,10 +11,11 @@
     "precover": "rollup -c tests/rollup.config.js",
     "posttest": "npm run prepare && markdown-doctest",
     "start": "node bin/npm-template-sync-github-hook",
-    "docs": "documentation readme {{module}} --section=API",
+    "docs":
+      "documentation readme npm-template-sync-github-hook.js --section=API",
     "semantic-release": "semantic-release",
     "prepare": "rollup -c && chmod +x bin/npm-template-sync-github-hook",
-    "lint": "documentation lint {{module}}"
+    "lint": "documentation lint npm-template-sync-github-hook.js"
   },
   "bin": {
     "npm-template-sync-github-hook": "bin/npm-template-sync-github-hook"
@@ -45,12 +47,7 @@
     "documentation": "^5.3.5"
   },
   "release": {},
-  "keywords": [
-    "npm",
-    "template",
-    "webhook",
-    "github"
-  ],
+  "keywords": ["npm", "template", "webhook", "github"],
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/arlac77/npm-template-sync-github-hook/issues"
@@ -63,21 +60,12 @@
     }
   ],
   "ava": {
-    "files": [
-      "build/*-test.js"
-    ],
-    "require": [
-      "babel-register"
-    ]
+    "files": ["build/*-test.js"],
+    "require": ["babel-register"]
   },
   "nyc": {
-    "include": [
-      "build/*-test.js",
-      "src/**/*.js"
-    ],
-    "reporter": [
-      "lcov"
-    ],
+    "include": ["build/*-test.js", "src/**/*.js"],
+    "reporter": ["lcov"],
     "report-dir": "./build/coverage"
   },
   "template": {
