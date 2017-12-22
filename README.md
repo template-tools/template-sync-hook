@@ -31,6 +31,8 @@ npm install npm-template-sync-github-hook
 
 ```
 
+# API
+
 
 # license
 
