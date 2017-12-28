@@ -11,7 +11,10 @@ const handler = createHandler({
 });
 
 const server = micro(async (req, res) => {
-  console.log(req);
+  /*  const txt = await micro.text(req);
+  console.log(txt);
+*/
+
   handler(req, res, err => {
     res.statusCode = 404;
     res.end('no such location');
@@ -28,9 +31,10 @@ handler.on('error', err => {
 const spinner = ora('args');
 
 handler.on('push', async event => {
+  console.log(JSON.stringify(event.payload));
   console.log(
     'Received a push event for %s to %s',
-    event.payload.repository.name,
+    event.payload.repository.full_name,
     event.payload.ref
   );
 
@@ -38,10 +42,10 @@ handler.on('push', async event => {
     spinner,
     console,
     process.env.GH_TOKEN,
-    event.payload.repository.name
+    event.payload.repository.full_name
   );
 
-  console.log('Generated PullRequest %s', pullRequest.name);
+  console.log('Generated PullRequest %s', pullRequest.full_name);
 });
 
 server.listen(3000, () => {
