@@ -31,21 +31,24 @@ handler.on('error', err => {
 const spinner = ora('args');
 
 handler.on('push', async event => {
-  console.log(JSON.stringify(event.payload));
+  //console.log(JSON.stringify(event.payload));
   console.log(
     'Received a push event for %s to %s',
     event.payload.repository.full_name,
     event.payload.ref
   );
 
-  const pullRequest = await npmTemplateSync(
-    spinner,
-    console,
-    process.env.GH_TOKEN,
-    event.payload.repository.full_name
-  );
-
-  console.log('Generated PullRequest %s', pullRequest.full_name);
+  try {
+    const pullRequest = await npmTemplateSync(
+      spinner,
+      console,
+      process.env.GH_TOKEN,
+      event.payload.repository.full_name
+    );
+    console.log('Generated PullRequest %s', pullRequest.full_name);
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 server.listen(3000, () => {
