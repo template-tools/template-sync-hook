@@ -1,8 +1,8 @@
 import { npmTemplateSync } from 'npm-template-sync';
 
-const micro = require('micro'),
-  createHandler = require('github-webhook-handler');
-require('now-logs')('dfgkjd&dfh');
+const micro = require('micro');
+const createHandler = require('github-webhook-handler');
+//require('now-logs')('dfgkjd&dfh');
 const ora = require('ora');
 
 const handler = createHandler({
@@ -11,6 +11,7 @@ const handler = createHandler({
 });
 
 const server = micro(async (req, res) => {
+  console.log(req);
   handler(req, res, err => {
     res.statusCode = 404;
     res.end('no such location');
