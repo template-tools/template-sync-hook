@@ -1,9 +1,25 @@
 {
   "name": "npm-template-sync-github-hook",
   "version": "0.0.0-semantic-release",
-  "description": "github hook for npm-template-sync",
   "main": "dist/npm-template-sync-github-hook.js",
   "module": "src/npm-template-sync-github-hook.js",
+  "description": "github hook for npm-template-sync",
+  "keywords": [
+    "npm",
+    "template",
+    "webhook",
+    "github"
+  ],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
+  "license": "BSD-2-Clause",
+  "bin": {
+    "npm-template-sync-github-hook": "bin/npm-template-sync-github-hook"
+  },
   "scripts": {
     "cover": "nyc --temp-directory build/nyc ava",
     "test": "ava",
@@ -15,16 +31,6 @@
     "semantic-release": "semantic-release",
     "prepare": "rollup -c && chmod +x bin/npm-template-sync-github-hook",
     "lint": "documentation lint src/npm-template-sync-github-hook.js"
-  },
-  "bin": {
-    "npm-template-sync-github-hook": "bin/npm-template-sync-github-hook"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/arlac77/npm-template-sync-github-hook.git"
-  },
-  "engines": {
-    "node": ">=8.9.3"
   },
   "dependencies": {
     "github-webhook-handler": "^0.7.0",
@@ -45,24 +51,18 @@
     "xo": "^0.19.0",
     "documentation": "^5.3.5"
   },
-  "release": {},
-  "keywords": [
-    "npm",
-    "template",
-    "webhook",
-    "github"
-  ],
-  "license": "BSD-2-Clause",
+  "engines": {
+    "node": ">=8.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlac77/npm-template-sync-github-hook.git"
+  },
   "bugs": {
     "url": "https://github.com/arlac77/npm-template-sync-github-hook/issues"
   },
   "homepage": "https://github.com/arlac77/npm-template-sync-github-hook#readme",
-  "contributors": [
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "release": {},
   "ava": {
     "files": [
       "build/*-test.js"
@@ -81,12 +81,12 @@
     ],
     "report-dir": "./build/coverage"
   },
+  "xo": {
+    "space": true
+  },
   "template": {
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  },
-  "xo": {
-    "space": true
   }
 }
