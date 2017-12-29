@@ -36,7 +36,7 @@
   "dependencies": {
     "github-webhook-handler": "^0.7.0",
     "now-logs": "0.0.7",
-    "npm-template-sync": "^3.33.1"
+    "npm-template-sync": "^3.35.1"
   },
   "devDependencies": {
     "ava": "^0.24.0",
