@@ -4,7 +4,12 @@
   "main": "dist/npm-template-sync-github-hook.js",
   "module": "src/npm-template-sync-github-hook.js",
   "description": "github hook for npm-template-sync",
-  "keywords": ["npm", "template", "webhook", "github"],
+  "keywords": [
+    "npm",
+    "template",
+    "webhook",
+    "github"
+  ],
   "contributors": [
     {
       "name": "Markus Felten",
@@ -22,8 +27,7 @@
     "precover": "rollup -c tests/rollup.config.js",
     "posttest": "npm run prepare && markdown-doctest",
     "start": "node bin/npm-template-sync-github-hook",
-    "docs":
-      "documentation readme src/npm-template-sync-github-hook.js --section=API",
+    "docs": "documentation readme src/npm-template-sync-github-hook.js --section=API",
     "semantic-release": "semantic-release",
     "prepare": "rollup -c && chmod +x bin/npm-template-sync-github-hook",
     "lint": "documentation lint src/npm-template-sync-github-hook.js",
@@ -39,7 +43,7 @@
     "markdown-doctest": "^0.9.1",
     "mock-repository-provider": "^1.0.0",
     "nyc": "^11.4.1",
-    "rollup": "^0.53.0",
+    "rollup": "^0.53.1",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.2.6",
     "rollup-plugin-multi-entry": "^2.0.2",
@@ -61,12 +65,21 @@
   "homepage": "https://github.com/arlac77/npm-template-sync-github-hook#readme",
   "release": {},
   "ava": {
-    "files": ["build/*-test.js"],
-    "require": ["babel-register"]
+    "files": [
+      "build/*-test.js"
+    ],
+    "require": [
+      "babel-register"
+    ]
   },
   "nyc": {
-    "include": ["build/*-test.js", "src/**/*.js"],
-    "reporter": ["lcov"],
+    "include": [
+      "build/*-test.js",
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov"
+    ],
     "report-dir": "./build/coverage"
   },
   "xo": {
