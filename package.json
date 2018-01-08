@@ -31,7 +31,7 @@
     "semantic-release": "semantic-release",
     "prepare": "rollup -c && chmod +x bin/npm-template-sync-github-hook",
     "lint": "documentation lint src/npm-template-sync-github-hook.js",
-    "pkg": "pkg -t node8-linux bin/npm-template-sync-github-hook"
+    "pkg": "rollup -c && pkg -t node8-linux bin/npm-template-sync-github-hook"
   },
   "dependencies": {
     "github-webhook-handler": "^0.7.0",
