@@ -1,4 +1,5 @@
 import { npmTemplateSync } from 'npm-template-sync';
+import { GithubProvider } from 'github-repository-provider';
 
 const micro = require('micro');
 const createHandler = require('github-webhook-handler');
@@ -38,13 +39,18 @@ handler.on('push', async event => {
     event.payload.ref
   );
 
+  const provider = new GithubProvider({ auth: process.env.GH_TOKEN });
+
   try {
     const pullRequest = await npmTemplateSync(
+      provider,
+      await provider.branch(event.payload.repository.full_name),
+      undefined,
       spinner,
-      console,
-      process.env.GH_TOKEN,
-      event.payload.repository.full_name
+      logger,
+      options.dry
     );
+
     console.log('Generated PullRequest %s', pullRequest.full_name);
   } catch (e) {
     console.log(e);
