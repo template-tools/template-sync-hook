@@ -48,7 +48,7 @@ handler.on('push', async event => {
       undefined,
       spinner,
       logger,
-      options.dry
+      false
     );
 
     console.log('Generated PullRequest %s', pullRequest.full_name);
