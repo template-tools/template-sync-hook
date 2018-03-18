@@ -7,6 +7,6 @@ export default {
     format: 'cjs',
     sourcemap: true
   },
-  external: ['ava'],
+  external: ['ava', 'npm-template-sync', 'github-repository-provider'],
   plugins: [multiEntry()]
 };
