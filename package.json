@@ -46,7 +46,7 @@
     "documentation": "^6.1.0",
     "got": "^8.3.0",
     "markdown-doctest": "^0.9.1",
-    "mock-repository-provider": "^3.0.2",
+    "mock-repository-provider": "^3.0.3",
     "nyc": "^11.6.0",
     "rollup": "^0.57.1",
     "rollup-plugin-commonjs": "^9.1.0",
