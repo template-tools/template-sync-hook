@@ -1,5 +1,6 @@
 import nodeResolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import executable from 'rollup-plugin-executable';
 import pkg from './package.json';
 
 const external = ['npm-template-sync', 'github-repository-provider'];
@@ -11,7 +12,7 @@ export default [
       format: 'cjs',
       banner: '#!/usr/bin/env node'
     },
-    plugins: [nodeResolve(), commonjs()],
+    plugins: [nodeResolve(), commonjs(), executable()],
     external,
     input: 'src/npm-template-sync-github-hook.js'
   }

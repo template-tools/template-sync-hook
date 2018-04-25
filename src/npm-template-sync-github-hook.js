@@ -46,9 +46,10 @@ handler.on('push', async event => {
       provider,
       await provider.branch(event.payload.repository.full_name),
       undefined,
-      spinner,
-      logger,
-      false
+      {
+        spinner,
+        logger
+      }
     );
 
     console.log('Generated PullRequest %s', pullRequest.full_name);

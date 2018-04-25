@@ -29,7 +29,7 @@
     "start": "node bin/npm-template-sync-github-hook",
     "docs": "documentation readme src/npm-template-sync-github-hook.js --section=API",
     "semantic-release": "semantic-release",
-    "prepare": "rollup -c && chmod +x bin/npm-template-sync-github-hook",
+    "prepare": "rollup -c",
     "lint": "documentation lint src/npm-template-sync-github-hook.js",
     "pkg": "rollup -c && pkg -t node8-linux bin/npm-template-sync-github-hook",
     "travis-deploy-once": "travis-deploy-once"
@@ -37,9 +37,9 @@
   "dependencies": {
     "github-repository-provider": "^2.1.0",
     "github-webhook-handler": "^0.7.0",
-    "micro": "^9.1.4",
+    "micro": "^9.3.0",
     "now-logs": "0.0.7",
-    "npm-template-sync": "^4.0.0"
+    "npm-template-sync": "^4.0.1"
   },
   "devDependencies": {
     "ava": "^0.25.0",
@@ -50,6 +50,7 @@
     "nyc": "^11.7.1",
     "rollup": "^0.58.2",
     "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-executable": "^1.2.0",
     "rollup-plugin-multi-entry": "^2.0.2",
     "rollup-plugin-node-resolve": "^3.3.0",
     "semantic-release": "^15.1.7",
