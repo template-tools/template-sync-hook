@@ -1,6 +1,9 @@
 {
   "name": "npm-template-sync-github-hook",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/npm-template-sync-github-hook.js",
   "module": "src/npm-template-sync-github-hook.js",
   "description": "github hook for npm-template-sync",
