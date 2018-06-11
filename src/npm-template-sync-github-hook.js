@@ -1,10 +1,9 @@
-import { npmTemplateSync } from 'npm-template-sync';
+import { Context, PreparedContext } from 'npm-template-sync';
 import { GithubProvider } from 'github-repository-provider';
 
 const micro = require('micro');
 const createHandler = require('github-webhook-handler');
 //require('now-logs')('dfgkjd&dfh');
-const ora = require('ora');
 
 const handler = createHandler({
   path: '/webhook',
@@ -29,8 +28,6 @@ handler.on('error', err => {
   console.error('Error:', err.message);
 });
 
-const spinner = ora('args');
-
 handler.on('push', async event => {
   //console.log(JSON.stringify(event.payload));
   console.log(
@@ -39,22 +36,23 @@ handler.on('push', async event => {
     event.payload.ref
   );
 
-  const provider = new GithubProvider({ auth: process.env.GH_TOKEN });
+  const context = new Context(
+    new GithubProvider({ auth: process.env.GH_TOKEN }),
+    {
+      logger: console,
+      properties
+    }
+  );
 
   try {
-    const pullRequest = await npmTemplateSync(
-      provider,
-      await provider.branch(event.payload.repository.full_name),
-      undefined,
-      {
-        spinner,
-        logger
-      }
+    const pullRequest = await PreparedContext.execute(
+      context,
+      event.payload.repository.full_name
     );
 
-    console.log('Generated PullRequest %s', pullRequest.full_name);
+    console.log('Generated PullRequest %s', pullRequest);
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 });
 
