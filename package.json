@@ -42,7 +42,7 @@
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.2",
     "now-logs": "0.0.7",
-    "npm-template-sync": "^6.0.11"
+    "npm-template-sync": "^7.0.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
