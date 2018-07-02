@@ -32,17 +32,19 @@
     "start": "node bin/npm-template-sync-github-hook",
     "docs": "documentation readme src/npm-template-sync-github-hook.js --section=API",
     "semantic-release": "semantic-release",
-    "prepare": "rollup -c",
+    "prepare": "npm run snyk-protect; rollup -c",
     "lint": "documentation lint src/npm-template-sync-github-hook.js",
     "pkg": "rollup -c && pkg -t node8-linux bin/npm-template-sync-github-hook",
-    "travis-deploy-once": "travis-deploy-once"
+    "travis-deploy-once": "travis-deploy-once",
+    "snyk-protect": "snyk protect"
   },
   "dependencies": {
     "github-repository-provider": "^2.1.0",
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.2",
     "now-logs": "0.0.7",
-    "npm-template-sync": "^7.0.1"
+    "npm-template-sync": "^7.0.1",
+    "snyk": "^1.88.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
@@ -97,5 +99,6 @@
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
-  }
+  },
+  "snyk": true
 }
