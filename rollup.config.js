@@ -10,7 +10,8 @@ export default [
     output: {
       file: pkg.bin['npm-template-sync-github-hook'],
       format: 'cjs',
-      banner: '#!/usr/bin/env node'
+      banner: '#!/usr/bin/env node',
+      interop: false
     },
     plugins: [nodeResolve(), commonjs(), executable()],
     external,
