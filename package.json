@@ -42,14 +42,13 @@
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.2",
     "now-logs": "0.0.7",
-    "npm-template-sync": "^7.3.3"
+    "npm-template-sync": "^7.4.0"
   },
   "devDependencies": {
     "ava": "^0.25.0",
     "documentation": "^8.0.2",
     "got": "^8.3.2",
     "markdown-doctest": "^0.9.1",
-    "mock-repository-provider": "^3.0.3",
     "nyc": "^13.0.1",
     "rollup": "^0.63.5",
     "rollup-plugin-commonjs": "^9.1.4",
@@ -62,7 +61,7 @@
     "x-hub-signature": "^1.2.0"
   },
   "engines": {
-    "node": ">=8.11"
+    "node": ">=10.8"
   },
   "repository": {
     "type": "git",
