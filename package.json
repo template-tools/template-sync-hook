@@ -62,7 +62,7 @@
     "rollup-plugin-cleanup": "^3.0.0"
   },
   "engines": {
-    "node": ">=10.8"
+    "node": ">=10.10"
   },
   "repository": {
     "type": "git",
