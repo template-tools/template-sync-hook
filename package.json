@@ -45,7 +45,7 @@
     "npm-template-sync": "^7.7.7"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
+    "ava": "^1.0.0-beta.8",
     "documentation": "^8.1.2",
     "got": "^9.0.0",
     "markdown-doctest": "^0.9.1",
