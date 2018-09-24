@@ -38,11 +38,11 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "github-repository-provider": "^4.0.0",
+    "github-repository-provider": "^4.0.3",
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.3",
     "now-logs": "0.0.7",
-    "npm-template-sync": "^7.7.7"
+    "npm-template-sync": "^7.8.3"
   },
   "devDependencies": {
     "ava": "^1.0.0-beta.8",
