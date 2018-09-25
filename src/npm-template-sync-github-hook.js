@@ -1,14 +1,14 @@
-import { Context, PreparedContext } from 'npm-template-sync';
-import { GithubProvider } from 'github-repository-provider';
+import { Context, PreparedContext } from "npm-template-sync";
+import { GithubProvider } from "github-repository-provider";
 //import micro from 'micro';
 
-const micro = require('micro');
-const createHandler = require('github-webhook-handler');
+const micro = require("micro");
+const createHandler = require("github-webhook-handler");
 //require('now-logs')('dfgkjd&dfh');
 
 const handler = createHandler({
-  path: '/webhook',
-  secret: 'dfgkjd&dfh'
+  path: "/webhook",
+  secret: "dfgkjd&dfh"
 });
 
 const server = micro(async (req, res) => {
@@ -18,21 +18,21 @@ const server = micro(async (req, res) => {
 
   handler(req, res, err => {
     res.statusCode = 404;
-    res.end('no such location');
+    res.end("no such location");
   });
 
   res.writeHead(200);
-  res.end('woot');
+  res.end("woot");
 });
 
-handler.on('error', err => {
-  console.error('Error:', err.message);
+handler.on("error", err => {
+  console.error("Error:", err.message);
 });
 
-handler.on('push', async event => {
+handler.on("push", async event => {
   //console.log(JSON.stringify(event.payload));
   console.log(
-    'Received a push event for %s to %s',
+    "Received a push event for %s to %s",
     event.payload.repository.full_name,
     event.payload.ref
   );
@@ -51,13 +51,13 @@ handler.on('push', async event => {
       event.payload.repository.full_name
     );
 
-    console.log('Generated PullRequest %s', pullRequest);
+    console.log("Generated PullRequest %s", pullRequest);
   } catch (e) {
     console.error(e);
   }
 });
 
-server.listen(3000, () => {
+server.listen(3001, () => {
   // TODO public interface
   console.log(`listening...`, server._connectionKey);
 });
