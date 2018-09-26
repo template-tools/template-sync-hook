@@ -38,7 +38,7 @@ handler.on("push", async event => {
   );
 
   const context = new Context(
-    new GithubProvider({ auth: process.env.GH_TOKEN }),
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
     {
       logger: console,
       properties

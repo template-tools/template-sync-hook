@@ -8,7 +8,7 @@ test('request', async t => {
   const sign = signer({ algorithm: 'sha1', secret: 'dfgkjd&dfh' });
   const signature = sign(new Buffer('random-signature-body'));
 
-  const response = await got.post(`http://localhost:3000/webhook`, {
+  const response = await got.post(`http://localhost:3001/webhook`, {
     headers: {
       'x-hub-signature': signature,
       'x-github-event': 'push',
