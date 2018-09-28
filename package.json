@@ -86,7 +86,7 @@
   "nyc": {
     "include": [
       "build/*-test.js",
-      "src/**/*.js"
+      "src/**/*.mjs"
     ],
     "reporter": [
       "lcov"

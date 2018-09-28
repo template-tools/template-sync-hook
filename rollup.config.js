@@ -43,5 +43,5 @@ export default {
     executable()
   ],
   external,
-  input: "src/npm-template-sync-github-hook.js"
+  input: "src/npm-template-sync-github-hook.mjs"
 };
