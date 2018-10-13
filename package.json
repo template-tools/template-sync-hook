@@ -37,10 +37,10 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "github-repository-provider": "^4.0.4",
+    "github-repository-provider": "^4.0.14",
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.3",
-    "npm-template-sync": "^7.8.6"
+    "npm-template-sync": "^7.8.18"
   },
   "devDependencies": {
     "@babel/plugin-proposal-async-generator-functions": "^7.1.0",
