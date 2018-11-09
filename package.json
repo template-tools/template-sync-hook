@@ -64,7 +64,7 @@
     "x-hub-signature": "^1.2.0"
   },
   "engines": {
-    "node": ">=10.11"
+    "node": ">=10.13"
   },
   "repository": {
     "type": "git",
