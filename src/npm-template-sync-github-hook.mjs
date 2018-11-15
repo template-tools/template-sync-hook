@@ -29,6 +29,14 @@ handler.on("error", err => {
   console.error("Error:", err.message);
 });
 
+handler.on("ping", async event => {
+  console.log(
+    "Received a ping event for %s to %s",
+    event.payload.repository.full_name,
+    event.payload.ref
+  );
+});
+
 handler.on("push", async event => {
   //console.log(JSON.stringify(event.payload));
   console.log(
