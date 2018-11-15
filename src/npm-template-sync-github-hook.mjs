@@ -40,8 +40,7 @@ handler.on("push", async event => {
   const context = new Context(
     new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
     {
-      logger: console,
-      properties
+      logger: console
     }
   );
 
