@@ -31,9 +31,8 @@ handler.on("error", err => {
 
 handler.on("ping", async event => {
   console.log(
-    "Received a ping event for %s to %s",
-    event.payload.repository.full_name,
-    event.payload.ref
+    "Received a ping event for %s",
+    event.payload.repository.full_name
   );
 });
 
