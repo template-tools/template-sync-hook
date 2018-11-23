@@ -35,7 +35,7 @@
     "travis-deploy-once": "travis-deploy-once"
   },
   "dependencies": {
-    "github-repository-provider": "^4.0.35",
+    "github-repository-provider": "^5.0.0",
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.3",
     "npm-template-sync": "^7.9.5"
