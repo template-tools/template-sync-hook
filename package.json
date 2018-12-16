@@ -58,7 +58,7 @@
     "semantic-release": "^15.13.0",
     "travis-deploy-once": "^5.0.11",
     "x-hub-signature": "^1.2.0",
-    "npm-pkgbuild": "^1.2.0"
+    "npm-pkgbuild": "^1.2.1"
   },
   "engines": {
     "node": ">=10.14.2"
