@@ -33,7 +33,7 @@
     "prepare": "rollup -c",
     "lint": "documentation lint src/npm-template-sync-github-hook.js",
     "travis-deploy-once": "travis-deploy-once",
-    "package": "npm-pkgbuild -w build"
+    "package": "npm-pkgbuild -w build -i /services/npm-template-sync-github-hook"
   },
   "dependencies": {
     "github-repository-provider": "^5.1.5",
