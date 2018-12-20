@@ -1,16 +1,14 @@
 import { Context, PreparedContext } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
-//import micro from 'micro';
 const micro = require("micro");
-
 
 let notify;
 let port = 3001;
 
 try {
   require('systemd');
-  notify = require('sd-notify');
   port = 'systemd';
+  notify = require('sd-notify');
 }
 catch(e) {
 }
@@ -23,10 +21,6 @@ const handler = createHandler({
 });
 
 const server = micro(async (req, res) => {
-  /*  const txt = await micro.text(req);
-  console.log(txt);
-*/
-
   handler(req, res, err => {
     res.statusCode = 404;
     res.end("no such location");

@@ -1,15 +1,14 @@
 [Unit]
 Description=github hook for npm-template-sync
- 
+
 [Service]
 Type=notify
-ExecStart=/home/markus/build/npm-template-sync-github-hook/bin/npm-template-sync-github-hook
+ExecStart=/services/npm-template-sync-github-hook/bin/npm-template-sync-github-hook
 TimeoutStartSec=30
 Restart=always
 StandardOutput=syslog
 User=nobody
 Group=nobody
- 
+
 [Install]
 WantedBy=multi-user.target
-
