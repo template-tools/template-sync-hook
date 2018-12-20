@@ -1,10 +1,21 @@
 import { Context, PreparedContext } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 //import micro from 'micro';
-
 const micro = require("micro");
+
+
+let notify;
+let port = 3001;
+
+try {
+  require('systemd');
+  notify = require('sd-notify');
+  port = 'systemd';
+}
+catch(e) {
+}
+
 const createHandler = require("github-webhook-handler");
-//require('now-logs')('dfgkjd&dfh');
 
 const handler = createHandler({
   path: "/webhook",
@@ -63,7 +74,9 @@ handler.on("push", async event => {
   }
 });
 
-server.listen(3001, () => {
-  // TODO public interface
+server.listen(port, () => {
   console.log(`listening...`, server._connectionKey);
+
+  notify.ready();
+  console.log('notify done');
 });
