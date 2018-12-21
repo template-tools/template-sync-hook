@@ -5,10 +5,10 @@ Description=github hook for npm-template-sync
 Type=notify
 ExecStart=/services/npm-template-sync-github-hook/bin/npm-template-sync-github-hook
 TimeoutStartSec=30
-Restart=always
+#Restart=always
 StandardOutput=syslog
-User=nobody
-Group=nobody
+#User=nobody
+#Group=nobody
 
 [Install]
 WantedBy=multi-user.target
