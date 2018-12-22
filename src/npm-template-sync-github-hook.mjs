@@ -3,15 +3,14 @@ import { GithubProvider } from "github-repository-provider";
 const micro = require("micro");
 
 let notify;
-let port = 3001;
+let port = 3100;
 
 try {
-  require('systemd');
-  port = 'systemd';
-  notify = require('sd-notify');
-}
-catch(e) {
-}
+  require("systemd");
+  port = "systemd";
+  notify = require("sd-notify");
+  notify.sendStatus("starting up");
+} catch (e) {}
 
 const createHandler = require("github-webhook-handler");
 
@@ -71,6 +70,8 @@ handler.on("push", async event => {
 server.listen(port, () => {
   console.log(`listening...`, server._connectionKey);
 
-  notify.ready();
-  console.log('notify done');
+  if (notify !== undefined) {
+    notify.ready();
+    console.log("notify done");
+  }
 });
