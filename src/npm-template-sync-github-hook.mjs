@@ -1,32 +1,23 @@
 import { Context, PreparedContext } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 const micro = require("micro");
+const createHandler = require("github-webhook-handler");
 
 let notify;
 let port = 3100;
 
 try {
+  /*
   require("systemd");
   port = "systemd";
+  */
   notify = require("sd-notify");
   notify.sendStatus("starting up");
 } catch (e) {}
 
-const createHandler = require("github-webhook-handler");
-
 const handler = createHandler({
   path: "/webhook",
   secret: "dfgkjd&dfh"
-});
-
-const server = micro(async (req, res) => {
-  handler(req, res, err => {
-    res.statusCode = 404;
-    res.end("no such location");
-  });
-
-  res.writeHead(200);
-  res.end("woot");
 });
 
 handler.on("error", err => {
@@ -65,6 +56,16 @@ handler.on("push", async event => {
   } catch (e) {
     console.error(e);
   }
+});
+
+const server = micro(async (req, res) => {
+  handler(req, res, err => {
+    res.statusCode = 404;
+    res.end("no such location");
+  });
+
+  res.writeHead(200);
+  res.end("woot");
 });
 
 server.listen(port, () => {
