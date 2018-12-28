@@ -36,7 +36,7 @@
     "package": "npm-pkgbuild -w build -i /services/npm-template-sync-github-hook"
   },
   "dependencies": {
-    "github-repository-provider": "^5.1.6",
+    "github-repository-provider": "^5.1.12",
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.3",
     "npm-template-sync": "^7.12.13",
