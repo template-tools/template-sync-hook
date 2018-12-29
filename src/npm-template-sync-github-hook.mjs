@@ -62,11 +62,11 @@ const server = micro(async (req, res) => {
     if (err) {
       res.writeHead(404);
       res.end("no such location");
+    } else {
+      res.writeHead(200);
+      res.end("woot");
     }
   });
-
-  res.writeHead(200);
-  res.end("woot");
 });
 
 server.listen(port, () => {
