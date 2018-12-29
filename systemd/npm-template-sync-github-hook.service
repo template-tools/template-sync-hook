@@ -3,7 +3,8 @@ Description=github hook for npm-template-sync
 
 [Service]
 Type=notify
-Environment="GH_TOKEN=XXXX, WEBHOOK_SECRET=YYYY"
+Environment="GH_TOKEN=XXXX"
+Environment="WEBHOOK_SECRET=YYYY"
 ExecStart=/services/npm-template-sync-github-hook/bin/npm-template-sync-github-hook
 TimeoutStartSec=20
 #Restart=always
