@@ -32,7 +32,6 @@ handler.on("ping", async event => {
 });
 
 handler.on("push", async event => {
-  //console.log(JSON.stringify(event.payload));
   console.log(
     "Received a push event for %s to %s",
     event.payload.repository.full_name,
@@ -60,8 +59,10 @@ handler.on("push", async event => {
 
 const server = micro(async (req, res) => {
   handler(req, res, err => {
-    res.statusCode = 404;
-    res.end("no such location");
+    if (err) {
+      res.writeHead(404);
+      res.end("no such location");
+    }
   });
 
   res.writeHead(200);
@@ -73,6 +74,5 @@ server.listen(port, () => {
 
   if (notify !== undefined) {
     notify.ready();
-    console.log("notify done");
   }
 });
