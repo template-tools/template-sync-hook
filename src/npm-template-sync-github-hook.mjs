@@ -17,7 +17,7 @@ try {
 
 const handler = createHandler({
   path: "/webhook",
-  secret: "dfgkjd&dfh"
+  secret: process.env.WEBHOOK_SECRET
 });
 
 handler.on("error", err => {

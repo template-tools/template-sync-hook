@@ -3,12 +3,14 @@ Description=github hook for npm-template-sync
 
 [Service]
 Type=notify
+Environment="GH_TOKEN=XXXX"
+Environment="WEBHOOK_SECRET=YYYY"
 ExecStart=/services/npm-template-sync-github-hook/bin/npm-template-sync-github-hook
-TimeoutStartSec=30
+TimeoutStartSec=20
 #Restart=always
 StandardOutput=syslog
-#User=nobody
-#Group=nobody
+User=nobody
+Group=nobody
 
 [Install]
 WantedBy=multi-user.target
