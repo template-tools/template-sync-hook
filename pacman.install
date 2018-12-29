@@ -7,22 +7,30 @@ pre_install() {
 ## arg 1:  the new package version
 post_install() {
 	echo "post_install $1"
+
+	systemctl daemon-reload
 }
 
 ## arg 1:  the new package version
 ## arg 2:  the old package version
 pre_upgrade() {
 	echo "pre_upgrade $1 $2"
+
+	systemctl stop npm-template-sync-github-hook
 }
 
 ## arg 1:  the new package version
 ## arg 2:  the old package version
 post_upgrade() {
 	echo "post_upgrade $1 $2"
+
+	systemctl daemon-reload
+	systemctl start npm-template-sync-github-hook
 }
 
 ## arg 1:  the old package version
 pre_remove() {
+	systemctl stop npm-template-sync-github-hook
 	echo "post_upgrade $1"
 }
 
