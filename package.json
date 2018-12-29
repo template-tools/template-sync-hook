@@ -93,6 +93,9 @@
   "pacman": {
     "groups": "webhook",
     "backup": "systemd/npm-template-sync-bithub-hook.service",
-    "install": "pacman.install"
+    "install": "pacman.install",
+    "services": {
+      "npm-template-sync-bithub-hook": "systemd/npm-template-sync-bithub-hook"
+    }
   }
 }
