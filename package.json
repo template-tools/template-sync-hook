@@ -88,14 +88,14 @@
       "mjs"
     ]
   },
-  "pacman": {
-    "groups": "webhook",
-    "backup": "systemd/npm-template-sync-bithub-hook.service",
-    "install": "pacman.install"
-  },
   "template": {
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
+  },
+  "pacman": {
+    "groups": "webhook",
+    "backup": "systemd/npm-template-sync-bithub-hook.service",
+    "install": "pacman.install"
   }
 }
