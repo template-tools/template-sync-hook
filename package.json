@@ -33,7 +33,7 @@
     "prepare": "rollup -c",
     "lint": "documentation lint src/npm-template-sync-github-hook.mjs",
     "travis-deploy-once": "travis-deploy-once",
-    "package": "npm-pkgbuild -w build -i /services/npm-template-sync-github-hook"
+    "package": "npm-pkgbuild -i /services/npm-template-sync-github-hook"
   },
   "dependencies": {
     "github-repository-provider": "^5.1.12",
@@ -87,6 +87,11 @@
       "js",
       "mjs"
     ]
+  },
+  "pacman" : {
+    "groups": "webhook",
+    "backup": "systemd/npm-template-sync-bithub-hook.service",
+    "install": "npm-template-sync-bithub-hook.install"
   },
   "template": {
     "repository": {
