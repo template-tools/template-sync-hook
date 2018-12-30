@@ -1,6 +1,4 @@
 [Socket]
 ListenStream=3100
+BindIPv6Only=both
 MaxConnections=4
-
-[Install]
-WantedBy=sockets.target
