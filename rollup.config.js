@@ -27,5 +27,5 @@ export default {
     executable()
   ],
   external,
-  input: "src/npm-template-sync-github-hook.mjs"
+  input: pkg.module
 };

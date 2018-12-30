@@ -4,7 +4,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/npm-template-sync-github-hook.mjs",
   "module": "src/npm-template-sync-github-hook.mjs",
   "description": "github hook for npm-template-sync",
   "keywords": [
