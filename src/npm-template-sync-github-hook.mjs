@@ -15,6 +15,13 @@ try {
   notify.sendStatus("starting up");
 } catch (e) {}
 
+const context = new Context(
+  new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+  {
+    logger: console
+  }
+);
+
 const handler = createHandler({
   path: "/webhook",
   secret: process.env.WEBHOOK_SECRET
@@ -38,20 +45,13 @@ handler.on("push", async event => {
     event.payload.ref
   );
 
-  const context = new Context(
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
-    {
-      logger: console
-    }
-  );
-
   try {
     const pullRequest = await PreparedContext.execute(
       context,
       event.payload.repository.full_name
     );
 
-    console.log("Generated PullRequest %s", pullRequest);
+    console.log("Generated %s", pullRequest);
   } catch (e) {
     console.error(e);
   }
@@ -60,6 +60,7 @@ handler.on("push", async event => {
 const server = micro(async (req, res) => {
   handler(req, res, err => {
     if (err) {
+      console.log(err);
       res.writeHead(404);
       res.end("no such location");
     } else {
