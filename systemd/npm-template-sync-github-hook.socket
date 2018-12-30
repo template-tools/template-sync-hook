@@ -1,5 +1,6 @@
 [Socket]
 ListenStream=3100
+MaxConnections=4
 
 [Install]
 WantedBy=sockets.target
