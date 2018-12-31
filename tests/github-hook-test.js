@@ -1,18 +1,22 @@
-import test from 'ava';
-import {} from '../src/npm-template-sync-github-hook';
+import test from "ava";
+import {} from "../src/npm-template-sync-github-hook";
 
-const got = require('got');
-const { signer } = require('x-hub-signature');
+const got = require("got");
+const { signer } = require("x-hub-signature");
 
-test('request', async t => {
-  const sign = signer({ algorithm: 'sha1', secret: 'dfgkjd&dfh' });
-  const signature = sign(new Buffer('random-signature-body'));
+test("request", async t => {
+  const secret = "aSecret";
 
-  const response = await got.post(`http://localhost:3001/webhook`, {
+  process.env.WEBHOOK_SECRET = secret;
+
+  const sign = signer({ algorithm: "sha1", secret });
+  const signature = sign(new Buffer("random-signature-body"));
+
+  const response = await got.post(`http://localhost:3100/webhook`, {
     headers: {
-      'x-hub-signature': signature,
-      'x-github-event': 'push',
-      'x-github-delivery': '77'
+      "x-hub-signature": signature,
+      "x-github-event": "push",
+      "x-github-delivery": "77"
     }
   });
 
