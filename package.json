@@ -36,7 +36,7 @@
     "github-repository-provider": "^5.1.18",
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.3",
-    "npm-template-sync": "^7.14.1",
+    "npm-template-sync": "^7.14.2",
     "sd-notify": "^2.5.1",
     "systemd": "^0.3.1"
   },
