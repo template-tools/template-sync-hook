@@ -26,7 +26,7 @@
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
     "docs": "documentation readme src/npm-template-sync-github-hook.mjs --section=API",
     "lint": "documentation lint src/npm-template-sync-github-hook.mjs",
-    "package": "npm-pkgbuild -i /services/npm-template-sync-github-hook",
+    "package": "npm-pkgbuild pkgbuild pacman makepkg",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
     "start": "node bin/npm-template-sync-github-hook",
@@ -92,7 +92,8 @@
   "pacman": {
     "groups": "webhook",
     "backup": "usr/lib/systemd/system/npm-template-sync-github-hook.service",
-    "install": "pacman.install"
+    "install": "pacman/pacman.install",
+    "installdir": "/services/npm-template-sync-github-hook"
   },
   "systemd": {
     "units": {
