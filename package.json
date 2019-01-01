@@ -24,13 +24,13 @@
   },
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
-    "test": "ava",
-    "posttest": "npm run prepare && markdown-doctest",
-    "start": "node bin/npm-template-sync-github-hook",
     "docs": "documentation readme src/npm-template-sync-github-hook.mjs --section=API",
-    "prepare": "rollup -c",
     "lint": "documentation lint src/npm-template-sync-github-hook.mjs",
-    "package": "npm-pkgbuild -i /services/npm-template-sync-github-hook"
+    "package": "npm-pkgbuild -i /services/npm-template-sync-github-hook",
+    "posttest": "npm run prepare && markdown-doctest",
+    "prepare": "rollup -c",
+    "start": "node bin/npm-template-sync-github-hook",
+    "test": "ava"
   },
   "dependencies": {
     "github-repository-provider": "^5.1.14",
