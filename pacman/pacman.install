@@ -1,19 +1,19 @@
 
 post_install() {
 	systemctl daemon-reload
-	systemctl enable npm-template-sync-github-hook
+	systemctl enable {{name}}
 }
 
 pre_upgrade() {
-	systemctl stop npm-template-sync-github-hook
+	systemctl stop {{name}}
 }
 
 post_upgrade() {
 	systemctl daemon-reload
-	systemctl start npm-template-sync-github-hook
+	systemctl start {{name}}
 }
 
 pre_remove() {
-	systemctl stop npm-template-sync-github-hook
-	systemctl disable npm-template-sync-github-hook
+	systemctl stop {{name}}
+	systemctl disable {{name}}
 }
