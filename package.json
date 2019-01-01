@@ -93,7 +93,10 @@
     "groups": "webhook",
     "backup": "usr/lib/systemd/system/npm-template-sync-github-hook.service",
     "install": "pacman/pacman.install",
-    "installdir": "/services/npm-template-sync-github-hook"
+    "installdir": "/services/npm-template-sync-github-hook",
+    "content": {
+      "/usr/lib/tmpfiles.d/{{name}}.conf": "pacman/tmpfiles.conf"
+    }
   },
   "systemd": {
     "units": {
