@@ -91,11 +91,8 @@
   },
   "pacman": {
     "groups": "webhook",
-    "install": "pacman/pacman.install",
-    "installdir": "/services/${name}",
-    "content": {
-      "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf"
-    }
+    "install": "pacman/install.sh",
+    "installdir": "/services/${name}"
   },
   "systemd": {
     "units": {
