@@ -1,10 +1,9 @@
 [Unit]
 Description={{description}}
+After=network-online.target
 
 [Service]
 Type=notify
-#Environment="GH_TOKEN=XXXX"
-#Environment="WEBHOOK_SECRET=YYYY"
 
 ExecStart={{installdir}}/bin/{{name}}
 TimeoutStartSec=20
