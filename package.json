@@ -47,7 +47,11 @@
     "esm": "^3.0.84",
     "got": "^9.5.0",
     "markdown-doctest": "^0.9.1",
+<<<<<<< HEAD
     "npm-pkgbuild": "^3.2.0",
+=======
+    "npm-pkgbuild": "^3.1.1",
+>>>>>>> 440d071f0e4fadb4118b9b013987387e531892f8
     "rollup": "^1.0.0",
     "rollup-plugin-cleanup": "^3.1.0",
     "rollup-plugin-commonjs": "^9.2.0",
@@ -91,16 +95,15 @@
   },
   "pacman": {
     "groups": "webhook",
-    "backup": "usr/lib/systemd/system/npm-template-sync-github-hook.service",
     "install": "pacman/pacman.install",
-    "installdir": "/services/npm-template-sync-github-hook",
+    "installdir": "/services/${name}",
     "content": {
       "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf"
     }
   },
   "systemd": {
     "units": {
-      "npm-template-sync-github-hook": "systemd/npm-template-sync-github-hook*"
+      "${name}": "systemd/${name}*"
     }
   }
 }
