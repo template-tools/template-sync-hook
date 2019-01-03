@@ -8,6 +8,7 @@ test("request", async t => {
   const secret = "aSecret";
 
   process.env.WEBHOOK_SECRET = secret;
+  process.env.PORT = "3100";
 
   const sign = signer({ algorithm: "sha1", secret });
   const signature = sign(new Buffer("random-signature-body"));

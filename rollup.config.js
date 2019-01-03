@@ -5,7 +5,7 @@ import json from "rollup-plugin-json";
 import executable from "rollup-plugin-executable";
 import pkg from "./package.json";
 
-const external = ["npm-template-sync", "github-repository-provider"];
+const external = ["npm-template-sync", "github-repository-provider", "net"];
 
 export default {
   output: {

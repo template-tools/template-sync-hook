@@ -1,16 +1,21 @@
 import { Context, PreparedContext } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
+import {} from "systemd";
+
 const micro = require("micro");
 const createHandler = require("github-webhook-handler");
 
 let notify;
-let port = 3100;
+let port = "systemd";
+
+if (process.env.PORT !== undefined) {
+  port = parseInt(process.env.PORT, 10);
+  if (Number.isNaN(port)) {
+    port = process.env.PORT;
+  }
+}
 
 try {
-  /*
-  require("systemd");
-  port = "systemd";
-  */
   notify = require("sd-notify");
   notify.sendStatus("starting up");
 } catch (e) {}
@@ -70,10 +75,8 @@ const server = micro(async (req, res) => {
   });
 });
 
-server.listen(port, () => {
-  console.log(`listening...`, server._connectionKey);
+server.listen(port);
 
-  if (notify !== undefined) {
-    notify.ready();
-  }
-});
+if (notify !== undefined) {
+  notify.ready();
+}
