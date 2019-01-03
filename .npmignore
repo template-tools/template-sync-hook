@@ -14,5 +14,5 @@ doc
 rollup.config.js
 SUMMARY.md
 
-pacman.install
-systemd/*
+pacman
+systemd
