@@ -92,7 +92,10 @@
   "pacman": {
     "groups": "webhook",
     "install": "pacman/install.sh",
-    "installdir": "/services/${name}"
+    "installdir": "/services/${name}",
+    "depends": {
+      "systemd": ">=240.0"
+    }
   },
   "systemd": {
     "units": {
