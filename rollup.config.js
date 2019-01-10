@@ -1,11 +1,34 @@
-import cleanup from "rollup-plugin-cleanup";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import json from "rollup-plugin-json";
 import executable from "rollup-plugin-executable";
 import pkg from "./package.json";
 
-const external = ["npm-template-sync", "github-repository-provider", "net"];
+const external = [
+  "os",
+  "path",
+  "crypto",
+  "fs",
+  "util",
+  "url",
+  "net",
+  "tty",
+  "stream",
+  "child_process",
+  "http",
+  "https",
+  "assert",
+  "events",
+  "zlib",
+  "jsonpath",
+  "deep-extend",
+  "simple-diff",
+  "micromatch",
+  "semver",
+  "caporal",
+  "enquirer",
+  "node-fetch"
+];
 
 export default {
   output: {
@@ -19,11 +42,9 @@ export default {
     resolve(),
     commonjs(),
     json({
-      include: "package.json",
       preferConst: true,
       compact: true
     }),
-    cleanup(),
     executable()
   ],
   external,
