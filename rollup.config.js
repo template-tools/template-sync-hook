@@ -64,6 +64,9 @@ export default {
       preferConst: true,
       compact: true
     }),
+    cleanup({
+      exclude: ["node_modules/@octokit/plugin-throttling/lib/route-matcher.js"]
+    }),
     executable()
   ],
   external,
