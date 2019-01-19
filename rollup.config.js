@@ -54,7 +54,7 @@ export default {
     file: pkg.bin["npm-template-sync-github-hook"],
     format: "cjs",
     banner:
-      '#!/bin/sh\n":" //# comment; exec /usr/bin/env node --experimental-modules --experimental-worker "$0" "$@"',
+      '#!/bin/sh\n":" //# comment; exec /usr/bin/env node --experimental-modules "$0" "$@"',
     interop: false
   },
   plugins: [
