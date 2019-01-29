@@ -4,11 +4,9 @@ import {} from "../src/npm-template-sync-github-hook";
 import got from "got";
 import signer from "x-hub-signature/src/signer";
 
-//const { signer } = require("x-hub-signature");
-
 test("request", async t => {
   const secret = "aSecret";
-  const port = "3100";
+  const port = "3127";
 
   process.env.WEBHOOK_SECRET = secret;
   process.env.PORT = port;
