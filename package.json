@@ -37,7 +37,6 @@
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.3",
     "npm-template-sync": "^8.0.7",
-    "sd-notify": "^2.5.1",
     "systemd": "^0.3.1"
   },
   "devDependencies": {

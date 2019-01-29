@@ -4,7 +4,6 @@ import {} from "systemd";
 import createHandler from "github-webhook-handler";
 import micro from "micro";
 
-let notify;
 let port = "systemd";
 
 if (process.env.PORT !== undefined) {
@@ -13,11 +12,6 @@ if (process.env.PORT !== undefined) {
     port = process.env.PORT;
   }
 }
-
-try {
-  notify = require("sd-notify");
-  notify.sendStatus("starting up");
-} catch (e) {}
 
 const context = new Context(
   new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
@@ -75,7 +69,3 @@ const server = micro(async (req, res) => {
 });
 
 server.listen(port);
-
-if (notify !== undefined) {
-  notify.ready();
-}
