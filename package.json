@@ -33,7 +33,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "github-repository-provider": "^7.0.6",
+    "github-repository-provider": "^7.0.7",
     "github-webhook-handler": "^0.7.0",
     "micro": "^9.3.3",
     "npm-template-sync": "^8.1.2",
