@@ -10,7 +10,6 @@
 [![Dependency Status](https://david-dm.org/arlac77/npm-template-sync-github-hook.svg)](https://david-dm.org/arlac77/npm-template-sync-github-hook)
 [![devDependency Status](https://david-dm.org/arlac77/npm-template-sync-github-hook/dev-status.svg)](https://david-dm.org/arlac77/npm-template-sync-github-hook#info=devDependencies)
 [![docs](http://inch-ci.org/github/arlac77/npm-template-sync-github-hook.svg?branch=master)](http://inch-ci.org/github/arlac77/npm-template-sync-github-hook)
-[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![downloads](http://img.shields.io/npm/dm/npm-template-sync-github-hook.svg?style=flat-square)](https://npmjs.org/package/npm-template-sync-github-hook)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
