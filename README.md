@@ -7,7 +7,6 @@
 [![Coverage Status](https://coveralls.io/repos/arlac77/npm-template-sync-github-hook/badge.svg)](https://coveralls.io/r/arlac77/npm-template-sync-github-hook)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/npm-template-sync-github-hook/badge.svg)](https://snyk.io/test/github/arlac77/npm-template-sync-github-hook)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/npm-template-sync-github-hook.svg?style=flat-square)](https://github.com/arlac77/npm-template-sync-github-hook/issues)
-[![Stories in Ready](https://badge.waffle.io/arlac77/npm-template-sync-github-hook.svg?label=ready&title=Ready)](http://waffle.io/arlac77/npm-template-sync-github-hook)
 [![Dependency Status](https://david-dm.org/arlac77/npm-template-sync-github-hook.svg)](https://david-dm.org/arlac77/npm-template-sync-github-hook)
 [![devDependency Status](https://david-dm.org/arlac77/npm-template-sync-github-hook/dev-status.svg)](https://david-dm.org/arlac77/npm-template-sync-github-hook#info=devDependencies)
 [![docs](http://inch-ci.org/github/arlac77/npm-template-sync-github-hook.svg?branch=master)](http://inch-ci.org/github/arlac77/npm-template-sync-github-hook)
