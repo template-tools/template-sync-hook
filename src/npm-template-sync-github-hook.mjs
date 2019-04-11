@@ -88,7 +88,7 @@ program
       });
     });
 
-    const listener = server.listen(port, () => {
+    const listener = server.listen(config.http.port, () => {
       console.log("listen on", listener.address());
       sd.notify("READY=1\nSTATUS=running");
     });
