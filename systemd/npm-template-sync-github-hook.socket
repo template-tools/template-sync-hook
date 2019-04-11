@@ -1,7 +1,7 @@
 [Socket]
-ListenStream=3100
-BindIPv6Only=both
+ListenStream=/run/{{name}}/socket
 MaxConnections=4
+NoDelay=true
 
 [Install]
 RequiredBy={{name}}.service

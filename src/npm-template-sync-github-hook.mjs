@@ -1,10 +1,20 @@
 import { Context, PreparedContext } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
-import {} from "systemd";
 import createHandler from "github-webhook-handler";
 import micro from "micro";
 
-let port = "systemd";
+
+let port = 8088;
+
+let sd = { notify: (...args) => console.log(...args), listener: () => [] };
+try {
+  sd = await import("sd-daemon");
+  const listeners = sd.listeners();
+  if (listeners.length > 0) port = listeners[0];
+
+} catch (e) {}
+
+sd.notify("READY=1\nSTATUS=starting");
 
 if (process.env.PORT !== undefined) {
   port = parseInt(process.env.PORT, 10);
@@ -68,4 +78,7 @@ const server = micro(async (req, res) => {
   });
 });
 
-server.listen(port);
+const listener = server.listen(port, () => {
+  console.log("listen on", listener.address());
+  sd.notify("READY=1\nSTATUS=running");
+});

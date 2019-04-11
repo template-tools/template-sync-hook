@@ -46,7 +46,8 @@ const external = [
   "vm",
   "zlib",
 
-  "node-fetch"
+  "node-fetch",
+  "sd-daemon"
 ];
 
 export default {
