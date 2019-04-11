@@ -5,6 +5,7 @@ import micro from "micro";
 import program from "commander";
 import { expand } from "config-expander";
 import { version, description } from "../package.json";
+import { resolve } from "path";
 
 program
   .version(version)
