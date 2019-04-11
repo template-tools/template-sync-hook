@@ -11,6 +11,8 @@ program
   .description(description)
   .option("-c, --config <dir>", "use config directory")
   .action(async () => {
+    const configDir = process.env.CONFIGURATION_DIRECTORY || program.config;
+
     let sd = { notify: (...args) => console.log(...args), listener: () => [] };
     try {
       sd = await import("sd-daemon");
