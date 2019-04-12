@@ -14,7 +14,7 @@ program
   .action(async () => {
     const configDir = process.env.CONFIGURATION_DIRECTORY || program.config;
 
-    let sd = { notify: (...args) => console.log(...args), listener: () => [] };
+    let sd = { notify: (...args) => console.log(...args), listeners: () => [] };
     try {
       sd = await import("sd-daemon");
     } catch (e) {}
