@@ -35,6 +35,8 @@ program
     const listeners = sd.listeners();
     if (listeners.length > 0) config.http.port = listeners[0];
 
+    console.log(config);
+
     const context = new Context(
       new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
       {
