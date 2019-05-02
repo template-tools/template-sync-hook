@@ -3,9 +3,9 @@ import { GithubProvider } from "github-repository-provider";
 import createHandler from "github-webhook-handler";
 import micro from "micro";
 import program from "commander";
+import { resolve } from "path";
 import { expand } from "config-expander";
 import { version, description } from "../package.json";
-import { resolve } from "path";
 
 program
   .version(version)
@@ -28,7 +28,7 @@ program
       default: {
         http: {
           port: "${first(env.PORT,8093)}",
-          handler: {
+          hook: {
             path: "/webhook",
             secret: "${env.WEBHOOK_SECRET}"
           }
@@ -48,7 +48,7 @@ program
       }
     );
 
-    const handler = createHandler(config.http.handler);
+    const handler = createHandler(config.http.hook);
 
     handler.on("error", err => console.error("Error:", err.message));
 
