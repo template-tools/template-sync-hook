@@ -27,7 +27,7 @@ program
       },
       default: {
         http: {
-          port: "${first(env.PORT,8093)}"
+          port: "${first(env.PORT,8093)}",
           handler: {
             path: "/webhook",
             secret: "${env.WEBHOOK_SECRET}"
