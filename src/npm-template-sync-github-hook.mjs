@@ -28,6 +28,10 @@ program
       default: {
         http: {
           port: "${first(env.PORT,8093)}"
+          handler: {
+            path: "/webhook",
+            secret: "${env.WEBHOOK_SECRET}"
+          }
         }
       }
     });
@@ -44,10 +48,7 @@ program
       }
     );
 
-    const handler = createHandler({
-      path: "/webhook",
-      secret: process.env.WEBHOOK_SECRET
-    });
+    const handler = createHandler(config.http.handler);
 
     handler.on("error", err => console.error("Error:", err.message));
 
