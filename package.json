@@ -27,9 +27,9 @@
     "docs": "documentation readme src/npm-template-sync-github-hook.mjs --section=API",
     "lint": "documentation lint src/npm-template-sync-github-hook.mjs",
     "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg",
-    "pretest": "npm run prepare",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
+    "pretest": "npm run prepare",
     "start": "node bin/npm-template-sync-github-hook",
     "test": "ava"
   },
