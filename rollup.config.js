@@ -47,7 +47,9 @@ const external = [
   "zlib",
 
   "node-fetch",
-  "sd-daemon"
+  "sd-daemon",
+  "koa",
+  "koa-better-router"
 ];
 
 export default {
@@ -59,15 +61,15 @@ export default {
     interop: false
   },
   plugins: [
-    resolve(),
     commonjs(),
+    resolve(),
     json({
       preferConst: true,
       compact: true
     }),
     cleanup({
       extensions: ['js','mjs','jsx','tag'],
-      exclude: ["node_modules/@octokit/plugin-throttling/lib/route-matcher.js"]
+//      exclude: ["node_modules/@octokit/plugin-throttling/lib/route-matcher.js"]
     }),
     executable()
   ],

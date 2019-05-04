@@ -37,16 +37,16 @@
     "commander": "^2.20.0",
     "config-expander": "^10.2.5",
     "github-repository-provider": "^7.1.0",
-    "github-webhook-handler": "^0.7.0",
-    "micro": "^9.3.3",
-    "npm-template-sync": "^8.1.34"
+    "npm-template-sync": "^8.1.34",
+    "koa": "^2.7.0",
+    "koa-better-router": "^2.1.1",
+    "koa-github-hook-handler": "^1.0.0"
   },
   "devDependencies": {
     "ava": "^1.4.1",
     "c8": "^4.1.4",
     "documentation": "^10.1.0",
     "esm": "^3.2.22",
-    "execa": "^1.0.0",
     "got": "^9.6.0",
     "markdown-doctest": "^0.9.1",
     "npm-pkgbuild": "^5.2.9",

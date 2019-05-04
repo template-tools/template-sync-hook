@@ -1,24 +1,24 @@
-import { Context, PreparedContext } from "npm-template-sync";
-import { GithubProvider } from "github-repository-provider";
-import createHandler from "github-webhook-handler";
-import micro from "micro";
-import program from "commander";
 import { resolve } from "path";
 import { expand } from "config-expander";
+import program from "commander";
 import { version, description } from "../package.json";
+
+import { Context } from "npm-template-sync";
+import { GithubProvider } from "github-repository-provider";
+import { createServer } from "./server.mjs";
 
 program
   .version(version)
   .description(description)
   .option("-c, --config <dir>", "use config directory")
   .action(async () => {
-    const configDir = process.env.CONFIGURATION_DIRECTORY || program.config;
-
     let sd = { notify: (...args) => console.log(...args), listeners: () => [] };
     try {
       sd = await import("sd-daemon");
     } catch (e) {}
     sd.notify("READY=1\nSTATUS=starting");
+
+    const configDir = process.env.CONFIGURATION_DIRECTORY || program.config;
 
     const config = await expand(configDir ? "${include('config.json')}" : {}, {
       constants: {
@@ -48,52 +48,6 @@ program
       }
     );
 
-    const handler = createHandler(config.http.hook);
-
-    handler.on("error", err => console.error("Error:", err.message));
-
-    handler.on("ping", async event => {
-      console.log(
-        "Received a ping event for %s",
-        event.payload.repository.full_name
-      );
-    });
-
-    handler.on("push", async event => {
-      console.log(
-        "Received a push event for %s to %s",
-        event.payload.repository.full_name,
-        event.payload.ref
-      );
-
-      try {
-        const pullRequest = await PreparedContext.execute(
-          context,
-          event.payload.repository.full_name
-        );
-
-        console.log("Generated %s", pullRequest);
-      } catch (e) {
-        console.error(e);
-      }
-    });
-
-    const server = micro(async (req, res) => {
-      handler(req, res, err => {
-        if (err) {
-          console.log(err);
-          res.writeHead(404);
-          res.end("no such location");
-        } else {
-          res.writeHead(200);
-          res.end("woot");
-        }
-      });
-    });
-
-    const listener = server.listen(config.http.port, () => {
-      console.log("listen on", listener.address());
-      sd.notify("READY=1\nSTATUS=running");
-    });
+    const server = await createServer(config, sd, context);
   })
   .parse(process.argv);
