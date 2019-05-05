@@ -1,8 +1,7 @@
 import { resolve } from "path";
-import { expand } from "config-expander";
 import program from "commander";
 import { version, description } from "../package.json";
-
+import { expand, removeSensibleValues } from "config-expander";
 import { Context } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 import { createServer } from "./server.mjs";
@@ -12,7 +11,7 @@ program
   .description(description)
   .option("-c, --config <dir>", "use config directory")
   .action(async () => {
-    let sd = { notify: (...args) => console.log(...args), listeners: () => [] };
+    let sd = { notify: () => {}, listeners: () => [] };
     try {
       sd = await import("sd-daemon");
     } catch (e) {}
@@ -39,7 +38,7 @@ program
     const listeners = sd.listeners();
     if (listeners.length > 0) config.http.port = listeners[0];
 
-    console.log(config);
+    console.log(removeSensibleValues(config));
 
     const context = new Context(
       new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),

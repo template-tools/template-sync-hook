@@ -8,7 +8,7 @@ import { GithubProvider } from "github-repository-provider";
 import { createServer } from "../src/server.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const sd = { notify: (...args) => console.log(...args), listeners: () => [] };
+const sd = { notify: () => {}, listeners: () => [] };
 
 test("request", async t => {
   const secret = "aSecret";
