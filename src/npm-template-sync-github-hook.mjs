@@ -1,11 +1,11 @@
 import { resolve } from "path";
 import program from "commander";
 import { version, description } from "../package.json";
-import { expand, removeSensibleValues } from "config-expander";
+import { expand } from "config-expander";
+import { removeSensibleValues } from "remove-sensible-values";
 import { Context } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 import { createServer } from "./server.mjs";
-
 
 program
   .version(version)
