@@ -4,7 +4,7 @@ import { version, description } from "../package.json";
 import { expand, removeSensibleValues } from "config-expander";
 import { Context } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
-import { createServer } from "./server.mjs";
+import { defaultServerConfig, createServer } from "./server.mjs";
 
 program
   .version(version)
@@ -25,13 +25,7 @@ program
         installdir: resolve(__dirname, "..")
       },
       default: {
-        http: {
-          port: "${first(env.PORT,8093)}",
-          hook: {
-            path: "/webhook",
-            secret: "${env.WEBHOOK_SECRET}"
-          }
-        }
+        ...defaultServerConfig
       }
     });
 
