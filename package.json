@@ -36,11 +36,11 @@
   "dependencies": {
     "commander": "^2.20.0",
     "config-expander": "^11.0.3",
-    "github-repository-provider": "^7.3.0",
+    "github-repository-provider": "^7.3.1",
     "koa": "^2.7.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.3.0",
-    "npm-template-sync": "^8.1.45",
+    "npm-template-sync": "^8.1.48",
     "remove-sensible-values": "^1.0.2"
   },
   "devDependencies": {
@@ -93,7 +93,6 @@
   },
   "ava": {
     "files": [
-      "tests/*-test.js",
       "tests/*-test.mjs"
     ],
     "require": [
@@ -102,7 +101,6 @@
     "babel": false,
     "compileEnhancements": false,
     "extensions": [
-      "js",
       "mjs"
     ]
   },
