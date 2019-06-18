@@ -4,6 +4,7 @@ post_install() {
 	systemctl enable {{name}}
 	systemctl enable {{name}}.socket
 	systemctl start {{name}}.socket
+	systemctl reload nginx
 }
 
 pre_upgrade() {
@@ -14,6 +15,7 @@ pre_upgrade() {
 post_upgrade() {
 	systemctl daemon-reload
 	systemctl start {{name}}.socket
+	systemctl reload nginx
 }
 
 pre_remove() {
@@ -25,4 +27,5 @@ pre_remove() {
 
 post_remove() {
 	systemctl daemon-reload
+	systemctl reload nginx
 }

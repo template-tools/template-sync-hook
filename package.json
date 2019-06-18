@@ -117,7 +117,8 @@
       "systemd": ">=242.0"
     },
     "content": {
-      "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf"
+      "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
+      "/etc/ngnix/config.d/${name}.conf": "pacman/nginx.conf"
     }
   },
   "systemd": {
