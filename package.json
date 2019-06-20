@@ -110,7 +110,7 @@
     }
   },
   "pacman": {
-    "proeprties" : {
+    "properties" : {
       "urlPrefix" : "/services/npm-template-sync/"
     },
     "groups": "webhook",
