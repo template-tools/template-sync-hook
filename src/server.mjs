@@ -11,13 +11,13 @@ import { PreparedContext } from "npm-template-sync";
 
 export const defaultServerConfig =
 {
-http: {
-          port: "${first(env.PORT,8093)}",
-          hook: {
-            path: "/webhook",
-            secret: "${env.WEBHOOK_SECRET}"
-          }
-        }
+  http: {
+    port: "${first(env.PORT,8093)}",
+    hook: {
+      path: "/webhook",
+      secret: "${env.WEBHOOK_SECRET}"
+    }
+  }
 };
 
 export async function createServer(config, sd, context) {
