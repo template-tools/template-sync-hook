@@ -1,6 +1,6 @@
 [Socket]
 ListenStream=/run/{{name}}/socket
-MaxConnections=4
+MaxConnections=2
 
 [Install]
 RequiredBy={{name}}.service
