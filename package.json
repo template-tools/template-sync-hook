@@ -109,10 +109,11 @@
       "url": "https://github.com/arlac77/npm-package-template.git"
     }
   },
+  "config": {
+    "urlPrefix": "/services/npm-template-sync",
+    "socket" : "/run/{{name}}/socket"
+  },
   "pacman": {
-    "properties": {
-      "urlPrefix": "/services/npm-template-sync/"
-    },
     "groups": "webhook",
     "install": "pacman/install.sh",
     "installdir": "/services/${name}",
