@@ -118,7 +118,8 @@
     "install": "pacman/install.sh",
     "installdir": "/services/${name}",
     "depends": {
-      "systemd": ">=242.0"
+      "systemd": ">=242.32",
+      "nginx-mainline" : ">=1.17.1"
     },
     "content": {
       "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
