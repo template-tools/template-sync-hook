@@ -22,7 +22,6 @@ program
 
     const configDir = process.env.CONFIGURATION_DIRECTORY || program.config;
 
-
     const config = await expand(configDir ? "${include('config.json')}" : {}, {
       constants: {
         basedir: configDir || process.cwd(),
@@ -40,14 +39,15 @@ program
 
     console.log(removeSensibleValues(config));
 
+    const loggerOptions = {
+      logger: console
+    };
+
     const context = new Context(
-      new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
-      {
-        logger: console
-      }
+      GithubProvider.initialize(undefined, process.env),
+      loggerOptions
     );
 
     const server = await createServer(config, sd, context);
-
   })
   .parse(process.argv);
