@@ -1,5 +1,5 @@
 import test from "ava";
-import { join, dirname } from "path";
+import { dirname } from "path";
 import { fileURLToPath } from "url";
 import got from "got";
 import signer from "x-hub-signature/src/signer";
@@ -10,7 +10,7 @@ import { createServer } from "../src/server.mjs";
 const here = dirname(fileURLToPath(import.meta.url));
 const sd = { notify: () => {}, listeners: () => [] };
 
-test("request", async t => {
+test("request push", async t => {
   const secret = "aSecret";
   const port = "3127";
   const path = "webhook";
@@ -50,6 +50,57 @@ test("request", async t => {
   });
 
   t.is(response.statusCode, 200);
+  t.log(response.body);
+  t.true(JSON.parse(response.body).pr !== undefined);
+});
+
+test("request ping", async t => {
+  const secret = "aSecret";
+  const port = "3128";
+  const path = "webhook";
+
+  const context = new Context(
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+    {
+      logger: console
+    }
+  );
+
+  const server = await createServer(
+    {
+      http: {
+        port,
+        hook: {
+          path,
+          secret
+        }
+      }
+    },
+    sd,
+    context
+  );
+
+  const sign = signer({ algorithm: "sha1", secret });
+  const signature = sign(new Buffer(pingBody));
+
+  const response = await got.post(`http://localhost:${port}/${path}`, {
+    headers: {
+      "X-Hub-Signature": signature,
+      "content-type": "application/json",
+      "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
+      "X-GitHub-Event": "ping"
+    },
+    body: pingBody
+  });
+
+  t.is(response.statusCode, 200);
+  t.deepEqual(JSON.parse(response.body),{ ok: true });
+});
+
+const pingBody = JSON.stringify({
+  repository: {
+    full_name: "arlac77/npm-template-sync-github-hook"
+  }
 });
 
 const pushBody = JSON.stringify({
