@@ -7,6 +7,7 @@ import Koa from "koa";
 import Router from "koa-better-router";
 import { createGithubHookHandler } from "koa-github-hook-handler";
 import { PreparedContext } from "npm-template-sync";
+import { version, description } from "../package.json";
 
 
 export const defaultServerConfig =
@@ -49,7 +50,7 @@ export async function createServer(config, sd, context) {
             "Received a ping event for %s",
             request.repository.full_name
           );
-          return { ok: true };
+          return { version, description };
         }
       },
       config.http.hook
