@@ -51,7 +51,7 @@ test("request push", async t => {
 
   t.is(response.statusCode, 200);
   t.log(response.body);
-  t.true(JSON.parse(response.body).pr !== undefined);
+  t.deepEqual(JSON.parse(response.body), { pullRequest: "ongoing"});
 });
 
 test("request ping", async t => {
