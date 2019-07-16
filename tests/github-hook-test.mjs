@@ -1,19 +1,18 @@
 import test from "ava";
 import { dirname } from "path";
-import { fileURLToPath } from "url";
 import got from "got";
 import signer from "x-hub-signature/src/signer";
 import { Context } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 import { createServer } from "../src/server.mjs";
 
-const here = dirname(fileURLToPath(import.meta.url));
 const sd = { notify: () => {}, listeners: () => [] };
 
+const path = "webhook";
+const secret = "aSecret";
+
 test("request push", async t => {
-  const secret = "aSecret";
   const port = "3127";
-  const path = "webhook";
 
   const context = new Context(
     new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
@@ -55,9 +54,7 @@ test("request push", async t => {
 });
 
 test("request ping", async t => {
-  const secret = "aSecret";
   const port = "3128";
-  const path = "webhook";
 
   const context = new Context(
     new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
