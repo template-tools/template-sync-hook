@@ -10,6 +10,7 @@ TimeoutStartSec=20
 StandardOutput=syslog
 DynamicUser=yes
 NoNewPrivileges=true
+ConfigurationDirectory={{name}}
 RuntimeDirectory={{name}}
 
 [Install]
