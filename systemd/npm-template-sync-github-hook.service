@@ -8,9 +8,7 @@ Type=notify
 ExecStart={{installdir}}/bin/{{name}}
 TimeoutStartSec=20
 StandardOutput=syslog
-User=nobody
-Group=nobody
-PrivateTmp=true
+DynamicUser=yes
 NoNewPrivileges=true
 RuntimeDirectory={{name}}
 
