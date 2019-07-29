@@ -96,6 +96,7 @@
       "systemd": ">=242.32",
       "nginx-mainline": ">=1.17.1"
     },
+    "backup": "etc/${name}/config.json",
     "content": {
       "/etc/${name}/config.json": "pacman/config.json",
       "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
