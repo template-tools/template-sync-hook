@@ -97,6 +97,7 @@
       "nginx-mainline": ">=1.17.1"
     },
     "content": {
+      "/etc/${name}/config.json": "pacman/config.json",
       "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     }
