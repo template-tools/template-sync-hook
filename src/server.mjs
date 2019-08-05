@@ -1,6 +1,3 @@
-import { createServer as httpCreateServer } from "http";
-import { createServer as httpsCreateServer } from "https";
-
 import Koa from "koa";
 
 import Router from "koa-better-router";
@@ -20,10 +17,6 @@ export const defaultServerConfig = {
 export async function createServer(config, sd, context) {
   const app = new Koa();
 
-  const server = config.http.cert
-    ? httpsCreateServer(config.http, app.callback())
-    : httpCreateServer(app.callback());
-  server.on("error", err => console.log(err));
   const router = Router();
 
   function shutdown() {
@@ -31,12 +24,6 @@ export async function createServer(config, sd, context) {
     if (ongoing.size === 0) {
       sd.notify("STOPPING=1");
       server.unref();
-/*
-      server.close(() => {
-        console.log("server closed");
-        //process.nextTick(() => process.exit(0));
-      });
-*/
     }
   }
 
@@ -76,7 +63,7 @@ export async function createServer(config, sd, context) {
 
   app.use(router.middleware());
 
-  const listener = app.listen(config.http.port, () => {
+  const server = app.listen(config.http.port, () => {
     console.log("listen on", server.address());
     sd.notify("READY=1\nSTATUS=running");
   });
