@@ -22,10 +22,15 @@ export async function createServer(config, sd, context) {
   function shutdown() {
     console.log("shutdown request STILL ONGOING", ongoing.size);
     if (ongoing.size === 0) {
-      sd.notify("STOPPING=1");
+      sd.notify("STOPPING=1\nSTATUS=stopping");
       server.unref();
     }
   }
+
+  router.addRoute("POST", "admin/stop", (ctx, next) => {
+    shutdown();
+    next();
+  });
 
   const ongoing = new Set();
 
