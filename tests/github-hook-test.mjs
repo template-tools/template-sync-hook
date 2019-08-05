@@ -23,6 +23,7 @@ test("request push", async t => {
 
   const server = await createServer(
     {
+      autostop: true,
       http: {
         port,
         hook: {

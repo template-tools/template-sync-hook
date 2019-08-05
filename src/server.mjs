@@ -5,6 +5,7 @@ import { createGithubHookHandler } from "koa-github-hook-handler";
 import { PreparedContext } from "npm-template-sync";
 
 export const defaultServerConfig = {
+  autostop: false,
   http: {
     port: "${first(env.PORT,8093)}",
     hook: {
@@ -20,18 +21,14 @@ export async function createServer(config, sd, context) {
   const router = Router();
 
   function shutdown() {
-    console.log("shutdown request STILL ONGOING", ongoing.size);
     if (ongoing.size === 0) {
       sd.notify("STOPPING=1\nSTATUS=stopping");
       server.unref();
     }
   }
 
-  process.on('SIGINT', () => {
-    console.log('Received SIGINT.');
-    shutdown();
-  });
-  
+  process.on("SIGINT", () => shutdown());
+
   router.addRoute("POST", "admin/stop", (ctx, next) => {
     shutdown();
     next();
@@ -42,7 +39,9 @@ export async function createServer(config, sd, context) {
   function addOngoing(p) {
     p.finally(() => {
       ongoing.delete(p);
-      shutdown();
+      if(config.autostop) {
+        shutdown();
+      }
     });
     ongoing.add(p);
   }
