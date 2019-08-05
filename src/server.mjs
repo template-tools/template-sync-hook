@@ -30,7 +30,10 @@ export async function createServer(config, sd, context) {
     console.log("shutdown request STILL ONGOING", ongoing.size);
     if (ongoing.size === 0) {
       sd.notify("STOPPING=1");
-      process.nextTick(() => process.exit(0));
+      server.close(() => {
+        console.log("server closed");
+        process.nextTick(() => process.exit(0));
+      });
     }
   }
 
@@ -71,7 +74,7 @@ export async function createServer(config, sd, context) {
   app.use(router.middleware());
 
   const listener = app.listen(config.http.port, () => {
-    console.log("listen on", listener.address());
+    console.log("listen on", server.address());
     sd.notify("READY=1\nSTATUS=running");
   });
 
