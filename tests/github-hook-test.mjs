@@ -38,19 +38,24 @@ test("request push", async t => {
   const sign = signer({ algorithm: "sha1", secret });
   const signature = sign(new Buffer(pushBody));
 
-  const response = await got.post(`http://localhost:${port}/${path}`, {
-    headers: {
-      "X-Hub-Signature": signature,
-      "content-type": "application/json",
-      "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
-      "X-GitHub-Event": "push"
-    },
-    body: pushBody
-  });
+  for (let i = 1; i < 5; i++) {
+    const response = await got.post(`http://localhost:${port}/${path}`, {
+      headers: {
+        "X-Hub-Signature": signature,
+        "content-type": "application/json",
+        "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
+        "X-GitHub-Event": "push"
+      },
+      body: pushBody
+    });
 
-  t.is(response.statusCode, 200);
-  t.log(response.body);
-  t.deepEqual(JSON.parse(response.body), { pullRequest: "ongoing"});
+    t.is(response.statusCode, 200);
+    t.log(response.body);
+    t.deepEqual(JSON.parse(response.body), {
+      pullRequest: "ongoing",
+      queuedAt: i
+    });
+  }
 });
 
 test("request ping", async t => {
@@ -91,7 +96,7 @@ test("request ping", async t => {
   });
 
   t.is(response.statusCode, 200);
-  t.deepEqual(JSON.parse(response.body),{ ok: true });
+  t.deepEqual(JSON.parse(response.body), { ok: true });
 });
 
 const pingBody = JSON.stringify({

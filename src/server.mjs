@@ -27,6 +27,7 @@ export async function createServer(config, sd, context) {
   const router = Router();
 
   function shutdown() {
+    console.log("shutdown request STILL ONGOING", ongoing.size);
     if (ongoing.size === 0) {
       sd.notify("STOPPING=1");
       process.nextTick(() => process.exit(0));
@@ -38,10 +39,7 @@ export async function createServer(config, sd, context) {
   function addOngoing(p) {
     p.finally(() => {
       ongoing.delete(p);
-      console.log("STILL ONGOING", ongoing.size);
-      if (ongoing.size === 0) {
-        shutdown();
-      }
+      shutdown();
     });
     ongoing.add(p);
   }
@@ -58,7 +56,7 @@ export async function createServer(config, sd, context) {
             PreparedContext.execute(context, request.repository.full_name)
           );
 
-          return { pullRequest: "ongoing" };
+          return { pullRequest: "ongoing", queuedAt: ongoing.size };
         },
         ping: async request => {
           console.log("ping", request.repository.full_name);
