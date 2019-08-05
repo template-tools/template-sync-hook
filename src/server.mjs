@@ -27,6 +27,11 @@ export async function createServer(config, sd, context) {
     }
   }
 
+  process.on('SIGINT', () => {
+    console.log('Received SIGINT.');
+    shutdown();
+  });
+  
   router.addRoute("POST", "admin/stop", (ctx, next) => {
     shutdown();
     next();
