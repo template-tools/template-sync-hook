@@ -1,4 +1,3 @@
-
 import { createServer as httpCreateServer } from "http";
 import { createServer as httpsCreateServer } from "https";
 
@@ -8,8 +7,7 @@ import Router from "koa-better-router";
 import { createGithubHookHandler } from "koa-github-hook-handler";
 import { PreparedContext } from "npm-template-sync";
 
-export const defaultServerConfig =
-{
+export const defaultServerConfig = {
   http: {
     port: "${first(env.PORT,8093)}",
     hook: {
@@ -28,6 +26,26 @@ export async function createServer(config, sd, context) {
   server.on("error", err => console.log(err));
   const router = Router();
 
+  function shutdown() {
+    if (ongoing.size === 0) {
+      sd.notify("STOPPING=1");
+      process.nextTick(() => process.exit(0));
+    }
+  }
+
+  const ongoing = new Set();
+
+  function addOngoing(p) {
+    p.finally(() => {
+      ongoing.delete(p);
+      console.log("STILL ONGOING", ongoing.size);
+      if (ongoing.size === 0) {
+        shutdown();
+      }
+    });
+    ongoing.add(p);
+  }
+
   router.addRoute(
     "POST",
     config.http.hook.path,
@@ -35,18 +53,16 @@ export async function createServer(config, sd, context) {
       {
         push: async request => {
           console.log("push", request.repository.full_name);
-          PreparedContext.execute(
-            context,
-            request.repository.full_name
+
+          addOngoing(
+            PreparedContext.execute(context, request.repository.full_name)
           );
 
           return { pullRequest: "ongoing" };
         },
         ping: async request => {
-          console.log(
-            "Received a ping event for %s",
-            request.repository.full_name
-          );
+          console.log("ping", request.repository.full_name);
+
           return { ok: true };
         }
       },
