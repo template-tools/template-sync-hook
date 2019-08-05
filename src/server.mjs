@@ -30,10 +30,13 @@ export async function createServer(config, sd, context) {
     console.log("shutdown request STILL ONGOING", ongoing.size);
     if (ongoing.size === 0) {
       sd.notify("STOPPING=1");
+      server.unref();
+/*
       server.close(() => {
         console.log("server closed");
-        process.nextTick(() => process.exit(0));
+        //process.nextTick(() => process.exit(0));
       });
+*/
     }
   }
 
