@@ -34,7 +34,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "commander": "^2.20.0",
+    "commander": "^3.0.0",
     "config-expander": "^11.0.5",
     "github-repository-provider": "^7.4.7",
     "koa": "^2.7.0",
