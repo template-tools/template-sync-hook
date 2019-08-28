@@ -53,7 +53,7 @@
     "got": "^9.6.0",
     "markdown-doctest": "^0.9.1",
     "npm-pkgbuild": "^6.9.0",
-    "rollup": "^1.20.2",
+    "rollup": "^1.20.3",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-executable": "^1.5.0",
@@ -83,6 +83,26 @@
     "urlPrefix": "/services/npm-template-sync",
     "socket": "/run/${name}/socket"
   },
+  "systemd": {
+    "units": {
+      "${name}": "systemd/${name}*"
+    }
+  },
+  "pacman": {
+    "groups": "webhook",
+    "hooks": "pacman/install.sh",
+    "installdir": "/services/${name}",
+    "depends": {
+      "systemd": ">=242.32",
+      "nginx-mainline": ">=1.17.1"
+    },
+    "backup": "etc/${name}/config.json",
+    "content": {
+      "/etc/${name}/config.json": "pacman/config.json",
+      "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
+      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
+    }
+  },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -111,26 +131,6 @@
   "template": {
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template.git"
-    }
-  },
-  "systemd": {
-    "units": {
-      "${name}": "systemd/${name}*"
-    }
-  },
-  "pacman": {
-    "groups": "webhook",
-    "hooks": "pacman/install.sh",
-    "installdir": "/services/${name}",
-    "depends": {
-      "systemd": ">=242.32",
-      "nginx-mainline": ">=1.17.1"
-    },
-    "backup": "etc/${name}/config.json",
-    "content": {
-      "/etc/${name}/config.json": "pacman/config.json",
-      "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
-      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     }
   }
 }
