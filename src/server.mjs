@@ -1,5 +1,4 @@
 import Koa from "koa";
-
 import Router from "koa-better-router";
 import { createGithubHookHandler } from "koa-github-hook-handler";
 import { PreparedContext } from "npm-template-sync";
