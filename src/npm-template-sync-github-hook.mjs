@@ -48,6 +48,6 @@ program
       loggerOptions
     );
 
-    const server = await createServer(config, sd, context);
+    await createServer(config, sd, context);
   })
   .parse(process.argv);
