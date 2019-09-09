@@ -93,7 +93,7 @@
     "hooks": "pacman/install.sh",
     "installdir": "/services/${name}",
     "depends": {
-      "systemd": ">=242.84",
+      "systemd": ">=243.0",
       "nginx-mainline": ">=1.17.3"
     },
     "backup": "etc/${name}/config.json",
