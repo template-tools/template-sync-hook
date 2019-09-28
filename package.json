@@ -37,7 +37,7 @@
     "commander": "^3.0.2",
     "config-expander": "^11.0.5",
     "github-repository-provider": "^7.4.12",
-    "koa": "^2.8.1",
+    "koa": "^2.8.2",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.1",
     "npm-template-sync": "^8.5.7",
