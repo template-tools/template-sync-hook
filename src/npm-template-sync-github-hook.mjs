@@ -14,8 +14,8 @@ program
   .action(async () => {
     let sd = { notify: () => {}, listeners: () => [] };
     try {
-      sd = require("sd-daemon");
-      //sd = await import("sd-daemon");
+      //sd = require("sd-daemon");
+      sd = await import("sd-daemon");
     } catch (e) {}
 
     sd.notify("STATUS=starting");
