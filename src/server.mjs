@@ -28,9 +28,15 @@ export async function createServer(config, sd, context) {
 
   process.on("SIGINT", () => shutdown());
 
-  router.addRoute("POST", "admin/stop", (ctx, next) => {
+  router.addRoute("POST", "/admin/stop", (ctx, next) => {
     shutdown();
     next();
+  });
+
+  router.addRoute("POST", "/admin/reload", async (ctx, next) => {
+    sd.notify("RELOADING=1");
+    // TODO
+    return next();
   });
 
   const ongoing = new Set();
