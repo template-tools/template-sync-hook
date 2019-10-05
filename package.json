@@ -80,7 +80,7 @@
   },
   "homepage": "https://github.com/arlac77/npm-template-sync-github-hook#readme",
   "config": {
-    "urlPrefix": "/services/npm-template-sync",
+    "base": "/services/npm-template-sync",
     "socket": "/run/${name}/socket"
   },
   "systemd": {
