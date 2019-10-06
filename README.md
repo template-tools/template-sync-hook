@@ -17,6 +17,8 @@
 
 github hook for npm-template-sync
 
+automatically generates PR on target repos when a template modification occures
+
 # install
 
 With [npm](http://npmjs.org) do:
