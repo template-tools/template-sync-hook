@@ -36,11 +36,11 @@
   "dependencies": {
     "commander": "^3.0.2",
     "config-expander": "^11.0.6",
-    "github-repository-provider": "^7.4.28",
-    "koa": "^2.10.0",
+    "github-repository-provider": "^7.4.29",
+    "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.1",
-    "npm-template-sync": "^8.5.40",
+    "npm-template-sync": "^8.5.43",
     "remove-sensible-values": "^1.0.3"
   },
   "devDependencies": {
