@@ -95,7 +95,7 @@
       "x86_64"
     ],
     "groups": "webhook",
-    "hooks": "pacman/install.sh",
+    "hooks": "pacman/hooks.sh",
     "installdir": "/services/${name}",
     "depends": {
       "systemd": ">=243.51",
