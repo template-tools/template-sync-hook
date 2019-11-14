@@ -4,7 +4,6 @@
   "publishConfig": {
     "access": "public"
   },
-  "module": "src/npm-template-sync-github-hook.mjs",
   "description": "github hook for npm-template-sync",
   "keywords": [
     "npm",
@@ -24,8 +23,8 @@
   },
   "scripts": {
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme src/npm-template-sync-github-hook.mjs --section=API",
-    "lint": "documentation lint src/npm-template-sync-github-hook.mjs",
+    "docs": "documentation readme src/npm-template-sync-github-hook-cli.mjs --section=API",
+    "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs",
     "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
