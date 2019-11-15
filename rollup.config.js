@@ -6,22 +6,18 @@ import cleanup from "rollup-plugin-cleanup";
 import builtins from "builtin-modules";
 import pkg from "./package.json";
 
-const external = [
-    ...builtins,
-    "universal-user-agent",
-    "@octokit/rest",
-    "node-fetch",
-    "sd-daemon",
-    "koa",
-    "koa-better-router"
-  ];
-  
+const external = [...builtins,    "universal-user-agent",
+"@octokit/rest",
+"node-fetch",
+"sd-daemon",
+"koa",
+"koa-better-router"
+];
 const extensions = ["js", "mjs", "jsx", "tag"];
 const plugins = [
   commonjs(),
   resolve(),
   json({
- //   include: "package.json",
     preferConst: true,
     compact: true
   }),
@@ -42,7 +38,7 @@ const config = Object.keys(pkg.bin || {}).map(name => {
   };
 });
 
-if (pkg.module !== undefined && pkg.main !== undefined) {
+if (pkg.module !== undefined && pkg.main !== undefined && pkg.module != pkg.main) {
   config.push({
     input: pkg.module,
     output: {
@@ -50,6 +46,7 @@ if (pkg.module !== undefined && pkg.main !== undefined) {
     }
   });
 }
+
 export default config.map(c => {
   c.output = {
     interop: false,
