@@ -4,6 +4,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "files": [
+    "bin"
+  ],
   "module": "src/npm-template-sync-github-hook-cli.mjs",
   "description": "github hook for npm-template-sync",
   "keywords": [
@@ -45,6 +48,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-json": "^4.0.0",
+    "@rollup/plugin-node-resolve": "^6.0.0",
     "@semantic-release/exec": "^3.3.8",
     "ava": "^2.4.0",
     "builtin-modules": "^3.1.0",
@@ -54,11 +58,10 @@
     "got": "^10.0.0",
     "markdown-doctest": "^1.0.0",
     "npm-pkgbuild": "^6.10.14",
-    "rollup": "^1.27.5",
+    "rollup": "^1.27.8",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-executable": "^1.5.1",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "semantic-release": "^15.13.31",
     "x-hub-signature": "^1.2.0"
   },
@@ -72,9 +75,6 @@
     "type": "git",
     "url": "https://github.com/arlac77/npm-template-sync-github-hook.git"
   },
-  "files": [
-    "bin"
-  ],
   "bugs": {
     "url": "https://github.com/arlac77/npm-template-sync-github-hook/issues"
   },
