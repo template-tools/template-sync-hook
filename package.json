@@ -43,7 +43,7 @@
     "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.3",
-    "npm-template-sync": "^8.9.5",
+    "npm-template-sync": "^8.9.6",
     "remove-sensible-values": "^1.0.3"
   },
   "devDependencies": {
@@ -81,7 +81,7 @@
   "homepage": "https://github.com/arlac77/npm-template-sync-github-hook#readme",
   "config": {
     "base": "/services/npm-template-sync",
-    "socket": "/run/${name}/socket"
+    "socket": "/run/${name}/http/socket"
   },
   "systemd": {
     "units": {
