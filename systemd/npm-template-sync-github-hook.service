@@ -5,7 +5,7 @@ After=network-online.target
 [Service]
 Type=notify
 
-ExecStart={{installdir}}/bin/{{name}}
+ExecStart=/usr/bin/node --title {{name}} {{installdir}}/bin/{{name}}
 ExecStop=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/stop
 ExecReload=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/reload
 
@@ -15,6 +15,13 @@ DynamicUser=yes
 NoNewPrivileges=true
 ConfigurationDirectory={{name}}
 RuntimeDirectory={{name}}
+NotifyAccess=all
+FileDescriptorStoreMax=5
+
+MemoryAccounting=true
+MemoryHigh=50M
+MemoryMax=100M
+OOMPolicy=stop
 
 [Install]
 WantedBy=multi-user.target
