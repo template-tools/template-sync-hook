@@ -43,11 +43,7 @@
     "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.3",
-<<<<<<< HEAD
     "npm-template-sync": "^8.11.3",
-=======
-    "npm-template-sync": "^8.11.2",
->>>>>>> 0f5827635548e088eefc8f2b49ff28d961ca4315
     "remove-sensible-values": "^1.0.3"
   },
   "devDependencies": {
