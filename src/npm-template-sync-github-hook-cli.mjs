@@ -1,6 +1,7 @@
 import { resolve } from "path";
 import program from "commander";
-import { version, description } from "../package.json";
+import version from "consts:version";
+import description from "consts:description";
 import { expand } from "config-expander";
 import { removeSensibleValues } from "remove-sensible-values";
 import { Context } from "npm-template-sync";
