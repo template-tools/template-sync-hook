@@ -38,13 +38,13 @@
   },
   "dependencies": {
     "commander": "^4.1.0",
-    "config-expander": "^11.0.7",
-    "github-repository-provider": "^7.5.2",
+    "config-expander": "^11.0.8",
+    "github-repository-provider": "^7.5.3",
     "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
-    "koa-github-hook-handler": "^1.4.3",
-    "npm-template-sync": "^8.11.15",
-    "remove-sensible-values": "^1.0.3"
+    "koa-github-hook-handler": "^1.4.4",
+    "npm-template-sync": "^8.11.18",
+    "remove-sensible-values": "^1.0.4"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.1",
@@ -56,9 +56,9 @@
     "c8": "^7.0.0",
     "documentation": "^12.1.4",
     "esm": "^3.2.25",
-    "got": "^10.2.1",
+    "got": "^10.2.2",
     "markdown-doctest": "^1.0.0",
-    "npm-pkgbuild": "^6.11.3",
+    "npm-pkgbuild": "^6.11.4",
     "rollup": "^1.29.0",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-consts": "^1.0.1",
