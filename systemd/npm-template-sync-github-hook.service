@@ -13,8 +13,10 @@ TimeoutStartSec=20
 StandardOutput=syslog
 DynamicUser=yes
 NoNewPrivileges=true
-ConfigurationDirectory={{name}}
 RuntimeDirectory={{name}}
+StateDirectory={{name}}
+CacheDirectory={{name}}
+ConfigurationDirectory={{name}}
 NotifyAccess=all
 FileDescriptorStoreMax=5
 
@@ -22,6 +24,13 @@ MemoryAccounting=true
 MemoryHigh=50M
 MemoryMax=100M
 OOMPolicy=stop
+
+PrivateDevices=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectSystem=full
+RestrictSUIDSGID=true
 
 [Install]
 WantedBy=multi-user.target
