@@ -13,6 +13,7 @@ import { name, version, description, main, module, bin } from "./package.json";
 
 const external = [...builtins,    "universal-user-agent",
 "@octokit/rest",
+"@octokit/plugin-throttling",
 "node-fetch",
 "sd-daemon",
 "koa",
