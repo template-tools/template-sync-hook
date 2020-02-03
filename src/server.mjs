@@ -1,7 +1,7 @@
 import Koa from "koa";
 import Router from "koa-better-router";
 import { createGithubHookHandler } from "koa-github-hook-handler";
-import { PreparedContext } from "npm-template-sync";
+import { PreparedContext, Template } from "npm-template-sync";
 
 export const defaultServerConfig = {
   autostop: false,
@@ -43,6 +43,7 @@ export async function createServer(config, sd, context) {
 
   function addOngoing(p) {
     p.finally(() => {
+      Template.clearCache();
       ongoing.delete(p);
       if(config.autostop) {
         shutdown();
