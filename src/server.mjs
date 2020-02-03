@@ -59,10 +59,9 @@ export async function createServer(config, sd, context) {
         push: async request => {
           console.log("push", request.repository.full_name);
 
-          addOngoing(async () => {
-            const pc = await PreparedContext.from(context, request.repository.full_name);
-            return pc.execute(); }
-          );
+          const pc = await PreparedContext.from(context, request.repository.full_name);
+ 
+          addOngoing(pc.execute());
 
           return { pullRequest: "ongoing", queuedAt: ongoing.size };
         },
