@@ -30,7 +30,6 @@
     "docs": "documentation readme src/npm-template-sync-github-hook-cli.mjs --section=API",
     "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs",
     "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg",
-    "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
     "pretest": "npm run prepare",
     "start": "node bin/npm-template-sync-github-hook",
