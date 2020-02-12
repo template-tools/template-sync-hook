@@ -9,6 +9,7 @@ import { removeSensibleValues } from "remove-sensible-values";
 import { Context } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 import { defaultServerConfig, createServer } from "./server.mjs";
+import sd from "sd-daemon";
 import pkg from "../package.json";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -18,11 +19,6 @@ program
   .description(pkg.description)
   .option("-c, --config <dir>", "use config directory")
   .action(async () => {
-    let sd = { notify: () => {}, listeners: () => [] };
-    try {
-      sd = await import("sd-daemon");
-    } catch (e) {}
-
     sd.notify("STATUS=starting");
 
     const configDir = process.env.CONFIGURATION_DIRECTORY || program.config;
