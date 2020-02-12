@@ -5,7 +5,7 @@ After=network-online.target
 [Service]
 Type=notify
 
-ExecStart=/usr/bin/node --experimental-modules --experimental-json-modules --title {{name}} {{installdir}}src/npm-template-sync-github-hook-cli.mjs
+ExecStart=/usr/bin/node --experimental-modules --experimental-json-modules --title {{name}} {{installdir}}/src/npm-template-sync-github-hook-cli.mjs
 ExecStop=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/stop
 ExecReload=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/reload
 
