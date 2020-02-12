@@ -1,7 +1,6 @@
 import test from "ava";
-import { dirname } from "path";
 import got from "got";
-import signer from "x-hub-signature/src/signer";
+import signer from "x-hub-signature/src/signer.js";
 import { Context } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 import { createServer } from "../src/server.mjs";

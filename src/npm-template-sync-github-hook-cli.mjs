@@ -1,16 +1,21 @@
-import { resolve } from "path";
+#!/bin/sh
+":"; //# comment; exec /usr/bin/env node --experimental-modules --experimental-json-modules "$0" "$@"
+
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
 import program from "commander";
-import version from "consts:version";
-import description from "consts:description";
 import { expand } from "config-expander";
 import { removeSensibleValues } from "remove-sensible-values";
 import { Context } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 import { defaultServerConfig, createServer } from "./server.mjs";
+import pkg from "../package.json";
+
+const here = dirname(fileURLToPath(import.meta.url));
 
 program
-  .version(version)
-  .description(description)
+  .version(pkg.version)
+  .description(pkg.description)
   .option("-c, --config <dir>", "use config directory")
   .action(async () => {
     let sd = { notify: () => {}, listeners: () => [] };
@@ -25,7 +30,7 @@ program
     const config = await expand(configDir ? "${include('config.json')}" : {}, {
       constants: {
         basedir: configDir || process.cwd(),
-        installdir: resolve(__dirname, "..")
+        installdir: resolve(here, "..")
       },
       default: {
         ...defaultServerConfig
