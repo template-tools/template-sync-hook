@@ -28,7 +28,8 @@
     "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs",
     "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg",
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
-    "test": "ava --timeout 2m"
+    "test": "ava --timeout 2m",
+    "prepare": "rollup -c"
   },
   "dependencies": {
     "commander": "^4.1.1",
@@ -41,12 +42,19 @@
     "remove-sensible-values": "^1.0.4"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "@semantic-release/exec": "^5.0.0",
     "ava": "^3.3.0",
+    "builtin-modules": "^3.1.0",
     "c8": "^7.1.0",
     "documentation": "^12.1.4",
     "got": "^10.5.5",
     "npm-pkgbuild": "^6.11.5",
+    "rollup": "^1.31.0",
+    "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-executable": "^1.5.2",
     "semantic-release": "^17.0.2",
     "x-hub-signature": "^1.2.0"
   },
@@ -54,7 +62,7 @@
     "sd-daemon": "^1.0.2"
   },
   "engines": {
-    "node": ">=12.15.0"
+    "node": ">=12.16.0"
   },
   "repository": {
     "type": "git",
