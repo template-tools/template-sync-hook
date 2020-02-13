@@ -4,6 +4,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "sideEffects": false,
+  "type": "module",
+  "main": "src/npm-template-sync-github-hook-cli.mjs",
   "module": "src/npm-template-sync-github-hook-cli.mjs",
   "description": "github hook for npm-template-sync",
   "keywords": [
@@ -107,7 +110,7 @@
   },
   "template": {
     "repository": {
-      "url": "https://github.com/arlac77/npm-package-template.git"
+      "url": "https://github.com/arlac77/npm-package-template-esm-only.git"
     }
   }
 }
