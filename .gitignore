@@ -3,6 +3,7 @@ build
 dist
 *.log
 *.dump
+*.node
 .DS_Store
 .test
 .tmp
