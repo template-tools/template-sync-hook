@@ -50,7 +50,7 @@
     "documentation": "^12.1.4",
     "got": "^10.5.7",
     "npm-pkgbuild": "^6.11.5",
-    "semantic-release": "^17.0.3",
+    "semantic-release": "^17.0.4",
     "x-hub-signature": "^1.2.0"
   },
   "optionalDependencies": {
