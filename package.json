@@ -26,12 +26,12 @@
     "npm-template-sync-github-hook": "src/npm-template-sync-github-hook-cli.mjs"
   },
   "scripts": {
-    "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg",
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
-    "test": "ava --timeout 2m",
-    "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
+    "test": "ava --node-arguments '--experimental-modules' --timeout 2m",
+    "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --node-arguments '--experimental-modules' --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "docs": "documentation readme src/npm-template-sync-github-hook-cli.mjs --section=API",
-    "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs"
+    "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs",
+    "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg"
   },
   "dependencies": {
     "commander": "^4.1.1",
@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@semantic-release/exec": "^5.0.0",
-    "ava": "^3.3.0",
+    "ava": "^3.4.0",
     "c8": "^7.1.0",
     "documentation": "^12.1.4",
     "got": "^10.6.0",
