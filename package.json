@@ -26,12 +26,12 @@
     "npm-template-sync-github-hook": "src/npm-template-sync-github-hook-cli.mjs"
   },
   "scripts": {
+    "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg",
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
     "test": "ava --node-arguments '--experimental-modules' --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --node-arguments '--experimental-modules' --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "docs": "documentation readme src/npm-template-sync-github-hook-cli.mjs --section=API",
-    "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs",
-    "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg"
+    "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs"
   },
   "dependencies": {
     "commander": "^4.1.1",
@@ -57,7 +57,7 @@
     "sd-daemon": "^1.0.2"
   },
   "engines": {
-    "node": ">=12.15.0"
+    "node": ">=12.16.1"
   },
   "repository": {
     "type": "git",
