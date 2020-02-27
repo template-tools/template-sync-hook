@@ -6,7 +6,6 @@ import { fileURLToPath } from "url";
 import program from "commander";
 import { expand } from "config-expander";
 import { removeSensibleValues } from "remove-sensible-values";
-import { Context } from "npm-template-sync";
 import { GithubProvider } from "github-repository-provider";
 import { defaultServerConfig, createServer } from "./server.mjs";
 import sd from "sd-daemon";
@@ -40,15 +39,11 @@ program
 
     console.log(removeSensibleValues(config));
 
-    const loggerOptions = {
-      logger: console
-    };
-
-    const context = new Context(
+    await createServer(config, sd,
       GithubProvider.initialize(undefined, process.env),
-      loggerOptions
-    );
-
-    await createServer(config, sd, context);
+      {
+        logger: console
+      }
+      );
   })
   .parse(process.argv);

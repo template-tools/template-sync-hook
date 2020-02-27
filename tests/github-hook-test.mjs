@@ -13,13 +13,6 @@ const secret = "aSecret";
 test("request push", async t => {
   const port = "3127";
 
-  const context = new Context(
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
-    {
-      logger: console
-    }
-  );
-
   const server = await createServer(
     {
       autostop: true,
@@ -32,7 +25,10 @@ test("request push", async t => {
       }
     },
     sd,
-    context
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+    {
+      logger: console
+    }
   );
 
   const sign = signer({ algorithm: "sha1", secret });
@@ -61,13 +57,6 @@ test("request push", async t => {
 test("request ping", async t => {
   const port = "3128";
 
-  const context = new Context(
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
-    {
-      logger: console
-    }
-  );
-
   const server = await createServer(
     {
       http: {
@@ -79,7 +68,10 @@ test("request ping", async t => {
       }
     },
     sd,
-    context
+    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
+    {
+      logger: console
+    }
   );
 
   const sign = signer({ algorithm: "sha1", secret });

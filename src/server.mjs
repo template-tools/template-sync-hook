@@ -1,7 +1,7 @@
 import Koa from "koa";
 import Router from "koa-better-router";
 import { createGithubHookHandler } from "koa-github-hook-handler";
-import { PreparedContext, Template } from "npm-template-sync";
+import { Context, Template } from "npm-template-sync";
 
 export const defaultServerConfig = {
   autostop: false,
@@ -14,7 +14,7 @@ export const defaultServerConfig = {
   }
 };
 
-export async function createServer(config, sd, context) {
+export async function createServer(config, sd, provider, options) {
   const app = new Koa();
 
   const router = Router();
@@ -60,9 +60,9 @@ export async function createServer(config, sd, context) {
         push: async request => {
           console.log("push", request.repository.full_name);
 
-          const pc = await PreparedContext.from(context, request.repository.full_name);
+          const context = await Context.from(provider, request.repository.full_name, options);
  
-          addOngoing(pc.execute());
+          addOngoing(context.execute());
 
           return { pullRequest: "ongoing", queuedAt: ongoing.size };
         },
