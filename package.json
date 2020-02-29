@@ -39,7 +39,7 @@
     "github-repository-provider": "^7.6.6",
     "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
-    "koa-github-hook-handler": "^1.4.4",
+    "koa-github-hook-handler": "^1.4.5",
     "npm-template-sync": "^9.0.4",
     "remove-sensible-values": "^1.0.5"
   },
