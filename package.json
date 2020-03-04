@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@semantic-release/exec": "^5.0.0",
-    "ava": "^3.4.0",
+    "ava": "^3.5.0",
     "c8": "^7.1.0",
     "documentation": "^12.1.4",
     "got": "^10.6.0",
@@ -109,6 +109,9 @@
     ]
   },
   "template": {
-    "inheritFrom": "arlac77/template-esm-only"
+    "inheritFrom": [
+      "arlac77/template-esm-only",
+      "arlac77/template-github"
+    ]
   }
 }
