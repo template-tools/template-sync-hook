@@ -34,7 +34,7 @@
     "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg"
   },
   "dependencies": {
-    "commander": "^4.1.1",
+    "commander": "^5.0.0",
     "config-expander": "^11.0.11",
     "github-repository-provider": "^7.6.7",
     "koa": "^2.11.0",
