@@ -1,5 +1,5 @@
 #!/bin/sh
-":"; //# comment; exec /usr/bin/env node --experimental-modules --experimental-json-modules "$0" "$@"
+":"; //# comment; exec /usr/bin/env node --experimental-json-modules "$0" "$@"
 
 import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
