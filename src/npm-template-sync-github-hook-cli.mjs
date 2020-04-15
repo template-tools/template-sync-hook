@@ -1,7 +1,8 @@
 #!/bin/sh
 ":"; //# comment; exec /usr/bin/env node --experimental-json-modules "$0" "$@"
 
-import { resolve, dirname } from "path";
+import { readFileSync } from "fs";
+import { join, resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import program from "commander";
 import { expand } from "config-expander";
@@ -9,13 +10,19 @@ import { removeSensibleValues } from "remove-sensible-values";
 import { GithubProvider } from "github-repository-provider";
 import { defaultServerConfig, createServer } from "./server.mjs";
 import sd from "sd-daemon";
-import pkg from "../package.json";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
+const { version, description } = JSON.parse(
+  readFileSync(
+    join(here, "..", "package.json"),
+    { endoding: "utf8" }
+  )
+);
+
 program
-  .version(pkg.version)
-  .description(pkg.description)
+  .version(version)
+  .description(description)
   .option("-c, --config <dir>", "use config directory")
   .action(async () => {
     sd.notify("STATUS=starting");
