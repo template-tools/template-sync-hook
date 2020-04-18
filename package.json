@@ -40,7 +40,7 @@
     "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.1.25",
+    "npm-template-sync": "^9.1.26",
     "remove-sensible-values": "^1.0.6"
   },
   "devDependencies": {
