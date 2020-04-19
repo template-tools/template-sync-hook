@@ -111,7 +111,9 @@
   "template": {
     "inheritFrom": [
       "arlac77/template-esm-only",
-      "arlac77/template-github"
+      "arlac77/template-github",
+      "arlac77/template-nginx",
+      "arlac77/template-systemd"
     ]
   }
 }
