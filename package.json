@@ -44,7 +44,9 @@
     "remove-sensible-values": "^1.0.6"
   },
   "devDependencies": {
+    "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/release-notes-generator": "^9.0.1",
     "ava": "^3.7.1",
     "c8": "^7.1.0",
     "documentation": "^12.3.0",
@@ -113,6 +115,7 @@
       "arlac77/template-esm-only",
       "arlac77/template-github",
       "arlac77/template-nginx",
+      "arlac77/template-pacman",
       "arlac77/template-systemd"
     ]
   }
