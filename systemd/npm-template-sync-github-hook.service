@@ -12,6 +12,7 @@ ExecReload=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/adm
 TimeoutStartSec=20
 StandardOutput=syslog
 DynamicUser=yes
+SupplementaryGroups=http
 NoNewPrivileges=true
 RuntimeDirectory={{name}}
 StateDirectory={{name}}
