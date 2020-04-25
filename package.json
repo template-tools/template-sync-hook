@@ -34,13 +34,13 @@
     "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg"
   },
   "dependencies": {
-    "commander": "^5.0.0",
+    "commander": "^5.1.0",
     "config-expander": "^11.0.12",
-    "github-repository-provider": "^7.9.0",
+    "github-repository-provider": "^7.9.1",
     "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.4.0",
+    "npm-template-sync": "^9.4.2",
     "remove-sensible-values": "^1.0.6"
   },
   "devDependencies": {
