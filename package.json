@@ -7,13 +7,15 @@
   "sideEffects": false,
   "type": "module",
   "main": "src/npm-template-sync-github-hook-cli.mjs",
-  "module": "src/npm-template-sync-github-hook-cli.mjs",
+  "module": "src/index.mjs",
+  "svelte": "src/index.svelte",
   "description": "github hook for npm-template-sync",
   "keywords": [
     "npm",
     "template",
     "webhook",
-    "github"
+    "github",
+    "svelte"
   ],
   "contributors": [
     {
@@ -26,8 +28,8 @@
     "npm-template-sync-github-hook": "src/npm-template-sync-github-hook-cli.mjs"
   },
   "scripts": {
-    "start": "node src/npm-template-sync-github-hook-cli.mjs",
-    "test": "ava --timeout 2m",
+    "start": "rollup -c example/rollup.config.mjs -w",
+    "test": "testcafe $BROWSER:headless tests/*-test.js -s test-results --app-init-delay 500 --app \"rollup -c example/rollup.config.mjs -w\"",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "docs": "documentation readme src/npm-template-sync-github-hook-cli.mjs --section=API",
     "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs",
@@ -52,7 +54,10 @@
     "documentation": "^12.3.0",
     "got": "^11.0.2",
     "npm-pkgbuild": "^6.11.16",
+    "rollup": "^2.7.2",
     "semantic-release": "^17.0.7",
+    "svelte": "^3.21.0",
+    "testcafe": "^1.8.4",
     "x-hub-signature": "^1.2.0"
   },
   "optionalDependencies": {
@@ -112,10 +117,11 @@
   },
   "template": {
     "inheritFrom": [
+      "arlac77/template-arlac77-github",
       "arlac77/template-esm-only",
-      "arlac77/template-github",
       "arlac77/template-nginx",
       "arlac77/template-pacman",
+      "arlac77/template-svelte-component",
       "arlac77/template-systemd"
     ]
   }
