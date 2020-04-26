@@ -5,8 +5,11 @@ doc
 *.tmp
 .test
 .tmp
+example
 .travis.yml
+rollup.config.*
 .vscode
 pacman
 systemd
 .github
+test-results
