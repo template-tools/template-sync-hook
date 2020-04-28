@@ -1,12 +1,10 @@
-#!/bin/sh
-":"; //# comment; exec /usr/bin/env node --experimental-json-modules "$0" "$@"
+#!/usr/bin/env node
 
 import { readFileSync } from "fs";
 import { join, resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import program from "commander";
 import { expand } from "config-expander";
-import { removeSensibleValues } from "remove-sensible-values";
 import { GithubProvider } from "github-repository-provider";
 import { defaultServerConfig, createServer } from "./server.mjs";
 import sd from "sd-daemon";
@@ -43,8 +41,6 @@ program
     if (listeners.length > 0) {
       config.http.port = listeners[0];
     }
-
-    console.log(removeSensibleValues(config));
 
     await createServer(config, sd,
       GithubProvider.initialize(undefined, process.env),
