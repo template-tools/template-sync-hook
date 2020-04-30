@@ -28,8 +28,8 @@
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
     "test": "ava --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "",
-    "lint": "",
+    "docs": "documentation readme src/npm-template-sync-github-hook-cli.mjs --section=API",
+    "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs",
     "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg"
   },
   "dependencies": {
