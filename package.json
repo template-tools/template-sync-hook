@@ -28,18 +28,17 @@
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
     "test": "ava --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme src/npm-template-sync-github-hook-cli.mjs --section=API",
-    "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs",
-    "package": "npm-pkgbuild --npm-dist --npm-modules pkgbuild pacman makepkg"
+    "docs": "",
+    "lint": ""
   },
   "dependencies": {
     "commander": "^5.1.0",
-    "config-expander": "^11.0.12",
+    "config-expander": "^11.0.13",
     "github-repository-provider": "7.9.5",
     "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "9.5.0"
+    "npm-template-sync": "9.5.1"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -48,7 +47,7 @@
     "ava": "^3.8.1",
     "c8": "^7.1.1",
     "documentation": "^12.3.0",
-    "got": "^11.0.2",
+    "got": "^11.0.3",
     "npm-pkgbuild": "^6.11.18",
     "semantic-release": "^17.0.7",
     "x-hub-signature": "^1.2.0"
