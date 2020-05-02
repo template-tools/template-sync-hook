@@ -6,7 +6,7 @@
   },
   "sideEffects": false,
   "type": "module",
-  "main": "src/npm-template-sync-github-hook-cli.mjs",
+  "main": "./src/npm-template-sync-github-hook-cli.mjs",
   "exports": {
     ".": "./src/npm-template-sync-github-hook-cli.mjs",
     "./": "./"
@@ -32,17 +32,17 @@
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
     "test": "ava --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme src/npm-template-sync-github-hook-cli.mjs --section=API",
-    "lint": "documentation lint src/npm-template-sync-github-hook-cli.mjs"
+    "docs": "documentation readme ./src/npm-template-sync-github-hook-cli.mjs --section=API",
+    "lint": "documentation lint ./src/npm-template-sync-github-hook-cli.mjs"
   },
   "dependencies": {
     "commander": "^5.1.0",
     "config-expander": "^11.0.13",
-    "github-repository-provider": "7.9.5",
+    "github-repository-provider": "^7.9.8",
     "koa": "^2.11.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "9.5.1"
+    "npm-template-sync": "^9.5.4"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
