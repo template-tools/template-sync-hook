@@ -38,11 +38,11 @@
   "dependencies": {
     "commander": "^5.1.0",
     "config-expander": "^11.0.13",
-    "github-repository-provider": "^7.9.20",
+    "github-repository-provider": "^7.9.21",
     "koa": "^2.12.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.6.4"
+    "npm-template-sync": "^9.6.10"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
