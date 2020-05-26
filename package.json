@@ -8,8 +8,7 @@
   "type": "module",
   "main": "./src/npm-template-sync-github-hook-cli.mjs",
   "exports": {
-    ".": "./src/npm-template-sync-github-hook-cli.mjs",
-    "./": "./"
+    ".": "./src/npm-template-sync-github-hook-cli.mjs"
   },
   "description": "github hook for npm-template-sync",
   "keywords": [
@@ -38,11 +37,11 @@
   "dependencies": {
     "commander": "^5.1.0",
     "config-expander": "^11.0.13",
-    "github-repository-provider": "^7.9.21",
+    "github-repository-provider": "^7.9.22",
     "koa": "^2.12.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.6.10"
+    "npm-template-sync": "^9.6.11"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
