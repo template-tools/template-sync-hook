@@ -31,8 +31,8 @@
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
     "test": "ava --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme ./src/npm-template-sync-github-hook-cli.mjs --section=API",
-    "lint": "documentation lint ./src/npm-template-sync-github-hook-cli.mjs"
+    "docs": "",
+    "lint": ""
   },
   "dependencies": {
     "commander": "^5.1.0",
