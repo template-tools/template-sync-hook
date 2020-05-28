@@ -5,7 +5,7 @@ import { join, resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import program from "commander";
 import { expand } from "config-expander";
-import { GithubProvider } from "github-repository-provider";
+import GithubProvider from "github-repository-provider";
 import { defaultServerConfig, createServer } from "./server.mjs";
 import sd from "sd-daemon";
 
