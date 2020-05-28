@@ -14,7 +14,7 @@ const here = dirname(fileURLToPath(import.meta.url));
 const { version, description } = JSON.parse(
   readFileSync(
     join(here, "..", "package.json"),
-    { endoding: "utf8" }
+    { encoding: "utf8" }
   )
 );
 
