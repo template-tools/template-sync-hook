@@ -31,17 +31,17 @@
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
     "test": "ava --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme ./src/npm-template-sync-github-hook-cli.mjs --section=API",
-    "lint": "documentation lint ./src/npm-template-sync-github-hook-cli.mjs"
+    "docs": "",
+    "lint": ""
   },
   "dependencies": {
     "commander": "^5.1.0",
     "config-expander": "^11.0.13",
-    "github-repository-provider": "^7.9.35",
+    "github-repository-provider": "^7.9.36",
     "koa": "^2.12.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.7.5"
+    "npm-template-sync": "^9.7.6"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -50,7 +50,7 @@
     "ava": "^3.8.2",
     "c8": "^7.1.2",
     "documentation": "^13.0.1",
-    "got": "11.2.0",
+    "got": "11.3.0",
     "npm-pkgbuild": "^6.12.1",
     "semantic-release": "^17.0.8",
     "x-hub-signature": "^1.2.0"
@@ -59,7 +59,7 @@
     "sd-daemon": "^1.0.2"
   },
   "engines": {
-    "node": ">=14.3.0"
+    "node": ">=14.4.0"
   },
   "repository": {
     "type": "git",
