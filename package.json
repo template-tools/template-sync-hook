@@ -52,7 +52,7 @@
     "documentation": "^13.0.1",
     "got": "11.3.0",
     "npm-pkgbuild": "^6.12.1",
-    "semantic-release": "^17.1.0",
+    "semantic-release": "^17.1.1",
     "x-hub-signature": "^1.2.0"
   },
   "optionalDependencies": {
