@@ -37,7 +37,7 @@
   "dependencies": {
     "commander": "^5.1.0",
     "config-expander": "^11.0.13",
-    "github-repository-provider": "^7.15.4",
+    "github-repository-provider": "^7.15.5",
     "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
