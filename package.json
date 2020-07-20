@@ -35,7 +35,7 @@
     "lint": "documentation lint ./src/npm-template-sync-github-hook-cli.mjs"
   },
   "dependencies": {
-    "commander": "^5.1.0",
+    "commander": "^6.0.0",
     "config-expander": "^11.0.13",
     "github-repository-provider": "^7.15.5",
     "koa": "^2.13.0",
