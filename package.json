@@ -37,11 +37,11 @@
   "dependencies": {
     "commander": "^6.0.0",
     "config-expander": "^11.0.13",
-    "github-repository-provider": "^7.15.5",
+    "github-repository-provider": "^7.15.6",
     "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.9.5"
+    "npm-template-sync": "^9.9.8"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -59,7 +59,7 @@
     "sd-daemon": "^1.0.2"
   },
   "engines": {
-    "node": ">=14.4.0"
+    "node": ">=14.7.0"
   },
   "repository": {
     "type": "git",
