@@ -41,7 +41,7 @@
     "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.10.0"
+    "npm-template-sync": "^9.10.3"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -50,7 +50,7 @@
     "ava": "^3.11.1",
     "c8": "^7.3.0",
     "documentation": "^13.0.2",
-    "got": "11.5.1",
+    "got": "11.5.2",
     "npm-pkgbuild": "^6.12.1",
     "semantic-release": "^17.1.1",
     "x-hub-signature": "^1.2.0"
@@ -88,7 +88,7 @@
     "hooks": "pacman/hooks.sh",
     "installdir": "/services/${name}",
     "depends": {
-      "systemd": ">=245",
+      "systemd": ">=246.1",
       "nginx-mainline": ">=1.19.0"
     },
     "backup": "etc/${name}/config.json",
