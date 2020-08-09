@@ -5,10 +5,11 @@ After=network-online.target
 [Service]
 Type=notify
 
-ExecStart=/usr/bin/node --title {{name}} {{installdir}}/src/npm-template-sync-github-hook-cli.mjs
+ExecStart=/usr/bin/node --unhandled-rejections=strict --trace-uncaught --trace-warnings --title {{name}} {{installdir}}/src/npm-template-sync-github-hook-cli.mjs
 ExecStop=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/stop
 ExecReload=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/reload
 
+StopWhenUnneeded=true
 TimeoutStartSec=20
 StandardOutput=syslog
 DynamicUser=yes
