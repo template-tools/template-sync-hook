@@ -31,8 +31,8 @@
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
     "test": "ava --timeout 2m",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
-    "docs": "documentation readme ./src/npm-template-sync-github-hook-cli.mjs --section=API",
-    "lint": "documentation lint ./src/npm-template-sync-github-hook-cli.mjs"
+    "docs": "",
+    "lint": ""
   },
   "dependencies": {
     "commander": "^6.0.0",
@@ -41,7 +41,7 @@
     "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.10.3"
+    "npm-template-sync": "^9.10.4"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
