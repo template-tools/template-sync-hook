@@ -8,7 +8,8 @@ Type=notify
 ExecStart=/usr/bin/node --unhandled-rejections=strict --trace-uncaught --trace-warnings --title {{name}} {{installdir}}/src/npm-template-sync-github-hook-cli.mjs
 ExecStop=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/stop
 ExecReload=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/reload
-
+RestartSec=30
+Restart=on-failure
 StopWhenUnneeded=true
 TimeoutStartSec=20
 DynamicUser=yes
@@ -27,6 +28,8 @@ MemoryAccounting=true
 MemoryHigh=50M
 MemoryMax=80M
 OOMPolicy=stop
+CPUWeight=10
+IOWeight=10
 
 PrivateDevices=true
 ProtectControlGroups=true
