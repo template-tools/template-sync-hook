@@ -1,6 +1,7 @@
 [Unit]
 Description={{description}}
 After=network-online.target
+StopWhenUnneeded=true
 
 [Service]
 Type=notify
@@ -10,7 +11,6 @@ ExecStop=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin
 ExecReload=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/reload
 RestartSec=30
 Restart=on-failure
-StopWhenUnneeded=true
 TimeoutStartSec=20
 DynamicUser=yes
 SupplementaryGroups=http
