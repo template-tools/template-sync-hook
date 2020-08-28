@@ -88,8 +88,8 @@
     "hooks": "pacman/hooks.sh",
     "installdir": "/services/${name}",
     "depends": {
-      "systemd": ">=246.1",
-      "nginx-mainline": ">=1.19.1"
+      "systemd": ">=246.2",
+      "nginx-mainline": ">=1.19.2"
     },
     "backup": "etc/${name}/config.json",
     "content": {
