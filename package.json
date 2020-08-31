@@ -41,7 +41,7 @@
     "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.12.3"
+    "npm-template-sync": "^9.12.4"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -59,7 +59,7 @@
     "sd-daemon": "^1.0.2"
   },
   "engines": {
-    "node": ">=14.8.0"
+    "node": ">=14.9.0"
   },
   "repository": {
     "type": "git",
