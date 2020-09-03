@@ -13,6 +13,14 @@ jobs:
       script:
         - npm run lint
         - npm run docs
+    - stage: release
+      node_js: lts/*
+      script: skip
+      deploy:
+        provider: script
+        cleanup: 'false'
+        script:
+          - npx semantic-release
 branches:
   only:
     - master
