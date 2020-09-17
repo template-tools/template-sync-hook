@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
-import { readFileSync } from "fs";
-import { join, resolve, dirname } from "path";
+import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import program from "commander";
 import { expand } from "config-expander";
@@ -11,18 +10,7 @@ import sd from "sd-daemon";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
-/*
-const { version, description } = JSON.parse(
-  readFileSync(
-    join(here, "..", "package.json"),
-    { encoding: "utf8" }
-  )
-);
-*/
-
 program
-  //.version(version)
-  //.description(description)
   .option("-c, --config <dir>", "use config directory")
   .action(async () => {
     sd.notify("STATUS=starting");
