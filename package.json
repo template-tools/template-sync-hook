@@ -51,7 +51,7 @@
     "c8": "^7.3.1",
     "documentation": "^13.0.2",
     "got": "11.7.0",
-    "npm-pkgbuild": "^6.12.8",
+    "npm-pkgbuild": "^6.12.9",
     "semantic-release": "^17.1.2",
     "x-hub-signature": "^1.2.0"
   },
