@@ -1,14 +1,10 @@
 #!/usr/bin/env node
 
-import { resolve, dirname } from "path";
-import { fileURLToPath } from "url";
 import program from "commander";
 import { expand } from "config-expander";
 import GithubProvider from "github-repository-provider";
 import { defaultServerConfig, createServer } from "./server.mjs";
 import sd from "sd-daemon";
-
-const here = dirname(fileURLToPath(import.meta.url));
 
 program
   .option("-c, --config <dir>", "use config directory")
@@ -20,7 +16,7 @@ program
     const config = await expand(configDir ? "${include('config.json')}" : {}, {
       constants: {
         basedir: configDir || process.cwd(),
-        installdir: resolve(here, "..")
+        installdir: new URL("..", import.meta.url).pathname
       },
       default: {
         ...defaultServerConfig
@@ -32,11 +28,13 @@ program
       config.http.port = listeners[0];
     }
 
-    await createServer(config, sd,
+    await createServer(
+      config,
+      sd,
       GithubProvider.initialize(undefined, process.env),
       {
         logger: console
       }
-      );
+    );
   })
   .parse(process.argv);
