@@ -38,12 +38,12 @@
   },
   "dependencies": {
     "commander": "^6.1.0",
-    "config-expander": "^11.0.13",
-    "github-repository-provider": "^7.17.15",
+    "config-expander": "^11.0.15",
+    "github-repository-provider": "^7.17.20",
     "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
-    "koa-github-hook-handler": "^1.4.6",
-    "npm-template-sync": "^9.16.9"
+    "koa-github-hook-handler": "^1.4.7",
+    "npm-template-sync": "^1.0.2"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -61,7 +61,7 @@
     "sd-daemon": "^1.0.2"
   },
   "engines": {
-    "node": ">=14.9.0"
+    "node": ">=14.13.1"
   },
   "repository": {
     "type": "git",
