@@ -25,7 +25,7 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "npm-template-sync-github-hook": "./src/npm-template-sync-github-hook-cli.mjs"
+    "npm-template-sync-github-hook": "src/npm-template-sync-github-hook-cli.mjs"
   },
   "scripts": {
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
@@ -43,7 +43,7 @@
     "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.7",
-    "npm-template-sync": "^10.0.7",
+    "npm-template-sync": "^10.0.17",
     "sd-daemon": "^1.0.2"
   },
   "devDependencies": {
