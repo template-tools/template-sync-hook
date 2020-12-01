@@ -43,7 +43,7 @@
     "koa": "^2.13.0",
     "koa-better-router": "^2.1.1",
     "koa-github-hook-handler": "^1.4.7",
-    "npm-template-sync": "^10.0.17",
+    "npm-template-sync": "^10.6.2",
     "sd-daemon": "^1.0.2"
   },
   "devDependencies": {
