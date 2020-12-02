@@ -16,11 +16,11 @@ export const defaultServerConfig = {
 
 export async function createServer(config, sd, provider, options) {
   const app = new Koa();
-
   const router = Router();
+  let atWork = false;
 
   function shutdown() {
-    if (ongoing.size === 0) {
+    if (!atWork) {
       sd.notify("STOPPING=1\nSTATUS=stopping");
       server.unref();
     }
@@ -39,19 +39,6 @@ export async function createServer(config, sd, provider, options) {
     return next();
   });
 
-  const ongoing = new Set();
-
-  function addOngoing(p) {
-    p.finally(() => {
-      Template.clearCache();
-      ongoing.delete(p);
-      if(config.autostop) {
-        shutdown();
-      }
-    });
-    ongoing.add(p);
-  }
-
   router.addRoute(
     "POST",
     config.http.hook.path,
@@ -60,11 +47,18 @@ export async function createServer(config, sd, provider, options) {
         push: async request => {
           console.log("push", request.repository.full_name);
 
+	  atWork = true;
           const context = await Context.from(provider, request.repository.full_name, options);
- 
-          addOngoing(context.execute());
 
-          return { pullRequest: "ongoing", queuedAt: ongoing.size };
+          const ongoing = [];
+ 
+          for await(const pr of context.execute()) {
+            ongoing.push(pr.identifier);
+          } 
+
+	  atWork = false;
+
+          return { pullRequests: ongoing };
         },
         ping: async request => {
           console.log("ping", request.repository.full_name);

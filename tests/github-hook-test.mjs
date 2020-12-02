@@ -48,8 +48,7 @@ test("request push", async t => {
     t.is(response.statusCode, 200);
     t.log(response.body);
     t.deepEqual(JSON.parse(response.body), {
-      pullRequest: "ongoing",
-      queuedAt: i
+      pullRequests: ["github:arlac77/npm-template-sync-github-hook[EMPTY]"] 
     });
   }
 });
