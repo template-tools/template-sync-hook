@@ -54,7 +54,7 @@
     "c8": "^7.3.5",
     "documentation": "github:arlac77/documentation",
     "got": "11.8.0",
-    "npm-pkgbuild": "^6.12.13",
+    "npm-pkgbuild": "^6.12.16",
     "semantic-release": "^17.3.0",
     "x-hub-signature": "^1.2.0"
   },
