@@ -5,8 +5,6 @@
     "access": "public"
   },
   "sideEffects": false,
-  "type": "module",
-  "main": "./src/npm-template-sync-github-hook-cli.mjs",
   "exports": {
     ".": "./src/npm-template-sync-github-hook-cli.mjs"
   },
