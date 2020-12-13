@@ -25,7 +25,7 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "npm-template-sync-github-hook": "./src/npm-template-sync-github-hook-cli.mjs"
+    "npm-template-sync-github-hook": "src/npm-template-sync-github-hook-cli.mjs"
   },
   "scripts": {
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
