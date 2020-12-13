@@ -5,9 +5,6 @@
     "access": "public"
   },
   "sideEffects": false,
-  "exports": {
-    ".": "./src/npm-template-sync-github-hook-cli.mjs"
-  },
   "description": "github hook for npm-template-sync",
   "keywords": [
     "github",
@@ -39,19 +36,10 @@
   "dependencies": {
     "@kronos-integration/interceptor-decode-json": "^2.1.32",
     "@kronos-integration/service": "^10.0.4",
-    "@kronos-integration/service-admin": "^3.3.5",
-    "@kronos-integration/service-authenticator": "^1.4.10",
-    "@kronos-integration/service-health-check": "^5.0.75",
     "@kronos-integration/service-http": "^10.6.3",
-    "@kronos-integration/service-ldap": "^4.0.3",
     "commander": "^6.2.0",
-    "config-expander": "^12.0.1",
     "github-repository-provider": "^7.21.7",
-    "koa": "^2.13.0",
-    "koa-better-router": "^2.1.1",
-    "koa-github-hook-handler": "^1.4.8",
-    "npm-template-sync": "^10.6.13",
-    "sd-daemon": "^1.0.2"
+    "npm-template-sync": "^10.6.13"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -62,8 +50,7 @@
     "documentation": "github:arlac77/documentation",
     "got": "11.8.1",
     "npm-pkgbuild": "^6.12.16",
-    "semantic-release": "^17.3.0",
-    "x-hub-signature": "^1.2.0"
+    "semantic-release": "^17.3.0"
   },
   "optionalDependencies": {
     "@kronos-integration/service-systemd": "^2.4.4",
