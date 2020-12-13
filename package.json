@@ -37,9 +37,11 @@
     "@kronos-integration/interceptor-decode-json": "^2.1.32",
     "@kronos-integration/service": "^10.0.4",
     "@kronos-integration/service-http": "^10.6.3",
+    "@kronos-integration/service-systemd": "^2.4.4",
     "commander": "^6.2.0",
     "github-repository-provider": "^7.21.7",
-    "npm-template-sync": "^10.6.13"
+    "npm-template-sync": "^10.7.4",
+    "sd-daemon": "^1.0.2"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -53,8 +55,7 @@
     "semantic-release": "^17.3.0"
   },
   "optionalDependencies": {
-    "@kronos-integration/service-systemd": "^2.4.4",
-    "sd-daemon": "^1.0.2"
+    "@kronos-integration/service-systemd": "^2.4.4"
   },
   "engines": {
     "node": ">=14.15.1"
