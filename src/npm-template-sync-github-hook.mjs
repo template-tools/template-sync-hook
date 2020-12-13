@@ -28,34 +28,18 @@ class Webhook extends Service {
   static get name() {
     return "webhook";
   }
+  static get endpoints() {
+    return {
+      ...super.endpoints,
+      push: {
+        receive: "push"
+      }
+    };
+  }
+
+  async push(request) {
+    const context = await Context.from(provider, request.repository.full_name, options);
+
+    context.execute();
+  }
 }
-
-/*
-    createGithubHookHandler(
-      {
-        push: async request => {
-          console.log("push", request.repository.full_name);
-
-	  atWork = true;
-          const context = await Context.from(provider, request.repository.full_name, options);
-
-          const ongoing = [];
- 
-          for await(const pr of context.execute()) {
-            ongoing.push(pr.identifier);
-          } 
-
-	  atWork = false;
-
-          return { pullRequests: ongoing };
-        },
-        ping: async request => {
-          console.log("ping", request.repository.full_name);
-
-          return { ok: true };
-        }
-      },
-      config.http.hook
-    )
-  );
-*/
