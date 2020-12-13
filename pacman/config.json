@@ -1,7 +1,4 @@
 {
   "http": {
-    "hook": {
-      "path": "/webhook"
-    }
   }
 }
