@@ -11,7 +11,9 @@
   "description": "github hook for npm-template-sync",
   "keywords": [
     "github",
+    "kronos-integration",
     "npm",
+    "systemd",
     "template",
     "webhook"
   ],
@@ -23,7 +25,7 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "npm-template-sync-github-hook": "src/npm-template-sync-github-hook-cli.mjs"
+    "npm-template-sync-github-hook": "./src/npm-template-sync-github-hook-cli.mjs"
   },
   "scripts": {
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
@@ -35,6 +37,13 @@
     "lint:docs": "documentation lint ./src/npm-template-sync-github-hook-cli.mjs"
   },
   "dependencies": {
+    "@kronos-integration/interceptor-decode-json": "^2.1.32",
+    "@kronos-integration/service": "^10.0.4",
+    "@kronos-integration/service-admin": "^3.3.5",
+    "@kronos-integration/service-authenticator": "^1.4.10",
+    "@kronos-integration/service-health-check": "^5.0.75",
+    "@kronos-integration/service-http": "^10.6.3",
+    "@kronos-integration/service-ldap": "^4.0.3",
     "commander": "^6.2.0",
     "config-expander": "^12.0.1",
     "github-repository-provider": "^7.21.7",
@@ -57,11 +66,21 @@
     "x-hub-signature": "^1.2.0"
   },
   "optionalDependencies": {
+    "@kronos-integration/service-systemd": "^2.4.4",
     "sd-daemon": "^1.0.2"
   },
   "engines": {
-    "node": ">=14.15.0"
+    "node": ">=14.15.1"
   },
+  "os": [
+    "linux",
+    "darwin"
+  ],
+  "cpu": [
+    "arm",
+    "arm64",
+    "x64"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/arlac77/npm-template-sync-github-hook.git"
@@ -98,6 +117,14 @@
       "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
       "/usr/lib/sysusers.d/${name}.conf": "pacman/sysusers.conf",
       "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
+    },
+    "group": "services",
+    "content-provider": {
+      "systemd": {
+        "units": {
+          "${name}": "systemd/${name}*"
+        }
+      }
     }
   },
   "release": {
@@ -109,16 +136,20 @@
         {
           "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} --npm-dist --npm-modules pkgbuild pacman makepkg"
         }
+      ],
+      [
+        "@semantic-release/exec",
+        {
+          "verifyConditionsCmd": "which makepkg",
+          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} --npm-dist --npm-modules pkgbuild pacman makepkg"
+        }
       ]
     ]
   },
   "template": {
     "inheritFrom": [
       "arlac77/template-arlac77-github",
-      "arlac77/template-esm-only",
-      "arlac77/template-nginx",
-      "arlac77/template-pacman",
-      "arlac77/template-systemd"
+      "arlac77/template-kronos-app"
     ]
   }
 }
