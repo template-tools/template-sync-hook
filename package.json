@@ -22,7 +22,7 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "npm-template-sync-github-hook": "src/npm-template-sync-github-hook-cli.mjs"
+    "npm-template-sync-github-hook": "./src/npm-template-sync-github-hook-cli.mjs"
   },
   "scripts": {
     "start": "node src/npm-template-sync-github-hook-cli.mjs",
@@ -37,7 +37,11 @@
     "@kronos-integration/interceptor-decode-json": "^2.1.32",
     "@kronos-integration/interceptor-webhook": "^1.0.0",
     "@kronos-integration/service": "^10.0.4",
+    "@kronos-integration/service-admin": "^3.3.5",
+    "@kronos-integration/service-authenticator": "^1.4.10",
+    "@kronos-integration/service-health-check": "^5.0.75",
     "@kronos-integration/service-http": "^10.6.3",
+    "@kronos-integration/service-ldap": "^4.0.3",
     "commander": "^6.2.0",
     "github-repository-provider": "^7.21.7",
     "npm-template-sync": "^10.7.4"
