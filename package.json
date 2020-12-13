@@ -37,7 +37,6 @@
     "@kronos-integration/interceptor-decode-json": "^2.1.32",
     "@kronos-integration/service": "^10.0.4",
     "@kronos-integration/service-http": "^10.6.3",
-    "@kronos-integration/service-systemd": "^2.4.4",
     "commander": "^6.2.0",
     "github-repository-provider": "^7.21.7",
     "npm-template-sync": "^10.7.4",
