@@ -1,9 +1,9 @@
 import { Service } from "@kronos-integration/service";
-import { ServiceHTTP, CTXInterceptor } from "@kronos-integration/service-http";
+import { ServiceHTTP } from "@kronos-integration/service-http";
 import { GithubHookInterceptor } from "@kronos-integration/interceptor-webhook";
 import { ServiceRepositories } from "@kronos-integration/service-repositories";
 
-import { Context, Template } from "npm-template-sync";
+import { Context } from "npm-template-sync";
 
 export default async function initialize(sp) {
   const secret = "the secret";
@@ -14,22 +14,17 @@ export default async function initialize(sp) {
       autostart: true,
       endpoints: {
         "POST:/webhook": {
-          interceptors: [
-            new CTXInterceptor(),
-            new GithubHookInterceptor({ secret })
-          ],
+          interceptors: [GithubHookInterceptor, /*CTXInterceptor,*/ new GithubHookInterceptor({ secret })],
           connected: "service(webhook).push"
         }
       }
     },
     repositories: {
       type: ServiceRepositories,
+      autostart: true,
       providers: [
         {
           type: "github-repository-provider"
-        },
-        {
-          type: "bitbucket-repository-provider"
         }
       ]
     },
@@ -41,7 +36,7 @@ export default async function initialize(sp) {
 
   await sp.start();
 
-  console.log(await sp.services.config.configFor("webhook"));
+  console.log(await sp.services.http.endpoints["POST:/webhook"]);
 }
 
 class Webhook extends Service {
@@ -59,13 +54,16 @@ class Webhook extends Service {
   }
 
   async push(request) {
-    console.log(request);
-    const context = await Context.from(
-      this.owner.services.repositories.provider.providers,
-      request.repository.full_name,
-      options
-    );
+    console.log("REQUEST", request);
 
-    context.execute();
+    if (request.repository) {
+      const context = await Context.from(
+        this.owner.services.repositories.providers,
+        request.repository.full_name,
+        options
+      );
+
+      context.execute();
+    }
   }
 }
