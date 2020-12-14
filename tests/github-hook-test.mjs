@@ -13,7 +13,7 @@ test.before(async t => {
 
   const config = {
     http: {
-      logLevel: "trace",
+      logLevel: "error",
       listen: { socket: port }
     },
     webhook: {
