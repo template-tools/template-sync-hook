@@ -6,32 +6,49 @@ import { sign } from "@kronos-integration/interceptor-webhook";
 import setup from "../src/npm-template-sync-github-hook.mjs";
 
 const secret = "aSecret";
+let port = 3159;
 
-test("request push", async t => {
-  const port = "3127";
+test.before(async t => {
+  // port++;
 
-  t.context.sp = new StandaloneServiceProvider();
+  const config = {
+    http: {
+      logLevel: "trace",
+      listen: { port }
+    },
+    webhook: {
+      logLevel: "error",
+      secret: secret
+    }
+  };
+
+  t.context.sp = new StandaloneServiceProvider(config);
   t.context.port = port;
 
   await setup(t.context.sp);
+});
 
-  const signature = sign(new Buffer(pushBody));
+test("request push", async t => {
+  const signature = sign(Buffer.from(pushBody), secret);
 
   for (let i = 1; i < 5; i++) {
-    const response = await got.post(`http://localhost:${port}/${path}`, {
-      headers: {
-        "X-Hub-Signature": signature,
-        "content-type": "application/json",
-        "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
-        "X-GitHub-Event": "push"
-      },
-      body: pushBody
-    });
+    const response = await got.post(
+      `http://localhost:${t.context.port}/webhook`,
+      {
+        headers: {
+          "X-Hub-Signature": signature,
+          "content-type": "application/json",
+          "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
+          "X-GitHub-Event": "push"
+        },
+        body: pushBody
+      }
+    );
 
     t.is(response.statusCode, 200);
     t.log(response.body);
     t.deepEqual(JSON.parse(response.body), {
-      pullRequests: ["github:arlac77/npm-template-sync-github-hook[EMPTY]"] 
+      pullRequests: ["github:arlac77/npm-template-sync-github-hook[EMPTY]"]
     });
   }
 });
@@ -56,8 +73,7 @@ test.skip("request ping", async t => {
     }
   );
 
-  const sign = signer({ algorithm: "sha1", secret });
-  const signature = sign(new Buffer(pingBody));
+  const signature = sign(Buffer.from(pingBody), secret);
 
   const response = await got.post(`http://localhost:${port}/${path}`, {
     headers: {

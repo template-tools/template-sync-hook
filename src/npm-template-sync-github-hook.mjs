@@ -6,16 +6,18 @@ import { ServiceRepositories } from "@kronos-integration/service-repositories";
 import { Context, Template } from "npm-template-sync";
 
 export default async function initialize(sp) {
-
   const secret = "the secret";
-  
+
   await sp.declareServices({
     http: {
       type: ServiceHTTP,
       autostart: true,
       endpoints: {
         "POST:/webhook": {
-          interceptors: [new CTXInterceptor(), new GithubHookInterceptor({ secret })],
+          interceptors: [
+            new CTXInterceptor(),
+            new GithubHookInterceptor({ secret })
+          ],
           connected: "service(webhook).push"
         }
       }
@@ -38,6 +40,8 @@ export default async function initialize(sp) {
   });
 
   await sp.start();
+
+  console.log(await sp.services.config.configFor("webhook"));
 }
 
 class Webhook extends Service {
