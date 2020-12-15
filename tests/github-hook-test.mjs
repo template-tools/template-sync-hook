@@ -25,6 +25,8 @@ test.before(async t => {
   t.context.sp = new StandaloneServiceProvider(config);
   t.context.port = port;
 
+  process.env.WEBHOOK_SECRET = secret;
+
   await setup(t.context.sp);
 });
 

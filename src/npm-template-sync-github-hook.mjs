@@ -6,7 +6,7 @@ import { ServiceRepositories } from "@kronos-integration/service-repositories";
 import { Context } from "npm-template-sync";
 
 export default async function initialize(sp) {
-  const secret = "the secret";
+  const secret = process.env.WEBHOOK_SECRET;
 
   await sp.declareServices({
     http: {
