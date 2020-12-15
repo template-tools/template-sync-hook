@@ -42,7 +42,7 @@
     "@kronos-integration/service-health-check": "^5.0.79",
     "@kronos-integration/service-http": "^10.6.9",
     "@kronos-integration/service-ldap": "^4.0.6",
-    "@kronos-integration/service-repositories": "^1.0.30",
+    "@kronos-integration/service-repositories": "^1.0.31",
     "commander": "^6.2.0",
     "github-repository-provider": "^7.21.7",
     "npm-template-sync": "^10.7.4"
