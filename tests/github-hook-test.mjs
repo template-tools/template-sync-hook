@@ -55,40 +55,44 @@ test("request push", async t => {
   }
 });
 
-test.skip("request ping", async t => {
-  const port = "3128";
+test("request ping", async t => {
+  const signature = sign(Buffer.from(pingBody), secret);
 
-  const server = await createServer(
+  const response = await got.post(
+    `http://localhost:${t.context.port}/webhook`,
     {
-      http: {
-        port,
-        hook: {
-          path,
-          secret
-        }
-      }
-    },
-    sd,
-    new GithubProvider(GithubProvider.optionsFromEnvironment(process.env)),
-    {
-      logger: console
+      headers: {
+        "X-Hub-Signature": signature,
+        "content-type": "application/json",
+        "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
+        "X-GitHub-Event": "ping"
+      },
+      body: pingBody
     }
   );
 
-  const signature = sign(Buffer.from(pingBody), secret);
-
-  const response = await got.post(`http://localhost:${port}/${path}`, {
-    headers: {
-      "X-Hub-Signature": signature,
-      "content-type": "application/json",
-      "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
-      "X-GitHub-Event": "ping"
-    },
-    body: pingBody
-  });
-
   t.is(response.statusCode, 200);
   t.deepEqual(JSON.parse(response.body), { ok: true });
+});
+
+test.skip("request other", async t => {
+  const signature = sign(Buffer.from(pingBody), secret);
+
+  const response = await got.post(
+    `http://localhost:${t.context.port}/webhook`,
+    {
+      headers: {
+        "X-Hub-Signature": signature,
+        "content-type": "application/json",
+        "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
+        "X-GitHub-Event": "other"
+      },
+      body: pingBody
+    }
+  );
+
+  t.is(response.statusCode, 500);
+  //t.deepEqual(JSON.parse(response.body), { ok: true });
 });
 
 const pingBody = JSON.stringify({
