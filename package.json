@@ -82,7 +82,7 @@
   },
   "homepage": "https://github.com/template-tools/template-sync-hook#readme",
   "config": {
-    "base": "/services/npm-template-sync",
+    "base": "/services/template-sync-hook",
     "socket": "/run/${name}/http/socket"
   },
   "systemd": {
