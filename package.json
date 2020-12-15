@@ -76,12 +76,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/template-sync-hook.git"
+    "url": "https://github.com/template-tools/template-sync-hook.git"
   },
   "bugs": {
-    "url": "https://github.com/arlac77/template-sync-hook/issues"
+    "url": "https://github.com/template-tools/template-sync-hook/issues"
   },
-  "homepage": "https://github.com/arlac77/template-sync-hook#readme",
+  "homepage": "https://github.com/template-tools/template-sync-hook#readme",
   "config": {
     "base": "/services/npm-template-sync",
     "socket": "/run/${name}/http/socket"
