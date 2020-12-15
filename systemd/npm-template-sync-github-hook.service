@@ -7,8 +7,9 @@ StopWhenUnneeded=true
 [Service]
 Type=notify
 ExecStart=/usr/bin/node --unhandled-rejections=strict --trace-uncaught --trace-warnings --title {{name}} {{installdir}}/src/npm-template-sync-github-hook-cli.mjs
-ExecReload=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/reload
-ExecStop=/usr/bin/curl -s -XPOST --unix-socket {{socket}} http://localhost/admin/stop
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=sleep 55
+TimeoutStopSec=60
 RestartSec=30
 TimeoutStartSec=20
 TimeoutStopSec=25
