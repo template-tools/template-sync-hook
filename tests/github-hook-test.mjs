@@ -3,7 +3,7 @@ import got from "got";
 import { StandaloneServiceProvider } from "@kronos-integration/service";
 import { sign } from "@kronos-integration/interceptor-webhook";
 
-import setup from "../src/npm-template-sync-github-hook.mjs";
+import initialize from "../src/initialize.mjs";
 
 const secret = "the secret";
 let port = 3159;
@@ -27,7 +27,7 @@ test.before(async t => {
 
   process.env.WEBHOOK_SECRET = secret;
 
-  await setup(t.context.sp);
+  await initialize(t.context.sp);
 });
 
 test("request push", async t => {
@@ -50,7 +50,7 @@ test("request push", async t => {
     t.is(response.statusCode, 200);
     t.log(response.body);
     t.deepEqual(JSON.parse(response.body), {
-      pullRequests: ["github:arlac77/npm-template-sync-github-hook[EMPTY]"]
+      pullRequests: ["github:template-tools/template-sync-hook[EMPTY]"]
     });
   }
 });
@@ -93,7 +93,7 @@ test.skip("request ping", async t => {
 
 const pingBody = JSON.stringify({
   repository: {
-    full_name: "arlac77/npm-template-sync-github-hook"
+    full_name: "template-tools/template-sync-hook"
   }
 });
 
@@ -106,14 +106,14 @@ const pushBody = JSON.stringify({
   forced: false,
   base_ref: null,
   compare:
-    "https://github.com/arlac77/npm-template-sync-github-hook/compare/0e19c5c2e158...000000000000",
+    "https://github.com/template-tools/template-sync-hook/compare/0e19c5c2e158...000000000000",
   commits: [],
   head_commit: null,
   repository: {
     id: 113093573,
     node_id: "MDEwOlJlcG9zaXRvcnkxMTMwOTM1NzM=",
-    name: "npm-template-sync-github-hook",
-    full_name: "arlac77/npm-template-sync-github-hook",
+    name: "template-sync-hook",
+    full_name: "template-tools/template-sync-hook",
     private: false,
     owner: {
       name: "arlac77",
@@ -140,89 +140,89 @@ const pushBody = JSON.stringify({
       type: "User",
       site_admin: false
     },
-    html_url: "https://github.com/arlac77/npm-template-sync-github-hook",
+    html_url: "https://github.com/template-tools/template-sync-hook",
     description: "github hook for npm-template-sync",
     fork: false,
-    url: "https://github.com/arlac77/npm-template-sync-github-hook",
+    url: "https://github.com/template-tools/template-sync-hook",
     forks_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/forks",
+      "https://api.github.com/repos/template-tools/template-sync-hook/forks",
     keys_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/keys{/key_id}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/keys{/key_id}",
     collaborators_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/collaborators{/collaborator}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/collaborators{/collaborator}",
     teams_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/teams",
+      "https://api.github.com/repos/template-tools/template-sync-hook/teams",
     hooks_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/hooks",
+      "https://api.github.com/repos/template-tools/template-sync-hook/hooks",
     issue_events_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/issues/events{/number}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/issues/events{/number}",
     events_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/events",
+      "https://api.github.com/repos/template-tools/template-sync-hook/events",
     assignees_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/assignees{/user}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/assignees{/user}",
     branches_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/branches{/branch}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/branches{/branch}",
     tags_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/tags",
+      "https://api.github.com/repos/template-tools/template-sync-hook/tags",
     blobs_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/git/blobs{/sha}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/git/blobs{/sha}",
     git_tags_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/git/tags{/sha}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/git/tags{/sha}",
     git_refs_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/git/refs{/sha}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/git/refs{/sha}",
     trees_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/git/trees{/sha}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/git/trees{/sha}",
     statuses_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/statuses/{sha}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/statuses/{sha}",
     languages_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/languages",
+      "https://api.github.com/repos/template-tools/template-sync-hook/languages",
     stargazers_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/stargazers",
+      "https://api.github.com/repos/template-tools/template-sync-hook/stargazers",
     contributors_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/contributors",
+      "https://api.github.com/repos/template-tools/template-sync-hook/contributors",
     subscribers_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/subscribers",
+      "https://api.github.com/repos/template-tools/template-sync-hook/subscribers",
     subscription_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/subscription",
+      "https://api.github.com/repos/template-tools/template-sync-hook/subscription",
     commits_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/commits{/sha}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/commits{/sha}",
     git_commits_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/git/commits{/sha}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/git/commits{/sha}",
     comments_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/comments{/number}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/comments{/number}",
     issue_comment_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/issues/comments{/number}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/issues/comments{/number}",
     contents_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/contents/{+path}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/contents/{+path}",
     compare_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/compare/{base}...{head}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/compare/{base}...{head}",
     merges_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/merges",
+      "https://api.github.com/repos/template-tools/template-sync-hook/merges",
     archive_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/{archive_format}{/ref}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/{archive_format}{/ref}",
     downloads_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/downloads",
+      "https://api.github.com/repos/template-tools/template-sync-hook/downloads",
     issues_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/issues{/number}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/issues{/number}",
     pulls_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/pulls{/number}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/pulls{/number}",
     milestones_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/milestones{/number}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/milestones{/number}",
     notifications_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/notifications{?since,all,participating}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/notifications{?since,all,participating}",
     labels_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/labels{/name}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/labels{/name}",
     releases_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/releases{/id}",
+      "https://api.github.com/repos/template-tools/template-sync-hook/releases{/id}",
     deployments_url:
-      "https://api.github.com/repos/arlac77/npm-template-sync-github-hook/deployments",
+      "https://api.github.com/repos/template-tools/template-sync-hook/deployments",
     created_at: 1512420666,
     updated_at: "2019-04-15T17:18:14Z",
     pushed_at: 1555348695,
-    git_url: "git://github.com/arlac77/npm-template-sync-github-hook.git",
-    ssh_url: "git@github.com:arlac77/npm-template-sync-github-hook.git",
-    clone_url: "https://github.com/arlac77/npm-template-sync-github-hook.git",
-    svn_url: "https://github.com/arlac77/npm-template-sync-github-hook",
+    git_url: "git://github.com/template-tools/template-sync-hook.git",
+    ssh_url: "git@github.com:template-tools/template-sync-hook.git",
+    clone_url: "https://github.com/template-tools/template-sync-hook.git",
+    svn_url: "https://github.com/template-tools/template-sync-hook",
     homepage: "",
     size: 368,
     stargazers_count: 0,
