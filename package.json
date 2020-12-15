@@ -5,7 +5,7 @@
     "access": "public"
   },
   "sideEffects": false,
-  "description": "github hook for npm-template-sync",
+  "description": "hook for npm-template-sync",
   "keywords": [
     "github",
     "kronos-integration",
