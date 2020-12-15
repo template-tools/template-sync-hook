@@ -14,7 +14,7 @@ export default async function initialize(sp) {
       autostart: true,
       endpoints: {
         "POST:/webhook": {
-          interceptors: [GithubHookInterceptor, /*CTXInterceptor,*/ new GithubHookInterceptor({ secret })],
+          interceptors: [ new GithubHookInterceptor({ secret })],
           connected: "service(webhook).push"
         }
       }
@@ -53,8 +53,8 @@ class Webhook extends Service {
     };
   }
 
-  async push(request) {
-    console.log("REQUEST", request);
+  async push(request,b,c) {
+    console.log("REQUEST", request,b,c);
 
     if (request.repository) {
       const context = await Context.from(
