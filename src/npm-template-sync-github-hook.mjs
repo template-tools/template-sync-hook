@@ -36,7 +36,7 @@ export default async function initialize(sp) {
 
   await sp.start();
 
-  console.log(await sp.services.http.endpoints["POST:/webhook"]);
+  //console.log(await sp.services.http.endpoints["POST:/webhook"]);
 }
 
 class Webhook extends Service {
@@ -54,16 +54,22 @@ class Webhook extends Service {
   }
 
   async push(request,b,c) {
-    console.log("REQUEST", request,b,c);
+   // console.log("REQUEST", request,b,c);
 
     if (request.repository) {
+      const options = {};
       const context = await Context.from(
-        this.owner.services.repositories.providers,
+        this.owner.services.repositories.provider,
         request.repository.full_name,
         options
       );
 
-      context.execute();
+      const pullRequests = [];
+      for await (const pr of context.execute()) {
+        pullRequests.push(pr.identifier);
+      }
+      
+      return { pullRequests };
     }
   }
 }

@@ -5,7 +5,7 @@ import { sign } from "@kronos-integration/interceptor-webhook";
 
 import setup from "../src/npm-template-sync-github-hook.mjs";
 
-const secret = "aSecret";
+const secret = "the secret";
 let port = 3159;
 
 test.before(async t => {
