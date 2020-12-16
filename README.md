@@ -12,12 +12,11 @@ hook for npm-template-sync
 
 automatically generates PR on target repos when a template modification occures
 
-
 # test
 
 ```sh
 curl -X post -d '{}' -H "Content-Type: application/json" -H 'X-GitHub-Event: ping' https://localhost/template-sync-hook/webhook
-````
+```
 
 # install
 
