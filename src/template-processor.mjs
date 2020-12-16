@@ -16,7 +16,6 @@ export class TemplateProcessor extends Service {
   }
 
   async execute(request, type) {
-
     this.info(`got ${type} request`);
 
     switch (type) {
@@ -27,7 +26,7 @@ export class TemplateProcessor extends Service {
         if (request.repository) {
           const options = {};
           const context = await Context.from(
-            this.owner.services.repositories.provider,
+            await this.owner.services.repositories.provider(),
             request.repository.full_name,
             options
           );

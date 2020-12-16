@@ -19,7 +19,6 @@ export default async function initialize(sp) {
     },
     repositories: {
       type: ServiceRepositories,
-      autostart: true,
       providers: [
         {
           type: "github-repository-provider"
