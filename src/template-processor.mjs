@@ -1,21 +1,21 @@
 import { Service } from "@kronos-integration/service";
 import { Context } from "npm-template-sync";
 
-export class ServiceHooks extends Service {
+export class TemplateProcessor extends Service {
   static get name() {
-    return "hooks";
+    return "template-processor";
   }
 
   static get endpoints() {
     return {
       ...super.endpoints,
-      push: {
-        receive: "push"
+      execute: {
+        receive: "execute"
       }
     };
   }
 
-  async push(request, type) {
+  async execute(request, type) {
 
     this.info(`got ${type} request`);
 

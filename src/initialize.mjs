@@ -1,7 +1,7 @@
 import { ServiceHTTP } from "@kronos-integration/service-http";
 import { GithubHookInterceptor } from "@kronos-integration/interceptor-webhook";
 import { ServiceRepositories } from "@kronos-integration/service-repositories";
-import { ServiceHooks } from "./service-hooks.mjs";
+import { TemplateProcessor } from "./template-processor.mjs";
 
 export default async function initialize(sp) {
   await sp.declareServices({
@@ -13,7 +13,7 @@ export default async function initialize(sp) {
           interceptors: [
             new GithubHookInterceptor({ secret: process.env.WEBHOOK_SECRET })
           ],
-          connected: "service(hooks).push"
+          connected: "service(processor).execute"
         }
       }
     },
@@ -26,12 +26,11 @@ export default async function initialize(sp) {
         }
       ]
     },
-    hooks: {
-      type: ServiceHooks,
+    processor: {
+      type: TemplateProcessor,
       autostart: true
     }
   });
 
   await sp.start();
 }
-
