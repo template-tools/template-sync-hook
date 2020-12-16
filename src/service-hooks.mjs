@@ -16,6 +16,9 @@ export class ServiceHooks extends Service {
   }
 
   async push(request, type) {
+
+    this.info(`got ${type} request`);
+
     switch (type) {
       case "ping":
         return { ok: true };
