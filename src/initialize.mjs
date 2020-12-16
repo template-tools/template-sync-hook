@@ -4,29 +4,32 @@ import { ServiceRepositories } from "@kronos-integration/service-repositories";
 import { TemplateProcessor } from "./template-processor.mjs";
 
 export default async function initialize(sp) {
+  sp.registerFactories([
+    GithubHookInterceptor,
+    TemplateProcessor,
+    ServiceRepositories,
+    ServiceHTTP
+  ]);
+
   await sp.declareServices({
     http: {
-      type: ServiceHTTP,
       autostart: true,
       endpoints: {
         "POST:/webhook": {
           interceptors: [
-            new GithubHookInterceptor({ secret: process.env.WEBHOOK_SECRET })
+            {
+              type: "github-webhook",
+              secret: process.env.WEBHOOK_SECRET
+            }
           ],
-          connected: "service(processor).execute"
+          connected: "service(template-processor).execute"
         }
       }
     },
     repositories: {
-      type: ServiceRepositories,
-      providers: [
-        {
-          type: "github-repository-provider"
-        }
-      ]
+      providers: ["github-repository-provider"]
     },
-    processor: {
-      type: TemplateProcessor,
+    "template-processor": {
       autostart: true
     }
   });
