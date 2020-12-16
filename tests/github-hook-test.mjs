@@ -9,11 +9,11 @@ const secret = "the secret";
 let port = 3159;
 
 test.before(async t => {
-   port++;
+  port++;
 
   const config = {
     http: {
-      logLevel: "error",
+      //  logLevel: "error",
       listen: { socket: port }
     },
     webhook: {
@@ -77,24 +77,25 @@ test("request ping", async t => {
   t.deepEqual(JSON.parse(response.body), { ok: true });
 });
 
-test.skip("request other", async t => {
+test("request unknwon", async t => {
   const signature = sign(Buffer.from(pingBody), secret);
 
-  const response = await got.post(
-    `http://localhost:${t.context.port}/webhook`,
-    {
-      headers: {
-        "X-Hub-Signature": signature,
-        "content-type": "application/json",
-        "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
-        "X-GitHub-Event": "other"
-      },
-      body: pingBody
-    }
-  );
-
-  t.is(response.statusCode, 500);
-  //t.deepEqual(JSON.parse(response.body), { ok: true });
+  try {
+    const response = await got.post(
+      `http://localhost:${t.context.port}/webhook`,
+      {
+        headers: {
+          "X-Hub-Signature": signature,
+          "content-type": "application/json",
+          "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
+          "X-GitHub-Event": "unknwon"
+        },
+        body: pingBody
+      }
+    );
+  } catch (e) {
+    t.truthy(e.message.match(/code 500/));
+  }
 });
 
 const pingBody = JSON.stringify({
