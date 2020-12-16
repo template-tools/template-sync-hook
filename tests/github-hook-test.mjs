@@ -9,7 +9,7 @@ const secret = "the secret";
 let port = 3159;
 
 test.before(async t => {
-  // port++;
+   port++;
 
   const config = {
     http: {
@@ -29,6 +29,8 @@ test.before(async t => {
 
   await initialize(t.context.sp);
 });
+
+test.after(async t => t.context.sp.stop());
 
 test("request push", async t => {
   const signature = sign(Buffer.from(pushBody), secret);
