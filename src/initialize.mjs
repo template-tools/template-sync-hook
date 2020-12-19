@@ -16,12 +16,10 @@ export default async function initialize(sp) {
       autostart: true,
       endpoints: {
         "POST:/webhook": {
-          interceptors: [
-            {
-              type: "github-webhook",
-              secret: process.env.WEBHOOK_SECRET
-            }
-          ],
+          interceptors: {
+            type: "github-webhook",
+            secret: process.env.WEBHOOK_SECRET
+          },
           connected: "service(template-processor).execute"
         }
       }

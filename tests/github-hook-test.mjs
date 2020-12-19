@@ -15,7 +15,7 @@ test.before(async t => {
     http: {
       listen: { socket: port }
     },
-    processor: {
+    "template-processor": {
       logLevel: "error"
     }
   };
@@ -33,7 +33,7 @@ test.after(async t => t.context.sp.stop());
 test("request push", async t => {
   const signature = sign(Buffer.from(pushBody), secret);
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 1; i++) {
     const response = await got.post(
       `http://localhost:${t.context.port}/webhook`,
       {
