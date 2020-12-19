@@ -20,7 +20,7 @@ export class TemplateProcessor extends Service {
 
     switch (type) {
       case "ping":
-        return { ok: true };
+        return { received : type };
 
       case "push":
         if (request.repository) {
