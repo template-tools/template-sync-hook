@@ -34,7 +34,6 @@ usage:
 
 initializeServiceProvider();
 
-
 function info() {
   return JSON.parse(
     readFileSync(new URL("../package.json", import.meta.url).pathname, opt)
@@ -56,7 +55,7 @@ async function initializeServiceProvider() {
     }
 
     await initialize(serviceProvider);
-    await sp.start();
+    await serviceProvider.start();
   } catch (error) {
     console.error(error);
   }
