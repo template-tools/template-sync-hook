@@ -27,8 +27,6 @@ export default async function initialize(sp) {
     repositories: {
       providers: ["github-repository-provider"]
     },
-    "template-processor": {
-      autostart: true
-    }
+    "template-processor": {}
   });
 }
