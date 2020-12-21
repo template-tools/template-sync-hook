@@ -45,7 +45,7 @@
     "@kronos-integration/service-repositories": "^2.0.4",
     "commander": "^6.2.1",
     "github-repository-provider": "^7.21.11",
-    "npm-template-sync": "^10.7.5"
+    "npm-template-sync": "^10.7.9"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
