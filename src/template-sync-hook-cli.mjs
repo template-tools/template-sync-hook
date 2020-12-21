@@ -56,6 +56,7 @@ async function initializeServiceProvider() {
     }
 
     await initialize(serviceProvider);
+    await sp.start();
   } catch (error) {
     console.error(error);
   }

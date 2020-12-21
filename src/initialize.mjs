@@ -31,6 +31,4 @@ export default async function initialize(sp) {
       autostart: true
     }
   });
-
-  await sp.start();
 }

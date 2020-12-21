@@ -26,6 +26,7 @@ test.before(async t => {
   process.env.WEBHOOK_SECRET = secret;
 
   await initialize(t.context.sp);
+  await t.context.sp.start();
 });
 
 test.after(async t => t.context.sp.stop());
@@ -72,7 +73,7 @@ test("request ping", async t => {
   );
 
   t.is(response.statusCode, 200);
-  t.deepEqual(JSON.parse(response.body), { ok: true });
+  t.deepEqual(JSON.parse(response.body), { received: "ping" });
 });
 
 test("request unknwon", async t => {
