@@ -38,7 +38,7 @@
     "@kronos-integration/service": "^10.3.5",
     "@kronos-integration/service-http": "^10.6.25",
     "@kronos-integration/service-repositories": "^2.0.8",
-    "@kronos-integration/service-systemd": "^2.4.7",
+    "@kronos-integration/service-systemd": "^2.4.6",
     "commander": "^6.2.1",
     "github-repository-provider": "^7.21.11",
     "npm-template-sync": "^10.7.12"
