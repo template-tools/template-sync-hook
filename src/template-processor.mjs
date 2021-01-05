@@ -1,5 +1,5 @@
 import { Service } from "@kronos-integration/service";
-import { Context } from "npm-template-sync";
+import { Context } from "@template-tools/template-sync";
 
 export class TemplateProcessor extends Service {
   static get name() {
