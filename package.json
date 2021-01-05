@@ -38,9 +38,9 @@
     "@kronos-integration/service": "^10.3.10",
     "@kronos-integration/service-http": "^10.6.31",
     "@kronos-integration/service-repositories": "^2.0.13",
+    "@template-tools/template-sync": "^10.7.16",
     "commander": "^6.2.1",
-    "github-repository-provider": "^7.21.11",
-    "@template-tools/template-sync": "^10.7.16"
+    "github-repository-provider": "^7.21.11"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^8.0.1",
@@ -57,7 +57,7 @@
     "@kronos-integration/service-systemd": "^2.4.8"
   },
   "engines": {
-    "node": ">=14.15.3"
+    "node": ">=14.15.4"
   },
   "os": [
     "linux",
