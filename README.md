@@ -8,7 +8,7 @@
 
 ## template-sync-hook
 
-hook for npm-template-sync
+hook for template-sync
 
 automatically generates PR on target repos when a template modification occures
 
