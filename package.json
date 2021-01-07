@@ -38,8 +38,7 @@
     "@kronos-integration/service": "^10.3.10",
     "@kronos-integration/service-http": "^10.6.31",
     "@kronos-integration/service-repositories": "^2.0.13",
-    "@kronos-integration/service-systemd": "^2.4.9",
-    "@template-tools/template-sync": "^10.7.17",
+    "@template-tools/template-sync": "^10.7.19",
     "commander": "^6.2.1",
     "github-repository-provider": "^7.21.11"
   },
@@ -97,7 +96,7 @@
     "installdir": "/services/${name}",
     "depends": {
       "systemd": ">=247.2",
-      "nginx-mainline": ">=1.19.3"
+      "nginx-mainline": ">=1.19.6"
     },
     "backup": "etc/${name}/config.json",
     "content": {
