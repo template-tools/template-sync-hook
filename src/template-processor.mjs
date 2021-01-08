@@ -40,7 +40,7 @@ export class TemplateProcessor extends Service {
         }
 
       default:
-        throw new Error("unknown request");
+        throw new Error(`unknown request ${type}`);
     }
   }
 }
