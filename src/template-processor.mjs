@@ -24,6 +24,11 @@ export class TemplateProcessor extends Service {
 
       case "push":
         if (request.repository) {
+          if(request.ref && request.ref.contains("template-sync")) {
+            this.info(`skipping ref ${request.ref}`);
+            return;
+          }
+
           const options = {};
           const context = await Context.from(
             await this.owner.services.repositories.provider(),
