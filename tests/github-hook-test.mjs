@@ -76,7 +76,7 @@ test("request ping", async t => {
   t.deepEqual(JSON.parse(response.body), { received: "ping" });
 });
 
-test("request unknwon", async t => {
+test("request unknown", async t => {
   const signature = sign(Buffer.from(pingBody), secret);
 
   try {
@@ -87,7 +87,7 @@ test("request unknwon", async t => {
           "X-Hub-Signature": signature,
           "content-type": "application/json",
           "X-GitHub-Delivery": "7453c7ec-5fa2-11e9-9af1-60fccbf37b5b",
-          "X-GitHub-Event": "unknwon"
+          "X-GitHub-Event": "unknown"
         },
         body: pingBody
       }
@@ -104,7 +104,7 @@ const pingBody = JSON.stringify({
 });
 
 const pushBody = JSON.stringify({
-  ref: "refs/heads/template-sync-1",
+  ref: "refs/heads/master",
   before: "0e19c5c2e158421ee2b2dfe0a70c29604b9d0cea",
   after: "0000000000000000000000000000000000000000",
   created: false,
