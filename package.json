@@ -50,7 +50,7 @@
     "c8": "^7.3.5",
     "documentation": "github:arlac77/documentation",
     "got": "11.8.1",
-    "npm-pkgbuild": "^6.12.21",
+    "npm-pkgbuild": "^6.12.22",
     "semantic-release": "^17.3.3"
   },
   "optionalDependencies": {
