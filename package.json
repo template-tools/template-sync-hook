@@ -51,7 +51,7 @@
     "documentation": "github:arlac77/documentation",
     "got": "11.8.1",
     "npm-pkgbuild": "^6.12.22",
-    "semantic-release": "^17.3.3"
+    "semantic-release": "^17.3.7"
   },
   "optionalDependencies": {
     "@kronos-integration/service-systemd": "^2.4.9"
