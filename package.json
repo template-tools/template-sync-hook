@@ -38,7 +38,7 @@
     "@kronos-integration/service": "^10.3.14",
     "@kronos-integration/service-http": "^10.6.38",
     "@kronos-integration/service-repositories": "^2.0.26",
-    "@template-tools/template-sync": "^10.7.35",
+    "@template-tools/template-sync": "^10.7.36",
     "commander": "^7.2.0",
     "github-repository-provider": "^7.22.3"
   },
