@@ -36,7 +36,7 @@
   "dependencies": {
     "@kronos-integration/interceptor-webhook": "^1.1.20",
     "@kronos-integration/service": "^10.3.22",
-    "@kronos-integration/service-http": "^10.6.48",
+    "@kronos-integration/service-http": "^10.6.49",
     "@kronos-integration/service-repositories": "^2.0.42",
     "@template-tools/template-sync": "^10.8.18",
     "commander": "^7.2.0",
