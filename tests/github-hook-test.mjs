@@ -31,6 +31,17 @@ test.before(async t => {
 
 test.after(async t => t.context.sp.stop());
 
+test("get", async t => {
+  const response = await got.get(
+    `http://localhost:${t.context.port}/webhook`,
+    {
+    }
+  );
+
+  t.is(response.statusCode, 200);
+  //t.deepEqual(JSON.parse(response.body), { });
+});
+
 test("request push", async t => {
   const signature = sign(Buffer.from(pushBody), secret);
 

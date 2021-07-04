@@ -15,6 +15,8 @@ export default async function initialize(sp) {
     http: {
       autostart: true,
       endpoints: {
+        "/webhook": {
+        },
         "POST:/webhook": {
           interceptors: {
             type: "github-webhook",
