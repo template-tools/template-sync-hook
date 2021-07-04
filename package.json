@@ -101,7 +101,8 @@
       "/etc/${name}/config.json": "pacman/config.json",
       "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
       "/usr/lib/sysusers.d/${name}.conf": "pacman/sysusers.conf",
-      "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
+      "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf",
+      "/etc/nginx/config.d/${name}.conf": "pacman/nginx.conf"
     },
     "group": "services",
     "content-provider": {
