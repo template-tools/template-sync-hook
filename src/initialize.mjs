@@ -16,7 +16,7 @@ export default async function initialize(sp) {
       autostart: true,
       endpoints: {
         "/webhook": {
-          connected: "service(systemd).info"
+          connected: "service().info"
         },
         "POST:/webhook": {
           interceptors: {
