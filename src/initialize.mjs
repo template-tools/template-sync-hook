@@ -1,4 +1,4 @@
-import { ServiceHTTP } from "@kronos-integration/service-http";
+import { ServiceHTTP, CTXInterceptor } from "@kronos-integration/service-http";
 import { GithubHookInterceptor } from "@kronos-integration/interceptor-webhook";
 import { ServiceRepositories } from "@kronos-integration/service-repositories";
 import { TemplateProcessor } from "./template-processor.mjs";
@@ -8,7 +8,8 @@ export default async function initialize(sp) {
     GithubHookInterceptor,
     TemplateProcessor,
     ServiceRepositories,
-    ServiceHTTP
+    ServiceHTTP,
+    CTXInterceptor
   ]);
 
   await sp.declareServices({
@@ -16,6 +17,7 @@ export default async function initialize(sp) {
       autostart: true,
       endpoints: {
         "/webhook": {
+          interceptors: CTXInterceptor,
           connected: "service().info"
         },
         "POST:/webhook": {
