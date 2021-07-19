@@ -4,6 +4,9 @@
 [![downloads](http://img.shields.io/npm/dm/template-sync-hook.svg?style=flat-square)](https://npmjs.org/package/template-sync-hook)
 [![GitHub Issues](https://img.shields.io/github/issues/template-tools/template-sync-hook.svg?style=flat-square)](https://github.com/template-tools/template-sync-hook/issues)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ftemplate-tools%2Ftemplate-sync-hook%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/template-tools/template-sync-hook/goto)
+[![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Known Vulnerabilities](https://snyk.io/test/github/template-tools/template-sync-hook/badge.svg)](https://snyk.io/test/github/template-tools/template-sync-hook)
 [![Coverage Status](https://coveralls.io/repos/template-tools/template-sync-hook/badge.svg)](https://coveralls.io/github/template-tools/template-sync-hook)
 
 ## template-sync-hook
