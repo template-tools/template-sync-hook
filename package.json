@@ -49,7 +49,7 @@
     "c8": "^7.10.0",
     "documentation": "^13.2.0",
     "got": "11.8.2",
-    "npm-pkgbuild": "^6.12.65",
+    "npm-pkgbuild": "^6.12.66",
     "semantic-release": "^18.0.0"
   },
   "optionalDependencies": {
