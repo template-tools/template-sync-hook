@@ -22,8 +22,7 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "template-sync-hook": "./src/template-sync-hook-cli.mjs",
-    "{{name}}": "./src/{{name}}-cli.mjs"
+    "template-sync-hook": "./src/template-sync-hook-cli.mjs"
   },
   "scripts": {
     "start": "node src/template-sync-hook-cli.mjs",
