@@ -108,8 +108,8 @@
       }
     },
     "group": "services",
-    "output" : {
-    	"arch" : {}
+    "output": {
+      "arch": {}
     }
   },
   "release": {
