@@ -9,3 +9,5 @@ doc
 pacman
 systemd
 .github
+pkg
+config
