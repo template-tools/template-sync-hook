@@ -102,10 +102,7 @@
         {
           "type": "node-modules"
         }
-      ],
-      "/usr/lib/systemd/system/": {
-        "base": "systemd"
-      }
+      ]
     },
     "group": "services",
     "output" : {
