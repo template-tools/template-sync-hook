@@ -49,7 +49,7 @@
     "c8": "^7.11.0",
     "documentation": "^13.2.0",
     "got": "^12.0.1",
-    "npm-pkgbuild": "^6.12.97",
+    "npm-pkgbuild": "^7.23.6",
     "semantic-release": "^19.0.2"
   },
   "optionalDependencies": {
@@ -78,73 +78,6 @@
     "base": "/services/template-sync-hook",
     "socket": "/run/${name}/http/socket"
   },
-  "systemd": {
-    "units": {
-      "${name}": "systemd/${name}*"
-    }
-  },
-  "pacman": {
-    "arch": [
-      "aarch64",
-      "armv7h",
-      "x86_64"
-    ],
-    "groups": "webhook",
-    "hooks": "pacman/hooks.sh",
-    "installdir": "/services/${name}",
-    "depends": {
-      "systemd": ">=250.2",
-      "nginx-mainline": ">=1.21.1"
-    },
-    "backup": "etc/${name}/config.json",
-    "content": {
-      "/etc/${name}/config.json": "pacman/config.json",
-      "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
-      "/usr/lib/sysusers.d/${name}.conf": "pacman/sysusers.conf",
-      "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
-    },
-    "group": "services",
-    "content-provider": {
-      "systemd": {
-        "units": {
-          "${name}": "systemd/${name}*"
-        }
-      }
-    }
-  },
-  "release": {
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      [
-        "@semantic-release/exec",
-        {
-          "publishCmd": "npx npm-pkgbuild"
-        }
-      ],
-      [
-        "@semantic-release/exec",
-        {
-          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} --npm-dist --npm-modules pkgbuild pacman makepkg"
-        }
-      ],
-      "@semantic-release/github",
-      [
-        "@semantic-release/exec",
-        {
-          "verifyConditionsCmd": "which makepkg",
-          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} --npm-dist --npm-modules pkgbuild pacman makepkg"
-        }
-      ],
-      "@semantic-release/npm"
-    ]
-  },
-  "template": {
-    "inheritFrom": [
-      "arlac77/template-arlac77-github",
-      "arlac77/template-kronos-app#next"
-    ]
-  },
   "pkg": {
     "groups": "webhook",
     "hooks": "pkg/hooks.sh",
@@ -169,8 +102,31 @@
         {
           "type": "node-modules"
         }
-      ]
+      ],
+      "/usr/lib/systemd/system/": {
+        "base": "systemd"
+      }
     },
     "group": "services"
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/exec",
+        {
+          "publishCmd": "npx npm-pkgbuild"
+        }
+      ],
+      "@semantic-release/github",
+      "@semantic-release/npm"
+    ]
+  },
+  "template": {
+    "inheritFrom": [
+      "arlac77/template-arlac77-github",
+      "arlac77/template-kronos-app#next"
+    ]
   }
 }
