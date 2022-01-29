@@ -107,7 +107,10 @@
         "base": "systemd"
       }
     },
-    "group": "services"
+    "group": "services",
+    "output" : {
+    	"arch" : {}
+    }
   },
   "release": {
     "plugins": [
