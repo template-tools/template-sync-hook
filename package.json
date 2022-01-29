@@ -88,7 +88,7 @@
     },
     "backup": "etc/${name}/config.json",
     "content": {
-      "/usr/lib/systemd/system": {
+      "/usr/lib/systemd/system/": {
         "base": "systemd"
       },
       "/etc/${name}/config.json": "pkg/config.json",
