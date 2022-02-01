@@ -90,14 +90,6 @@
     }
   },
   "pkg": {
-    "groups": "webhook",
-    "hooks": "pkg/hooks.sh",
-    "installdir": "/services/${name}",
-    "depends": {
-      "systemd": ">=250.3",
-      "nginx-mainline": ">=1.21.4"
-    },
-    "backup": "etc/${name}/config.json",
     "content": {
       "/usr/lib/systemd/system/": {
         "base": "systemd"
@@ -118,7 +110,15 @@
     "output": {
       "arch": {}
     },
-    "group": "services"
+    "hooks": "pkg/hooks.sh",
+    "backup": "etc/${name}/config.json",
+    "groups": "webhook",
+    "depends": {
+      "systemd": ">=250.3",
+      "nginx-mainline": ">=1.21.4"
+    },
+    "group": "services",
+    "installdir": "/services/${name}"
   },
   "release": {
     "plugins": [
