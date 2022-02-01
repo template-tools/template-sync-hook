@@ -78,15 +78,18 @@
     "base": "/services/template-sync-hook",
     "socket": "/run/${name}/http/socket"
   },
-  "pkg": {
-    "groups": "webhook",
-    "hooks": "pkg/hooks.sh",
-    "installdir": "/services/${name}",
-    "depends": {
-      "systemd": ">=250.3",
-      "nginx-mainline": ">=1.21.4"
+  "pacman": {
+    "hooks": "pacman/hooks.sh",
+    "installdir": "/services/template-sync-hook/frontend",
+    "content": {
+      "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
     },
-    "backup": "etc/${name}/config.json",
+    "depends": {
+      "nginx-mainline": ">=1.21.4",
+      "systemd": ">=250.3"
+    }
+  },
+  "pkg": {
     "content": {
       "/usr/lib/systemd/system/": {
         "base": "systemd"
@@ -106,7 +109,16 @@
     },
     "output": {
       "arch": {}
-    }
+    },
+    "hooks": "pkg/hooks.sh",
+    "backup": "etc/${name}/config.json",
+    "groups": "webhook",
+    "depends": {
+      "systemd": ">=250.3",
+      "nginx-mainline": ">=1.21.4"
+    },
+    "group": "services",
+    "installdir": "/services/${name}"
   },
   "release": {
     "plugins": [
