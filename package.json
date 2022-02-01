@@ -78,6 +78,34 @@
     "base": "/services/template-sync-hook",
     "socket": "/run/${name}/http/socket"
   },
+  "pacman": {
+    "arch": [
+      "aarch64",
+      "armv7h",
+      "x86_64"
+    ],
+    "group": "services",
+    "hooks": "pacman/hooks.sh",
+    "backup": "etc/${name}/config.json",
+    "installdir": "/services/${name}",
+    "content-provider": {
+      "systemd": {
+        "units": {
+          "${name}": "systemd/${name}*"
+        }
+      }
+    },
+    "content": {
+      "/usr/lib/tmpfiles.d/${name}.conf": "pacman/tmpfiles.conf",
+      "/usr/lib/sysusers.d/${name}.conf": "pacman/sysusers.conf",
+      "/etc/${name}/config.json": "config/config.json",
+      "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
+    },
+    "depends": {
+      "nginx-mainline": ">=1.21.4",
+      "systemd": ">=250.3"
+    }
+  },
   "pkg": {
     "groups": "webhook",
     "hooks": "pkg/hooks.sh",
@@ -120,7 +148,14 @@
         }
       ],
       "@semantic-release/github",
-      "@semantic-release/npm"
+      "@semantic-release/npm",
+      [
+        "@semantic-release/exec",
+        {
+          "verifyConditionsCmd": "which makepkg",
+          "publishCmd": "npx npm-pkgbuild --pkgver ${nextRelease.version} --npm-dist --npm-modules pkgbuild pacman makepkg"
+        }
+      ]
     ]
   },
   "template": {
