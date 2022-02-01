@@ -78,6 +78,17 @@
     "base": "/services/template-sync-hook",
     "socket": "/run/${name}/http/socket"
   },
+  "pacman": {
+    "hooks": "pacman/hooks.sh",
+    "installdir": "/services/template-sync-hook/frontend",
+    "content": {
+      "/etc/nginx/sites/common/${name}.conf": "pacman/nginx.conf"
+    },
+    "depends": {
+      "nginx-mainline": ">=1.21.4",
+      "systemd": ">=250.3"
+    }
+  },
   "pkg": {
     "groups": "webhook",
     "hooks": "pkg/hooks.sh",
