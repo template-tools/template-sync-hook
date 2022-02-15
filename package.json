@@ -34,12 +34,12 @@
     "lint:docs": "documentation lint ./src/template-sync-hook-cli.mjs"
   },
   "dependencies": {
-    "@kronos-integration/interceptor-webhook": "^1.1.40",
+    "@kronos-integration/interceptor-webhook": "^1.1.41",
     "@kronos-integration/service": "^10.4.20",
-    "@kronos-integration/service-http": "^10.6.99",
+    "@kronos-integration/service-http": "^10.6.102",
     "@kronos-integration/service-repositories": "^2.0.95",
-    "@template-tools/template-sync": "^10.12.6",
-    "github-repository-provider": "^7.25.37"
+    "@template-tools/template-sync": "^11.0.1",
+    "github-repository-provider": "^7.25.39"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^9.0.2",
@@ -49,7 +49,7 @@
     "c8": "^7.11.0",
     "documentation": "^13.2.0",
     "got": "^12.0.1",
-    "npm-pkgbuild": "^7.25.8",
+    "npm-pkgbuild": "^7.25.9",
     "semantic-release": "^19.0.2"
   },
   "optionalDependencies": {
