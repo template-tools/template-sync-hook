@@ -22,7 +22,8 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "template-sync-hook": "./src/template-sync-hook-cli.mjs"
+    "template-sync-hook": "./src/template-sync-hook-cli.mjs",
+    "{{name}}": "./src/{{name}}-cli.mjs"
   },
   "scripts": {
     "start": "node src/template-sync-hook-cli.mjs",
@@ -49,7 +50,7 @@
     "c8": "^7.11.0",
     "documentation": "^13.2.0",
     "got": "^12.0.1",
-    "npm-pkgbuild": "^7.25.9",
+    "npm-pkgbuild": "^7.25.10",
     "semantic-release": "^19.0.2"
   },
   "optionalDependencies": {
