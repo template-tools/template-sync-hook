@@ -84,8 +84,6 @@
         "base": "systemd"
       },
       "/etc/${name}/config.json": "pkg/config.json",
-      "/usr/lib/tmpfiles.d/${name}.conf": "pkg/tmpfiles.conf",
-      "/usr/lib/sysusers.d/${name}.conf": "pkg/sysusers.conf",
       "/etc/nginx/sites/common/${name}.conf": "pkg/nginx.conf",
       "${installdir}/": [
         {
