@@ -92,7 +92,9 @@
         {
           "type": "node-modules"
         }
-      ]
+      ],
+      "/usr/lib/tmpfiles.d/${name}.conf": "pkg/tmpfiles.conf",
+      "/usr/lib/sysusers.d/${name}.conf": "pkg/sysusers.conf"
     },
     "output": {
       "arch": {}
