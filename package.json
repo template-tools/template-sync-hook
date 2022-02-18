@@ -92,7 +92,8 @@
         {
           "type": "node-modules"
         }
-      ]
+      ],
+      "/usr/lib/tmpfiles.d/${name}.conf": "pkg/tmpfiles.conf"
     },
     "output": {
       "arch": {}
