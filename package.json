@@ -94,7 +94,12 @@
           "type": "node-modules"
         }
       ],
-      "${tmpfiles.config.dir}/${name}.conf": "pkg/tmpfiles.conf"
+      "${tmpfiles.config.dir}/${name}.conf": "pkg/tmpfiles.conf",
+      "/usr/lib/systemd/system/": {
+        "base": "systemd"
+      },
+      "/usr/lib/tmpfiles.d/${name}.conf": "pkg/tmpfiles.conf",
+      "/etc/nginx/sites/common/${name}.conf": "pkg/nginx.conf"
     },
     "output": {
       "arch": {}
@@ -102,6 +107,10 @@
     "hooks": "pkg/hooks.sh",
     "backup": "etc/${name}/config.json",
     "groups": "webhook",
+    "depends": {
+      "nginx-mainline": ">=1.21.4",
+      "systemd": ">=250.4"
+    },
     "installdir": "/services/${name}"
   },
   "release": {
