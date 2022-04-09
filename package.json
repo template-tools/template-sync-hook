@@ -86,7 +86,7 @@
       },
       "/etc/${name}/config.json": "pkg/config.json",
       "${nginx.sites.dir}/${name}.conf": "pkg/nginx.conf",
-      "${installdir}/": [
+      "${installdir}": [
         {
           "type": "npm-pack"
         },
@@ -96,13 +96,9 @@
       ],
       "${tmpfiles.config.dir}/${name}.conf": "pkg/tmpfiles.conf"
     },
-    "output": {
-      "arch": {}
-    },
     "hooks": "pkg/hooks.sh",
     "backup": "etc/${name}/config.json",
-    "groups": "webhook",
-    "installdir": "/services/${name}"
+    "groups": "webhook"
   },
   "release": {
     "plugins": [
