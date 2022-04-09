@@ -49,7 +49,7 @@
     "c8": "^7.11.0",
     "documentation": "^13.2.0",
     "got": "^12.0.3",
-    "npm-pkgbuild": "^8.3.11",
+    "npm-pkgbuild": "^8.3.12",
     "semantic-release": "^19.0.2"
   },
   "optionalDependencies": {
@@ -81,11 +81,11 @@
   },
   "pkg": {
     "content": {
-      "/usr/lib/systemd/system/": {
+      "${systemd.unit.dir}": {
         "base": "systemd"
       },
       "/etc/${name}/config.json": "pkg/config.json",
-      "/etc/nginx/sites/common/${name}.conf": "pkg/nginx.conf",
+      "${nginx.sites.dir}/${name}.conf": "pkg/nginx.conf",
       "${installdir}/": [
         {
           "type": "npm-pack"
@@ -94,7 +94,7 @@
           "type": "node-modules"
         }
       ],
-      "/usr/lib/tmpfiles.d/${name}.conf": "pkg/tmpfiles.conf"
+      "${tmpfiles.config.dir}/${name}.conf": "pkg/tmpfiles.conf"
     },
     "output": {
       "arch": {}
@@ -102,10 +102,6 @@
     "hooks": "pkg/hooks.sh",
     "backup": "etc/${name}/config.json",
     "groups": "webhook",
-    "depends": {
-      "systemd": ">=250.4",
-      "nginx-mainline": ">=1.21.4"
-    },
     "installdir": "/services/${name}"
   },
   "release": {
