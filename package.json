@@ -98,7 +98,11 @@
     },
     "hooks": "pkg/hooks.sh",
     "backup": "${config.dir}config.json",
-    "groups": "webhook"
+    "groups": "webhook",
+    "depends": {
+      "nginx-mainline": ">=1.21.4",
+      "systemd": ">=250.4"
+    }
   },
   "release": {
     "plugins": [
