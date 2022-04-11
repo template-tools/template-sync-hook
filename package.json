@@ -49,7 +49,7 @@
     "c8": "^7.11.0",
     "documentation": "^13.2.0",
     "got": "^12.0.3",
-    "npm-pkgbuild": "^8.3.15",
+    "npm-pkgbuild": "^8.3.16",
     "semantic-release": "^19.0.2"
   },
   "optionalDependencies": {
@@ -94,11 +94,11 @@
     "hooks": "pkg/hooks.sh",
     "backup": "${config.dir}config.json",
     "groups": "webhook",
-    "http.base.path": "/services/${name}",
     "depends": {
       "nginx-mainline": ">=1.21.4",
       "systemd": ">=250.4"
-    }
+    },
+    "http.base.path": "/services/${name}"
   },
   "release": {
     "plugins": [
