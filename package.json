@@ -75,17 +75,13 @@
     "url": "https://github.com/template-tools/template-sync-hook/issues"
   },
   "homepage": "https://github.com/template-tools/template-sync-hook#readme",
-  "config": {
-    "base": "/services/template-sync-hook",
-    "socket": "/run/${name}/http/socket"
-  },
   "pkg": {
     "content": {
-      "${systemd.unit.dir}": {
-        "base": "systemd"
-      },
+      "${systemd.config.dir}${name}.service": "pkg/${name}.service",
+      "${systemd.config.dir}${name}.socket": "pkg/${name}.socket",
       "${config.dir}config.json": "pkg/config.json",
       "${nginx.sites.dir}${name}.conf": "pkg/nginx.conf",
+      "${tmpfiles.config.dir}${name}.conf": "pkg/tmpfiles.conf",
       "${install.dir}": [
         {
           "type": "npm-pack"
@@ -93,12 +89,12 @@
         {
           "type": "node-modules"
         }
-      ],
-      "${tmpfiles.config.dir}${name}.conf": "pkg/tmpfiles.conf"
+      ]
     },
     "hooks": "pkg/hooks.sh",
     "backup": "${config.dir}config.json",
     "groups": "webhook",
+    "http.base.path": "/services/${name}",
     "depends": {
       "nginx-mainline": ">=1.21.4",
       "systemd": ">=250.4"
