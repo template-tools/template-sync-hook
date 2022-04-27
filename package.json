@@ -75,7 +75,7 @@
     "url": "https://github.com/template-tools/template-sync-hook/issues"
   },
   "homepage": "https://github.com/template-tools/template-sync-hook#readme",
-  "pkg": {
+  "pkgbuild": {
     "content": {
       "${systemd.unit.dir}${name}.service": "pkg/${name}.service",
       "${systemd.unit.dir}${name}.socket": "pkg/${name}.socket",
