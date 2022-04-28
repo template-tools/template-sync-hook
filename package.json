@@ -1,6 +1,6 @@
 {
   "name": "template-sync-hook",
-  "version": "1.10.94",
+  "version": "0.0.0-semantic-release",
   "publishConfig": {
     "access": "public"
   },
@@ -22,7 +22,8 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "template-sync-hook": "./src/template-sync-hook-cli.mjs"
+    "template-sync-hook": "./src/template-sync-hook-cli.mjs",
+    "{{name}}": "./src/{{name}}-cli.mjs"
   },
   "scripts": {
     "start": "node src/template-sync-hook-cli.mjs",
