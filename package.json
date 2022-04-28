@@ -1,6 +1,6 @@
 {
   "name": "template-sync-hook",
-  "version": "0.0.0-semantic-release",
+  "version": "1.10.94",
   "publishConfig": {
     "access": "public"
   },
@@ -105,14 +105,14 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
+      "@semantic-release/npm",
       [
         "@semantic-release/exec",
         {
           "publishCmd": "npx npm-pkgbuild"
         }
       ],
-      "@semantic-release/github",
-      "@semantic-release/npm"
+      "@semantic-release/github"
     ]
   },
   "template": {
