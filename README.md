@@ -3,9 +3,9 @@
 [![install size](https://packagephobia.now.sh/badge?p=template-sync-hook/@1.10.94)](https://packagephobia.now.sh/result?p=template-sync-hook@1.10.94)
 [![minified size](https://badgen.net/bundlephobia/min/template-sync-hook)](https://bundlephobia.com/result?p=template-sync-hook)
 [![downloads](http://img.shields.io/npm/dm/template-sync-hook.svg?style=flat-square)](https://npmjs.org/package/template-sync-hook)
-[![GitHub Issues](https://img.shields.io/github/issues/template-tools/template-sync-hook.svg?style=flat-square)](https://github.com/template-tools/template-sync-hook/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ftemplate-tools%2Ftemplate-sync-hook%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/template-tools/template-sync-hook/goto)
-[![Coverage Status](https://coveralls.io/repos/template-tools/template-sync-hook/badge.svg)](https://coveralls.io/github/template-tools/template-sync-hook)
+[![GitHub Issues](https://img.shields.io/github/issues/template-sync-hook/template-sync-hook.svg?style=flat-square)](https://github.com/template-sync-hook/template-sync-hook/issues)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Ftemplate-sync-hook%2Ftemplate-sync-hook%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/template-sync-hook/template-sync-hook/goto)
+[![Coverage Status](https://coveralls.io/repos/template-sync-hook/template-sync-hook/badge.svg)](https://coveralls.io/github/template-sync-hook/template-sync-hook)
 
 ## template-sync-hook
 
