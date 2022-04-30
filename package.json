@@ -1,6 +1,6 @@
 {
   "name": "template-sync-hook",
-  "version": "1.10.94",
+  "version": "0.0.0-semantic-release",
   "publishConfig": {
     "access": "public"
   },
@@ -97,7 +97,7 @@
     "groups": "webhook",
     "depends": {
       "nginx-mainline": ">=1.21.4",
-      "systemd": ">=250.4"
+      "systemd": ">=250.5"
     },
     "http.base.path": "/services/${name}"
   },
