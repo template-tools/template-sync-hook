@@ -49,12 +49,12 @@
     "c8": "^7.11.0",
     "documentation": "^13.2.0",
     "got": "^12.0.4",
-    "npm-pkgbuild": "^10.2.1",
+    "npm-pkgbuild": "^10.4.0",
     "semantic-release": "^19.0.2"
   },
   "optionalDependencies": {
     "@kronos-integration/service-systemd": "^2.5.4",
-    "mf-hosting": "^1.0.0"
+    "mf-hosting": "^1.1.0"
   },
   "engines": {
     "node": ">=16.15.0"
