@@ -1,6 +1,6 @@
 {
   "name": "template-sync-hook",
-  "version": "0.0.0-semantic-release",
+  "version": "1.10.107",
   "publishConfig": {
     "access": "public"
   },
@@ -49,7 +49,7 @@
     "c8": "^7.11.0",
     "documentation": "^13.2.0",
     "got": "^12.0.4",
-    "npm-pkgbuild": "^10.2.0",
+    "npm-pkgbuild": "^10.2.1",
     "semantic-release": "^19.0.2"
   },
   "optionalDependencies": {
