@@ -48,8 +48,8 @@
     "ava": "^4.2.0",
     "c8": "^7.11.0",
     "documentation": "^13.2.0",
-    "got": "^12.0.4",
-    "npm-pkgbuild": "^10.7.6",
+    "got": "^12.1.0",
+    "npm-pkgbuild": "^10.7.7",
     "semantic-release": "^19.0.2"
   },
   "optionalDependencies": {
@@ -98,8 +98,7 @@
     "depends": {
       "nginx-mainline": ">=1.21.4",
       "systemd": ">=251.0"
-    },
-    "http.base.path": "/services/${name}"
+    }
   },
   "release": {
     "plugins": [
