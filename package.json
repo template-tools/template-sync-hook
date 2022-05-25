@@ -94,10 +94,7 @@
     },
     "hooks": "pkg/hooks.sh",
     "backup": "${config.dir}config.json",
-    "groups": "webhook",
-    "depends": {
-      "nginx-mainline": ">=1.21.4"
-    }
+    "groups": "webhook"
   },
   "release": {
     "plugins": [
