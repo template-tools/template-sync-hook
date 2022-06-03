@@ -35,11 +35,11 @@
   },
   "dependencies": {
     "@kronos-integration/interceptor-webhook": "^1.1.44",
-    "@kronos-integration/service": "^10.4.21",
-    "@kronos-integration/service-http": "^10.6.112",
-    "@kronos-integration/service-repositories": "^2.0.114",
-    "@template-tools/template-sync": "^11.0.25",
-    "github-repository-provider": "^7.30.3"
+    "@kronos-integration/service": "^10.4.22",
+    "@kronos-integration/service-http": "^10.6.114",
+    "@kronos-integration/service-repositories": "^2.0.115",
+    "@template-tools/template-sync": "^11.0.26",
+    "github-repository-provider": "^7.30.4"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^9.0.2",
