@@ -37,7 +37,7 @@
     "@kronos-integration/interceptor-webhook": "^1.1.44",
     "@kronos-integration/service": "^10.4.22",
     "@kronos-integration/service-http": "^10.6.114",
-    "@kronos-integration/service-repositories": "^2.0.115",
+    "@kronos-integration/service-repositories": "^2.0.117",
     "@template-tools/template-sync": "^11.0.26",
     "github-repository-provider": "^7.30.4"
   },
@@ -54,7 +54,7 @@
   },
   "optionalDependencies": {
     "@kronos-integration/service-systemd": "^2.5.4",
-    "mf-hosting": "^1.6.0"
+    "mf-hosting": "^1.6.3"
   },
   "engines": {
     "node": ">=16.15.1"
