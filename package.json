@@ -38,7 +38,7 @@
     "@kronos-integration/service": "^10.4.24",
     "@kronos-integration/service-http": "^10.6.119",
     "@kronos-integration/service-repositories": "^2.0.121",
-    "@template-tools/template-sync": "^11.0.28",
+    "@template-tools/template-sync": "^11.0.30",
     "github-repository-provider": "^7.30.13"
   },
   "devDependencies": {
