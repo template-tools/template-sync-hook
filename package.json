@@ -57,7 +57,7 @@
     "mf-hosting": "^1.7.0"
   },
   "engines": {
-    "node": ">=18.4.0"
+    "node": ">=18.3.0"
   },
   "os": [
     "linux"
@@ -101,12 +101,6 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
-      [
-        "@semantic-release/exec",
-        {
-          "publishCmd": "npx npm-pkgbuild --available --continue --verbose"
-        }
-      ],
       [
         "@semantic-release/exec",
         {
