@@ -37,8 +37,8 @@
     "@kronos-integration/interceptor-webhook": "^1.1.46",
     "@kronos-integration/service": "^10.4.24",
     "@kronos-integration/service-http": "^10.6.119",
-    "@kronos-integration/service-repositories": "^2.0.122",
-    "@template-tools/template-sync": "^11.0.33",
+    "@kronos-integration/service-repositories": "^2.0.123",
+    "@template-tools/template-sync": "^11.0.34",
     "github-repository-provider": "^7.31.0"
   },
   "devDependencies": {
