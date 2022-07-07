@@ -34,7 +34,7 @@
     "lint:docs": "documentation lint ./src/template-sync-hook-cli.mjs"
   },
   "dependencies": {
-    "@kronos-integration/interceptor-webhook": "^1.1.47",
+    "@kronos-integration/interceptor-webhook": "^1.1.48",
     "@kronos-integration/service": "^10.4.25",
     "@kronos-integration/service-http": "^10.6.120",
     "@kronos-integration/service-repositories": "^2.0.124",
