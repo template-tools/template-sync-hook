@@ -36,10 +36,10 @@
   "dependencies": {
     "@kronos-integration/interceptor-webhook": "^1.1.48",
     "@kronos-integration/service": "^10.4.26",
-    "@kronos-integration/service-http": "^10.6.121",
-    "@kronos-integration/service-repositories": "^2.0.124",
+    "@kronos-integration/service-http": "^10.6.122",
+    "@kronos-integration/service-repositories": "^2.0.125",
     "@template-tools/template-sync": "^11.0.36",
-    "github-repository-provider": "^7.31.2"
+    "github-repository-provider": "^7.31.3"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^9.0.2",
