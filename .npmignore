@@ -7,7 +7,6 @@ doc
 .tmp
 .vscode
 pacman
-systemd
 .github
 pkg
 config
