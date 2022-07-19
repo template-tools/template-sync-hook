@@ -93,8 +93,7 @@
       ]
     },
     "hooks": "pkg/hooks.sh",
-    "backup": "${config.dir}config.json",
-    "groups": "webhook"
+    "backup": "${config.dir}config.json"
   },
   "release": {
     "plugins": [
