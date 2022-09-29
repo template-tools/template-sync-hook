@@ -35,9 +35,9 @@
   },
   "dependencies": {
     "@kronos-integration/interceptor-webhook": "^1.1.51",
-    "@kronos-integration/service": "^10.4.33",
-    "@kronos-integration/service-http": "^10.6.133",
-    "@kronos-integration/service-repositories": "^2.0.132",
+    "@kronos-integration/service": "^10.4.34",
+    "@kronos-integration/service-http": "^10.6.134",
+    "@kronos-integration/service-repositories": "^2.0.133",
     "@template-tools/template-sync": "^11.0.53",
     "github-repository-provider": "^7.33.0"
   },
@@ -57,7 +57,7 @@
     "mf-hosting": "^1.7.3"
   },
   "engines": {
-    "node": ">=18.9.0"
+    "node": ">=18.10.0"
   },
   "os": [
     "linux"
