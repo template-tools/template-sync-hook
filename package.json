@@ -27,7 +27,7 @@
   "scripts": {
     "start": "node src/template-sync-hook-cli.mjs",
     "test": "npm run test:ava",
-    "test:ava": "ava --timeout 2m tests/*-ava.mjs tests/*-ava-node.mjs && ava --timeout 2m tests/*-ava.mjs",
+    "test:ava": "ava --timeout 2m tests/*-ava.mjs tests/*-ava-node.mjs",
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m tests/*-ava.mjs tests/*-ava-node.mjs && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "docs": "documentation readme ./src/template-sync-hook-cli.mjs --section=API",
     "lint": "npm run lint:docs",
@@ -49,7 +49,7 @@
     "c8": "^7.12.0",
     "documentation": "^14.0.0",
     "got": "^12.5.2",
-    "npm-pkgbuild": "^10.15.7",
+    "npm-pkgbuild": "^10.15.9",
     "semantic-release": "^19.0.5"
   },
   "optionalDependencies": {
