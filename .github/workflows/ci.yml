@@ -7,8 +7,9 @@ jobs:
       max-parallel: 1
       matrix:
         node-version:
-          - -18
           - 18.11.0
+          - -16
+          - -18
     steps:
       - uses: actions/checkout@v3
       - name: Test Node ${{ matrix.node-version }}
@@ -65,8 +66,3 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: build/coverage/lcov.info
           parallel-finished: true
-  test:
-    strategy:
-      matrix:
-        node-version:
-          - -16
