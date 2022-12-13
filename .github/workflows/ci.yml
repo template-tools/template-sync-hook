@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 1
+      matrix:
+        node-version:
+          - -18
+          - 18.12.1
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3.5.1
