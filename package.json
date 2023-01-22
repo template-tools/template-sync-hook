@@ -79,7 +79,6 @@
       "${systemd.unit.dir}${name}.service": "pkg/${name}.service",
       "${systemd.unit.dir}${name}.socket": "pkg/${name}.socket",
       "${config.dir}config.json": "pkg/config.json",
-      "${nginx.sites.dir}${name}.conf": "pkg/nginx.conf",
       "${tmpfiles.config.dir}${name}.conf": "pkg/tmpfiles.conf",
       "${sysusers.config.dir}${name}.conf": "pkg/sysusers.conf",
       "${install.dir}": [
