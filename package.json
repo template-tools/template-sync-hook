@@ -87,7 +87,8 @@
         {
           "type": "node-modules"
         }
-      ]
+      ],
+      "${systemd.unit.dir}${name}.socket": "pkg/${name}.socket"
     },
     "hooks": "pkg/hooks.sh",
     "backup": "${config.dir}config.json"
