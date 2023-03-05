@@ -89,7 +89,6 @@
         }
       ]
     },
-    "backup": "${config.dir}config.json",
     "kronos": true
   },
   "release": {
