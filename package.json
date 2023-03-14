@@ -79,7 +79,6 @@
       "${systemd.unit.dir}${name}.service": "pkg/${name}.service",
       "${config.dir}config.json": "pkg/config.json",
       "${tmpfiles.config.dir}${name}.conf": "pkg/tmpfiles.conf",
-      "${sysusers.config.dir}${name}.conf": "pkg/sysusers.conf",
       "${install.dir}": [
         {
           "type": "npm-pack"
