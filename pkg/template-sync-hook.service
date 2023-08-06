@@ -6,7 +6,7 @@ StopWhenUnneeded=true
 
 [Service]
 Type=notify
-ExecStart=/usr/bin/node --unhandled-rejections=strict --trace-uncaught --trace-warnings --title {{name}} {{install.dir}}src/template-sync-hook-cli.mjs
+ExecStart={{node.exe}} --unhandled-rejections=strict --trace-uncaught --trace-warnings --title {{name}} {{install.dir}}src/template-sync-hook-cli.mjs
 ExecReload=/bin/kill -HUP $MAINPID
 ExecStop=sleep 30
 RestartSec=30
