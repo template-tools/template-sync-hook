@@ -27,7 +27,3 @@ jobs:
           branch: package-lock
           labels: npm
           commit-message: 'chore(deps): lock'
-    strategy:
-      matrix:
-        node-version:
-          - 20.9.0
