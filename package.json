@@ -2,7 +2,8 @@
   "name": "template-sync-hook",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "description": "hook for npm-template-sync",
   "keywords": [
