@@ -2,7 +2,8 @@
   "name": "template-sync-hook",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   },
   "description": "hook for npm-template-sync",
   "keywords": [
@@ -21,7 +22,7 @@
   ],
   "license": "BSD-2-Clause",
   "bin": {
-    "template-sync-hook": "src/template-sync-hook-cli.mjs"
+    "template-sync-hook": "./src/template-sync-hook-cli.mjs"
   },
   "scripts": {
     "start": "node src/template-sync-hook-cli.mjs",
