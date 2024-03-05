@@ -87,7 +87,8 @@
         }
       ]
     },
-    "kronos": true
+    "kronos": true,
+    "nginx.location.trailer": "  access_log off; "
   },
   "release": {
     "plugins": [
