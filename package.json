@@ -37,7 +37,7 @@
     "@kronos-integration/service": "^10.4.56",
     "@kronos-integration/service-http": "^10.6.152",
     "@kronos-integration/service-repositories": "^2.0.161",
-    "@template-tools/template-sync": "^12.2.3",
+    "@template-tools/template-sync": "^13.0.0",
     "github-repository-provider": "^9.0.10"
   },
   "devDependencies": {
@@ -53,7 +53,7 @@
   },
   "optionalDependencies": {
     "@kronos-integration/service-systemd": "^2.6.0",
-    "mf-hosting": "^1.15.4"
+    "mf-hosting": "^2.0.0"
   },
   "engines": {
     "node": ">=20.11.1"
