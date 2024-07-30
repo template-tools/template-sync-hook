@@ -87,8 +87,7 @@
         {
           "type": "node-modules"
         }
-      ],
-      "kronos": true
+      ]
     },
     "kronos": true,
     "nginx.location.trailer": "  access_log off; "
