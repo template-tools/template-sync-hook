@@ -41,6 +41,8 @@ jobs:
         continue-on-error: true
       - name: checkout
         run: npm ci
+      - name: null
+        run: npm ci
   release:
     needs:
       - test-node
