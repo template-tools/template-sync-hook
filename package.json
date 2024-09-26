@@ -90,7 +90,8 @@
       ]
     },
     "kronos": true,
-    "nginx.location.trailer": "  access_log off; "
+    "nginx.location.trailer": "  access_log off; ",
+    "nginx.location.category": "development"
   },
   "release": {
     "plugins": [
