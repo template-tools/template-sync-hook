@@ -50,14 +50,14 @@
     "documentation": "^14.0.0",
     "got": "^14.4.5",
     "npm-pkgbuild": "^16.0.1",
-    "semantic-release": "^24.1.2"
-  },
-  "optionalDependencies": {
-    "@kronos-integration/service-systemd": "^2.6.3",
+    "semantic-release": "^24.2.3",
     "mf-hosting": "^2.8.8"
   },
+  "optionalDependencies": {
+    "@kronos-integration/service-systemd": "^2.6.3"
+  },
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=22.14.0"
   },
   "os": [
     "linux",
@@ -80,14 +80,12 @@
     "content": {
       "${systemd.unit.dir}${name}.service": "pkg/${name}.service",
       "${config.dir}config.json": "pkg/config.json",
-      "${install.dir}": [
-        {
-          "type": "npm-pack"
-        },
-        {
-          "type": "node-modules"
-        }
-      ]
+      "${install.dir}": {
+        "type": "npm-pack"
+      },
+      "${install.dir}/node_modules": {
+        "type": "node-modules"
+      }
     },
     "kronos": true,
     "nginx.location.trailer": "  access_log off; ",
