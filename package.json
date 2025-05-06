@@ -33,10 +33,10 @@
     "lint:docs": "documentation lint ./src/template-sync-hook-cli.mjs"
   },
   "dependencies": {
-    "@kronos-integration/interceptor-webhook": "^1.1.62",
-    "@kronos-integration/service": "^11.2.7",
-    "@kronos-integration/service-http": "^10.9.19",
-    "@kronos-integration/service-repositories": "^2.0.179",
+    "@kronos-integration/interceptor-webhook": "^1.1.64",
+    "@kronos-integration/service": "^11.2.8",
+    "@kronos-integration/service-http": "^10.9.22",
+    "@kronos-integration/service-repositories": "^2.0.181",
     "@template-tools/template-sync": "^14.3.26",
     "github-repository-provider": "^9.1.4"
   },
