@@ -38,7 +38,7 @@
     "@kronos-integration/service-http": "^10.9.23",
     "@kronos-integration/service-repositories": "^2.0.181",
     "@template-tools/template-sync": "^14.3.26",
-    "github-repository-provider": "^9.1.5"
+    "github-repository-provider": "^9.1.6"
   },
   "devDependencies": {
     "@semantic-release/commit-analyzer": "^13.0.0",
