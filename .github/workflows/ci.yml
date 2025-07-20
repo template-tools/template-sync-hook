@@ -17,16 +17,7 @@ jobs:
       max-parallel: 1
       matrix:
         node-version:
-          - 22.15.0
-          - 22.15.1
-          - 22.16.0
-          - 22.17.0
           - 22.17.1
-          - 24.0.0
-          - 24.0.1
-          - 24.0.2
-          - 24.2.0
-          - 24.3.0
           - 24.4.1
     steps:
       - name: checkout
@@ -50,8 +41,6 @@ jobs:
           parallel: true
         continue-on-error: true
       - name: install
-        run: npm ci
-      - name: null
         run: npm ci
   release:
     needs:
