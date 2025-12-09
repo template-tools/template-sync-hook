@@ -20,7 +20,7 @@
       "email": "markus.felten@gmx.de"
     }
   ],
-  "license": "BSD-2-Clause",
+  "license": "0BSD",
   "bin": {
     "template-sync-hook": "src/template-sync-hook-cli.mjs"
   },
