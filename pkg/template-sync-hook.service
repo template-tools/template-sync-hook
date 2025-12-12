@@ -9,6 +9,7 @@ Type=notify
 ExecStart={{node.exe}} --unhandled-rejections=strict --trace-uncaught --trace-warnings --title {{name}} {{install.dir}}src/template-sync-hook-cli.mjs
 ExecReload=/bin/kill -HUP $MAINPID
 ExecStop=sleep 30
+EnvironmentFile=-/etc/conf.d/{{name}}
 RestartSec=30
 TimeoutStartSec=20
 TimeoutStopSec=35
@@ -45,7 +46,6 @@ LockPersonality=true
 RestrictRealtime=true
 RestrictSUIDSGID=true
 CPUWeight=10
-EnvironmentFile=-/etc/conf.d/{{name}}
 IOWeight=10
 MemoryAccounting=true
 MemoryHigh=50M
