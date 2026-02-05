@@ -58,7 +58,7 @@
     "@kronos-integration/service-systemd": "^5.0.0"
   },
   "engines": {
-    "node": ">=24.12.0"
+    "node": ">=24.13.0"
   },
   "os": [
     "linux",
@@ -78,18 +78,18 @@
   "homepage": "https://github.com/template-tools/template-sync-hook#readme",
   "pkgbuild": {
     "content": {
-      "${systemd.unit.dir}${name}.service": "pkg/${name}.service",
-      "${config.dir}config.json": "pkg/config.json",
-      "${install.dir}": {
+      "${systemd_unit_dir}${name}.service": "pkg/${name}.service",
+      "${config_dir}config.json": "pkg/config.json",
+      "${install_dir}": {
         "type": "npm-pack"
       },
-      "${install.dir}/node_modules": {
+      "${install_dir}/node_modules": {
         "type": "node-modules"
       }
     },
     "kronos": true,
-    "nginx.location.trailer": "  access_log off; ",
-    "nginx.location.category": "development"
+    "nginx_location_trailer": "  access_log off; ",
+    "nginx_location_category": "development"
   },
   "release": {
     "plugins": [

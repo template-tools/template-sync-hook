@@ -6,7 +6,7 @@ StopWhenUnneeded=true
 
 [Service]
 Type=notify
-ExecStart={{node.exe}} --unhandled-rejections=strict --trace-uncaught --trace-warnings --title {{name}} {{install.dir}}src/template-sync-hook-cli.mjs
+ExecStart={{node_exe}} --unhandled-rejections=strict --trace-uncaught --trace-warnings --title {{name}} {{install_dir}}src/template-sync-hook-cli.mjs
 ExecReload=/bin/kill -HUP $MAINPID
 ExecStop=sleep 30
 EnvironmentFile=-/etc/conf.d/{{name}}
@@ -17,8 +17,8 @@ Restart=on-failure
 NotifyAccess=all
 FileDescriptorStoreMax=5
 OOMPolicy=stop
-User={{os.user}}
-Group={{os.group}}
+User={{os_user}}
+Group={{os_group}}
 DynamicUser=no
 SupplementaryGroups=http
 CapabilityBoundingSet=~CAP_SYS_BOOT CAP_SYS_ADMIN CAP_NET_ADMIN CAP_SYS_NICE CAP_SYS_RESOURCE CAP_KILLC AP_IPC_LOCK CAP_CHOWN CAP_FSETID CAP_SETFCAP CAP_SETUID CAP_SETGID CAP_SETPCAP CAP_WAKE_ALARM CAP_NET_BIND_SERVICE CAP_NET_BROADCAST CAP_NET_RAW CAP_KILL
